@@ -13,7 +13,7 @@ local baseButton = hotbarFrame:FindFirstChild("1").Base
 local ToolName = baseButton.ToolName
 
 
-ToolName.Text = "Ravage miss"
+ToolName.Text = "Ravage Jab"
 
 
 local player = game.Players.LocalPlayer
@@ -49,7 +49,7 @@ local baseButton = hotbarFrame:FindFirstChild("3").Base
 local ToolName = baseButton.ToolName
 
 
-ToolName.Text = "swift sweep"
+ToolName.Text = "Swift Sweep"
 
 
 local player = game.Players.LocalPlayer
@@ -91,7 +91,7 @@ local function findGuiAndSetText()
 
 			if textLabel then
 
-				textLabel.Text = "20 series"
+				textLabel.Text = "20 Series"
 
 			end
 
@@ -706,7 +706,6 @@ local function onAnimationPlayed(animationTrack)
 		anim.AnimationId = "rbxassetid://17420452843"
 		local playAnim = humanoid:LoadAnimation(anim)
 		anim.AnimationId = "rbxassetid://0"
-		playAnim:Play()
 
 	end
 
