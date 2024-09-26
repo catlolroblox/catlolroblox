@@ -1,0 +1,7 @@
+- 👋 Hi, I’m @catlolroblox
+- 👀 I’m interested in making game
+- 🌱 I’m currently learning coding
+- 💞️ I’m looking to collaborate on nothing
+- 📫 How to reach me nuh uh
+- 😄 Pronouns: she/her
+- ⚡ Fun fact: im sigma
