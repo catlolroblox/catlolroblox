@@ -1,5 +1,5 @@
-- 👋 Hi, I’m @catlolroblox
-- 👀 I’m interested in making game
+- 👋 Hi, I’m cat lol
+- 👀 I’m interested in making game and hacking game
 - 🌱 I’m currently learning coding
 - 💞️ I’m looking to collaborate on nothing
 - 📫 How to reach me nuh uh
