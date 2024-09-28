@@ -408,6 +408,21 @@ textlabel.TextStrokeColor3 = Color3.new(1, 1, 1)
 textlabel.TextColor3 = Color3.new(0, 0, 0)
 textlabel.TextStrokeTransparency = 0
 textlabel.BackgroundTransparency = 1
+local lualoadstring = Instance.new("TextBox")
+lualoadstring.Name = "Lua"
+lualoadstring.Text = "Loadstring Lua Here"
+lualoadstring.Position = UDim2.new(-0, 0,0.999, 0)
+lualoadstring.Size = UDim2.new(0, 327,0, 127)
+lualoadstring.Parent = hiddenframe
+lualoadstring.Visible = true
+lualoadstring.TextScaled = true
+lualoadstring.Interactable = true
+lualoadstring.TextStrokeColor3 = Color3.new(1, 1, 1)
+lualoadstring.TextColor3 = Color3.new(0, 0, 0)
+lualoadstring.TextStrokeTransparency = 0
+lualoadstring.BackgroundTransparency = 0.5
+lualoadstring.MultiLine = true
+lualoadstring.ClearTextOnFocus = false
 local walkspeed = Instance.new("TextBox")
 walkspeed.Name = "Walkspeed"
 walkspeed.Text = "WalkSpeed: Speed Here"
@@ -650,6 +665,19 @@ tpcrab.MouseButton1Click:Connect(function()
 		game.Debris:AddItem(sound,5)
 	end
 end)
+lualoadstring.Parent = mainframe
+UIS.InputBegan:Connect(function(key, typing)
+	if typing == true then return end
+	if key.KeyCode == Enum.KeyCode.Equals then
+		loadstring(lualoadstring.Text)()
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://6476791205"
+		sound.Volume = 2
+		sound.Parent = plr.PlayerGui
+		sound:Play()
+		game.Debris:AddItem(sound,5)
+	end
+end)
 coroutine.resume(coroutine.create(function()
 	while task.wait() do
 		for i,v in pairs(game.Workspace.Live:GetChildren()) do
@@ -808,31 +836,17 @@ UIS.InputBegan:Connect(function(key ,typing)
 		end
 	end
 end)
+local p = false
 function autododgelol()
-	coroutine.resume(coroutine.create(function()
-		while task.wait() do
-			if oldpos == nil then return end
-			if close == true then break end
-			if not plr.Character then return end
-			if autododgetoggle == false then return end
-			if plr.Character:FindFirstChild("HumanoidRootPart") then
-				if plr.Character.HumanoidRootPart.Position.Y <= -10 then
-					plr.Character.HumanoidRootPart.CFrame = oldpos
-					local sound = Instance.new("Sound")
-					sound.SoundId = "rbxassetid://5066021887"
-					sound.Volume = 0.5
-					sound.Parent = plr.PlayerGui
-					sound:Play()
-					game.Debris:AddItem(sound,5)
-				end
-			end
-		end
-	end))
 local autododgehitbox = Instance.new("Part")
 autododgehitbox.Transparency = 1
-autododgehitbox.Size = Vector3.new(75,25,75)
+autododgehitbox.Size = Vector3.new(100,25,100)
 autododgehitbox.CanCollide = false
-autododgehitbox.Color = Color3.new(1, 1, 1)
+	autododgehitbox.Color = Color3.new(1, 1, 1)
+	coroutine.resume(coroutine.create(function()
+		repeat wait() until close == true
+		autododgehitbox:Destroy()
+	end))
 autododgehitbox.CanTouch = true
 	autododgehitbox.Anchored = false
 	autododgehitbox.CastShadow = false
@@ -842,7 +856,7 @@ push.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
 push.Parent = autododgehitbox
 autododgehitbox.Parent = game.Workspace
 local autododgecd = false
-local autododgecd2 = false
+	local autododgecd2 = false
 local autododgecd3 = false
 coroutine.resume(coroutine.create(function()
 	while wait() do
@@ -862,8 +876,9 @@ autododgehitbox.Touched:Connect(function(hit)
 	if close == true then return end
 	if autododgetoggle == false then return end
 	if autododgecd == true then return end
-	if hit.Parent:FindFirstChild("Humanoid") and hit.Parent.Name ~= plr.Name then
-		plr.Character.HumanoidRootPart.CFrame *= CFrame.new(math.random(-25,25),0,math.random(-25,25))
+		if hit.Parent:FindFirstChild("Humanoid") and hit.Parent.Name ~= plr.Name and hit.Parent:FindFirstChild("HumanoidRootPart") then
+			if hit.Parent.Humanoid.FloorMaterial == Enum.Material.Air then return end
+			plr.Character.HumanoidRootPart.CFrame = hit.Parent.HumanoidRootPart.CFrame * CFrame.new(0,0,105)
 		local sound = Instance.new("Sound")
 		sound.SoundId = "rbxassetid://5066021887"
 		sound.Volume = 0.5
@@ -872,17 +887,21 @@ autododgehitbox.Touched:Connect(function(hit)
 		game.Debris:AddItem(sound,5)
 		coroutine.resume(coroutine.create(function()
 			autododgecd = true
-			task.wait(0.01)
+			task.wait(1)
 			autododgecd = false
 		end))
 	end
 end)
 local autododgehitbox2 = Instance.new("Part")
 autododgehitbox2.Transparency = 1
-autododgehitbox2.Size = Vector3.new(200,25,200)
+autododgehitbox2.Size = Vector3.new(500,25,500)
 autododgehitbox2.Color = Color3.new(0, 1, 1)
 autododgehitbox2.CanCollide = false
-autododgehitbox2.CanTouch = true
+	autododgehitbox2.CanTouch = true
+	coroutine.resume(coroutine.create(function()
+		repeat wait() until close == true
+		autododgehitbox2:Destroy()
+	end))
 	autododgehitbox2.Anchored = false
 	autododgehitbox2.CastShadow = false
 local push = Instance.new("BodyVelocity")
@@ -911,8 +930,9 @@ autododgehitbox2.Touched:Connect(function(hit)
 	if autododgecd2 == true then return end
 	if hit.Parent:FindFirstChild("Humanoid") and hit.Parent.Name ~= plr.Name then
 		for i,v in pairs(hit.Parent:GetChildren()) do
-			if v.Name:find("Counter") or v.ClassName == "ForceField" or v.Name == "Slowed" or v.Name == "Freeze" then
-				plr.Character.HumanoidRootPart.CFrame *= CFrame.new(math.random(-75,75),0,math.random(-75,75))
+		if v.Name:find("Counter") or v.ClassName == "ForceField" or v.Name == "Slowed" or v.Name == "Freeze" then
+					if hit.Parent.Humanoid.FloorMaterial == Enum.Material.Air then return end	
+					plr.Character.HumanoidRootPart.CFrame = hit.Parent.HumanoidRootPart.CFrame * CFrame.new(0,0,55)
 		local sound = Instance.new("Sound")
 		sound.SoundId = "rbxassetid://5066021887"
 		sound.Volume = 0.5
@@ -921,7 +941,7 @@ autododgehitbox2.Touched:Connect(function(hit)
 		game.Debris:AddItem(sound,5)
 		coroutine.resume(coroutine.create(function()
 		autododgecd2 = true
-		task.wait(0.1)
+		task.wait(1)
 		autododgecd2 = false
 			end))
 			end
@@ -930,10 +950,14 @@ autododgehitbox2.Touched:Connect(function(hit)
 	end)
 	local autododgehitbox3 = Instance.new("Part")
 	autododgehitbox3.Transparency = 1
-	autododgehitbox3.Size = Vector3.new(500,25,500)
-	autododgehitbox3.Color = Color3.new(1, 1, 0)
+	autododgehitbox3.Size = Vector3.new(230,25,230)
 	autododgehitbox3.CanCollide = false
+	autododgehitbox3.Color = Color3.new(1, 1, 0)
 	autododgehitbox3.CanTouch = true
+	coroutine.resume(coroutine.create(function()
+		repeat wait() until close == true
+		autododgehitbox3:Destroy()
+	end))
 	autododgehitbox3.Anchored = false
 	autododgehitbox3.CastShadow = false
 	local push = Instance.new("BodyVelocity")
@@ -941,7 +965,6 @@ autododgehitbox2.Touched:Connect(function(hit)
 	push.Velocity = Vector3.new(0,10,0)
 	push.Parent = autododgehitbox3
 	autododgehitbox3.Parent = game.Workspace
-	local autododgecd = false
 	coroutine.resume(coroutine.create(function()
 		while wait() do
 			if close == true then break end
@@ -960,23 +983,72 @@ autododgehitbox2.Touched:Connect(function(hit)
 		if close == true then return end
 		if autododgetoggle == false then return end
 		if autododgecd3 == true then return end
-		if hit.Parent:FindFirstChild("Humanoid") and hit.Parent.Name ~= plr.Name then
-			for i,v in pairs(hit.Parent:GetChildren()) do
-				if v.Name == "Slowed" or v.Name == "Freeze" then
-					plr.Character.HumanoidRootPart.CFrame *= CFrame.new(math.random(-75,75),0,math.random(-75,75))
-					local sound = Instance.new("Sound")
-					sound.SoundId = "rbxassetid://5066021887"
-					sound.Volume = 0.5
-					sound.Parent = plr.PlayerGui
-					sound:Play()
-					game.Debris:AddItem(sound,5)
-					coroutine.resume(coroutine.create(function()
-						autododgecd3 = true
-						task.wait(1)
-						autododgecd3 = false
-					end))
-				end
+		if hit.Parent:FindFirstChild("Humanoid") and hit.Parent.Name ~= plr.Name and hit.Parent:FindFirstChild("HumanoidRootPart") and hit.Parent:FindFirstChildOfClass("BodyVelocity") then
+			if hit.Parent.Humanoid.FloorMaterial == Enum.Material.Air then return end
+			plr.Character.HumanoidRootPart.CFrame = hit.Parent.HumanoidRootPart.CFrame * CFrame.new(0,0,105)
+			local sound = Instance.new("Sound")
+			sound.SoundId = "rbxassetid://5066021887"
+			sound.Volume = 0.5
+			sound.Parent = plr.PlayerGui
+			sound:Play()
+			game.Debris:AddItem(sound,5)
+			coroutine.resume(coroutine.create(function()
+				autododgecd3 = true
+				task.wait(0.01)
+				autododgecd3 = false
+			end))
+		end
+	end)
+	local autododgehitbox4 = Instance.new("Part")
+	autododgehitbox4.Transparency = 1
+	autododgehitbox4.Size = Vector3.new(25,25,25)
+	autododgehitbox4.CanCollide = false
+	autododgehitbox4.Color = Color3.new(0, 0, 0)
+	coroutine.resume(coroutine.create(function()
+		repeat wait() until close == true
+		autododgehitbox:Destroy()
+	end))
+	autododgehitbox4.CanTouch = true
+	autododgehitbox4.Anchored = false
+	autododgehitbox4.CastShadow = false
+	local push = Instance.new("BodyVelocity")
+	push.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+	push.Velocity = Vector3.new(0,10,0)
+	push.Parent = autododgehitbox4
+	autododgehitbox4.Parent = game.Workspace
+	local autododgecd4 = false
+	coroutine.resume(coroutine.create(function()
+		while wait() do
+			if close == true then break end
+			if not autododgehitbox4 then return end
+			if not plr.Character then return end
+			if not plr.Character:FindFirstChild("HumanoidRootPart") then return end
+			if autododgetoggle == true then
+				autododgehitbox4.Transparency = 0.75
+				autododgehitbox4.CFrame = plr.Character.HumanoidRootPart.CFrame
+			else
+				autododgehitbox4.Transparency = 1
 			end
+		end
+	end))
+	autododgehitbox4.Touched:Connect(function(hit)
+		if close == true then return end
+		if autododgetoggle == false then return end
+		if autododgecd == true then return end
+		if hit.Parent:FindFirstChild("Humanoid") and hit.Parent.Name ~= plr.Name and hit.Parent:FindFirstChild("HumanoidRootPart") then
+			if hit.Parent.Humanoid.FloorMaterial == Enum.Material.Air then return end
+			plr.Character.HumanoidRootPart.CFrame = hit.Parent.HumanoidRootPart.CFrame * CFrame.new(0,0,105)
+			local sound = Instance.new("Sound")
+			sound.SoundId = "rbxassetid://5066021887"
+			sound.Volume = 0.5
+			sound.Parent = plr.PlayerGui
+			sound:Play()
+			game.Debris:AddItem(sound,5)
+			coroutine.resume(coroutine.create(function()
+				autododgecd4 = true
+				task.wait(1)
+				autododgecd4 = false
+			end))
 		end
 	end)
 end
@@ -1007,6 +1079,7 @@ targethim.MouseButton1Click:Connect(function()
 		print("failed to target")
 	end
 end)
+function afkmodern()
 coroutine.resume(coroutine.create(function()
 	while task.wait() do
 		if close == true then break end
@@ -1021,7 +1094,9 @@ coroutine.resume(coroutine.create(function()
 			game.Debris:AddItem(bodyvelocity, 1)
 		end
 	end
-end))
+	end))
+end
+afkmodern()
 getplayerlist()
 game.Players.ChildAdded:Connect(function()
 	if close == true then return end
@@ -1383,16 +1458,7 @@ coroutine.resume(coroutine.create(function()
 						if plr.Character and oldpos ~= nil and plr.Character:FindFirstChild("HumanoidRootPart") then
 						plr.Character.HumanoidRootPart.CFrame = oldpos
 						end	
-						coroutine.resume(coroutine.create(function()
-							while task.wait() do
-								if close == true then break end
-								if not plr.Character then return end
-								if not plr.Character:FindFirstChild("HumanoidRootPart") then return end
-								if afk == true and plr.Character and plr.Character:FindFirstChild("HumanoidRootPart") and oldpos ~= nil then
-									plr.Character.HumanoidRootPart.CFrame = oldpos
-								end
-							end
-						end))
+                    afkmodern()
 				end
 			end
 		end
@@ -1444,8 +1510,7 @@ UIS.InputBegan:Connect(function(key ,typing)
 		print("script has been close.")
 		script:Destroy()
 	end
-	if key.KeyCode == Enum.KeyCode.Z and cd == false then
-		cdfuc(0.01)
+	if key.KeyCode == Enum.KeyCode.Z then
 		oldpos = plr.Character.HumanoidRootPart.CFrame
 		local sound = Instance.new("Sound")
 		sound.SoundId = "rbxassetid://405593386"
@@ -1582,6 +1647,15 @@ UIS.InputBegan:Connect(function(key ,typing)
 		local sound = Instance.new("Sound")
 		sound.SoundId = "rbxassetid://2502245370"
 		sound.Volume = 5
+		sound.Parent = plr.PlayerGui
+		sound:Play()
+		game.Debris:AddItem(sound,5)
+	end
+	if key.KeyCode == Enum.KeyCode.N then
+		plr.Character.HumanoidRootPart.Anchored = not plr.Character.HumanoidRootPart.Anchored
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://17517499979"
+		sound.Volume = 10
 		sound.Parent = plr.PlayerGui
 		sound:Play()
 		game.Debris:AddItem(sound,5)
