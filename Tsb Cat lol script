@@ -1,0 +1,2500 @@
+warn("PLEASE JUST FUCKING READ WHAT I SAID BELOW HERE NOW PROMSIE ME")
+warn("i only gived this script to my friends and me if stranger has this i would have to do something special use this are your own risk do not public to any website that isn't made by me")
+print("script by Cat lol")
+print("i'm very lazy to make this script not gonna lie")
+warn("Press 0 To Close The Script")
+warn("Mobile is not support only if you have keyboard script on mobile")
+warn("feel free to use this script and don't abouse too much because you can get caught it very risky to use in public")
+warn("feel free to use freecam without private server Left Ctrl Hold + P")
+local sound = Instance.new("Sound")
+sound.SoundId = "rbxassetid://7148585764"
+sound.Volume = 2
+sound.Parent = game.Players.LocalPlayer.PlayerGui
+sound:Play()
+game.Debris:AddItem(sound,5)
+wait(1)
+local UIS = game:GetService("UserInputService")
+local plr = game.Players.LocalPlayer
+local cd = false
+local close = false
+local oldpos
+local target
+--// end value thing //--
+local UI = Instance.new("ScreenGui")
+UI.Parent = plr.PlayerGui
+UI.Name = "Cat lol Ui"
+UI.Enabled = true
+local savechange = false
+function playanim(id,length)
+	local anim = Instance.new("Animation")
+	anim.AnimationId = "rbxassetid://"..id
+	local panim = plr.Character.Humanoid:LoadAnimation(anim)
+	panim:Play()
+	coroutine.resume(coroutine.create(function()
+		wait(length)
+		for _, animTrack in pairs(plr.Character.Humanoid:GetPlayingAnimationTracks()) do
+
+			animTrack:Stop()
+
+		end
+	end))
+end
+coroutine.resume(coroutine.create(function()
+	while task.wait() do
+		if close == true then break end
+		-- always rotate --
+		if not plr.Character then return end
+		if not plr.Character:FindFirstChild("Humanoid") then return end
+		if not plr.Character:FindFirstChild("Ragdoll") then
+			plr.Character.Humanoid.AutoRotate = true
+		end
+	end
+end))
+local soundva = Instance.new("Sound")
+soundva.SoundId = "rbxassetid://9119713951"
+local tc1va = 1
+local tc2va = 1
+local tc3va = 1
+local bgc1va = 0
+local bgc2va = 0
+local bgc3va = 0
+local themeid = "rbxassetid://1372495439"
+local EditThemeFrame = Instance.new("Frame")
+EditThemeFrame.Name = "EditThemeFrame"
+EditThemeFrame.Position = UDim2.new(0.229, 0,0.342, 0)
+EditThemeFrame.Size = UDim2.new(0, 325,0, 49)
+EditThemeFrame.BackgroundTransparency = 0.5
+EditThemeFrame.Parent = UI
+EditThemeFrame.Visible = false
+EditThemeFrame.Selectable = true
+EditThemeFrame.Active = true
+EditThemeFrame.Draggable = true
+local mainframe2 = Instance.new("ImageLabel")
+mainframe2.Name = "MainFrame"
+mainframe2.Position = UDim2.new(0, 0,0, 50)
+mainframe2.Size = UDim2.new(0, 326,0, 256)
+mainframe2.BackgroundTransparency = 0.75
+mainframe2.Parent = EditThemeFrame
+mainframe2.Visible = true
+mainframe2.Image = themeid
+local buttonlistframe2 = Instance.new("ScrollingFrame")
+buttonlistframe2.Name = "ButtonList"
+buttonlistframe2.Position = UDim2.new(0, 0,0, 0)
+buttonlistframe2.Size = UDim2.new(0, 325,0, 256)
+buttonlistframe2.BackgroundTransparency = 1
+buttonlistframe2.Parent = mainframe2
+buttonlistframe2.Visible = true
+buttonlistframe2.CanvasSize = UDim2.new(0, 0,5, 0)
+local uigridlayout = Instance.new("UIGridLayout")
+uigridlayout.Parent = buttonlistframe2
+uigridlayout.HorizontalAlignment = Enum.HorizontalAlignment.Left
+uigridlayout.VerticalAlignment = Enum.VerticalAlignment.Top
+uigridlayout.CellSize = UDim2.new(0, 320,0, 50)
+local buttontheme = Instance.new("TextBox")
+buttontheme.Name = "Theme"
+buttontheme.Text = "Theme Image Id"
+buttontheme.Parent = buttonlistframe2
+local buttonsound = Instance.new("TextBox")
+buttonsound.Name = "Sound"
+buttonsound.Text = "Button Click Sound Id"
+buttonsound.Parent = buttonlistframe2
+local buttontc1 = Instance.new("TextBox")
+buttontc1.Name = "tc1"
+buttontc1.Text = "Text Color1"
+buttontc1.Parent = buttonlistframe2
+local buttontc2 = Instance.new("TextBox")
+buttontc2.Name = "tc2"
+buttontc2.Text = "Text Color2"
+buttontc2.Parent = buttonlistframe2
+local buttontc3 = Instance.new("TextBox")
+buttontc3.Name = "tc3"
+buttontc3.Text = "Text Color3"
+buttontc3.Parent = buttonlistframe2
+local buttonbc1 = Instance.new("TextBox")
+buttonbc1.Name = "bc1"
+buttonbc1.Text = "Background Color1"
+buttonbc1.Parent = buttonlistframe2
+local buttonbc2 = Instance.new("TextBox")
+buttonbc2.Name = "bc2"
+buttonbc2.Text = "Background Color2"
+buttonbc2.Parent = buttonlistframe2
+local buttonbc3 = Instance.new("TextBox")
+buttonbc3.Name = "bc3"
+buttonbc3.Text = "Background Color3"
+buttonbc3.Parent = buttonlistframe2
+local textlabel = Instance.new("TextLabel")
+textlabel.Name = "2TextLabel"
+textlabel.Text = "Edit Theme (Color 0-1 not 0-255)"
+textlabel.Position = UDim2.new(0, 62,0, -50)
+textlabel.Size = UDim2.new(0, 200,0, 50)
+textlabel.Parent = mainframe2
+textlabel.Visible = true
+textlabel.TextScaled = true
+textlabel.Interactable = false
+textlabel.TextStrokeColor3 = Color3.new(1, 1, 1)
+textlabel.TextColor3 = Color3.new(0, 0, 0)
+textlabel.TextStrokeTransparency = 0
+textlabel.BackgroundTransparency = 1
+local buttonsave = Instance.new("TextButton")
+buttonsave.Name = "save"
+buttonsave.Text = "Save"
+buttonsave.Parent = buttonlistframe2
+for i,v in pairs(buttonlistframe2:GetChildren()) do
+	if v.ClassName == "TextBox" then
+		v.BackgroundTransparency = 0.75
+		v.TextColor3 = Color3.new(1, 1, 1)
+		v.TextScaled = true
+		v.Parent = buttonlistframe2
+		v.TextColor = BrickColor.new(tc1va,tc2va,tc3va)
+	end
+	if v.ClassName == "TextButton" then
+		v.BackgroundTransparency = 0.75
+		v.BackgroundColor3 = Color3.new(0.333333, 1, 0)
+		v.TextScaled = true
+		v.Parent = buttonlistframe2
+		v.TextColor = BrickColor.new(tc1va,tc2va,tc3va)
+		local canclick = true
+		v.MouseButton1Click:Connect(function()
+			if canclick == true then
+				local sound = Instance.new("Sound")
+				sound.SoundId = soundva.SoundId
+				sound.Volume = 2
+				sound.Parent = game.Players.LocalPlayer.PlayerGui
+				sound:Play()
+				game.Debris:AddItem(sound,5)
+			end
+		end)
+		coroutine.resume(coroutine.create(function()
+			repeat wait() until savechange == true
+			canclick = false
+		end))
+	end
+end
+local hiddenframe = Instance.new("Frame")
+hiddenframe.Name = "HiddenFrame"
+hiddenframe.Position = UDim2.new(0.151, 0,0.307, 0)
+hiddenframe.Size = UDim2.new(0, 426,0, 49)
+hiddenframe.BackgroundTransparency = 0.5
+hiddenframe.Parent = UI
+hiddenframe.Visible = true
+hiddenframe.Selectable = true
+hiddenframe.Active = true
+hiddenframe.Draggable = true
+local mainframe = Instance.new("ImageLabel")
+mainframe.Name = "MainFrame"
+mainframe.Position = UDim2.new(0, 0,0, 50)
+mainframe.Size = UDim2.new(0, 326,0, 256)
+mainframe.BackgroundTransparency = 0.75
+mainframe.Parent = hiddenframe
+mainframe.Visible = true
+mainframe.Image = themeid
+local playerlistframe = Instance.new("ScrollingFrame")
+playerlistframe.Name = "PlayerList"
+playerlistframe.Position = UDim2.new(1.003, 0,0, 0)
+playerlistframe.Size = UDim2.new(0, 99,0, 256)
+playerlistframe.BackgroundTransparency = 0.5
+playerlistframe.Parent = mainframe
+playerlistframe.Visible = true
+playerlistframe.CanvasSize = UDim2.new(0, 0,5, 0)
+local buttonlistframe = Instance.new("ScrollingFrame")
+buttonlistframe.Name = "ButtonList"
+buttonlistframe.Position = UDim2.new(0, 0,0, 0)
+buttonlistframe.Size = UDim2.new(0, 326,0, 256)
+buttonlistframe.BackgroundTransparency = 1
+buttonlistframe.Parent = mainframe
+buttonlistframe.Visible = true
+buttonlistframe.CanvasSize = UDim2.new(0, 0,5, 0)
+local uigridlayout = Instance.new("UIGridLayout")
+uigridlayout.Parent = playerlistframe
+uigridlayout.HorizontalAlignment = Enum.HorizontalAlignment.Left
+uigridlayout.VerticalAlignment = Enum.VerticalAlignment.Top
+uigridlayout.CellSize = UDim2.new(0, 100,0, 40)
+local uigridlayout = Instance.new("UIGridLayout")
+uigridlayout.Parent = buttonlistframe
+uigridlayout.HorizontalAlignment = Enum.HorizontalAlignment.Left
+uigridlayout.VerticalAlignment = Enum.VerticalAlignment.Top
+uigridlayout.CellSize = UDim2.new(0, 75,0, 75)
+local targethim = Instance.new("TextButton")
+targethim.Name = "TargetHim"
+targethim.Text = "TARGET DEEZ NUT ON HIM"
+targethim.Position = UDim2.new(1.006, 0,1, 0)
+targethim.Size = UDim2.new(0, 94,0, 50)
+targethim.Parent = hiddenframe
+targethim.Visible = true
+targethim.TextScaled = true
+targethim.BackgroundTransparency = 0.75
+targethim.TextColor3 = Color3.new(1, 1, 1)
+local tpcrab = Instance.new("TextButton")
+tpcrab.Name = "TpCrab"
+tpcrab.Text = "TP TO CRAB BOSS"
+tpcrab.Position = UDim2.new(-0, 0,-0.199, 0)
+tpcrab.Size = UDim2.new(0, 94,0, 50)
+tpcrab.Parent = mainframe
+tpcrab.Visible = true
+tpcrab.TextScaled = true
+local antilag = Instance.new("TextButton")
+antilag.Name = "ANTILAG"
+antilag.Text = "ANTI LAG BUTTON? QUESTION MARK"
+antilag.Position = UDim2.new(0.368, 0,1, 0)
+antilag.Size = UDim2.new(0, 205,0, 50)
+antilag.Parent = mainframe
+antilag.Visible = true
+antilag.TextScaled = true
+local rpl = Instance.new("TextButton")
+rpl.Name = "RPL"
+rpl.Text = "Refresh Player List"
+rpl.Position = UDim2.new(1.012, 0,-0.196, 0)
+rpl.Size = UDim2.new(0, 93,0, 50)
+rpl.Parent = hiddenframe
+rpl.Visible = true
+rpl.TextScaled = true
+local tptovoid = Instance.new("TextButton")
+tptovoid.Name = "TpToVoid"
+tptovoid.Text = "TP TO VOID (R)"
+tptovoid.Position = UDim2.new(0.285, 0,0, 0)
+tptovoid.Size = UDim2.new(0, 93,0, 50)
+tptovoid.Parent = mainframe
+tptovoid.Visible = true
+tptovoid.TextScaled = true
+tptovoid.Interactable = false
+local kjanim = Instance.new("TextButton")
+kjanim.Name = "kjanim"
+kjanim.Text = "KJ - Saitama ANIM (CLICK)"
+kjanim.Position = UDim2.new(0.286, 0,-0.395, 0)
+kjanim.Size = UDim2.new(0, 93,0, 50)
+kjanim.Parent = mainframe
+kjanim.Visible = true
+kjanim.TextScaled = true
+local whatthefuckanim = Instance.new("TextButton")
+whatthefuckanim.Name = "whatthefuckanim"
+whatthefuckanim.Text = "WHATTHEFUCK - ALL CHARACTER ANIM (CLICK)"
+whatthefuckanim.Position = UDim2.new(0.001, 0,-0.391, 0)
+whatthefuckanim.Size = UDim2.new(0, 93,0, 50)
+whatthefuckanim.Parent = mainframe
+whatthefuckanim.Visible = true
+whatthefuckanim.TextScaled = true
+local gojoanim = Instance.new("TextButton")
+gojoanim.Name = "gojoanim"
+gojoanim.Text = "GOJO - Saitama ANIM (CLICK)"
+gojoanim.Position = UDim2.new(0.611, 0,-0.391, 0)
+gojoanim.Size = UDim2.new(0, 93,0, 50)
+gojoanim.Parent = mainframe
+gojoanim.Visible = true
+gojoanim.TextScaled = true
+local tpup = Instance.new("TextButton")
+tpup.Name = "TpUp"
+tpup.Text = "TP UP (H)"
+tpup.Position = UDim2.new(0.285, 0,0.39,0)
+tpup.Size = UDim2.new(0, 93,0, 50)
+tpup.Parent = mainframe
+tpup.Visible = true
+tpup.TextScaled = true
+tpup.Interactable = false
+local tptowd = Instance.new("TextButton")
+tptowd.Name = "TpToWD"
+tptowd.Text = "TP TO WEAKEST DUMMY (CLICK)"
+tptowd.Position = UDim2.new(0.57, 0,0.586, 0)
+tptowd.Size = UDim2.new(0, 93,0, 50)
+tptowd.Parent = mainframe
+tptowd.Visible = true
+tptowd.TextScaled = true
+local setoh = Instance.new("TextButton")
+setoh.Name = "SOH"
+setoh.Text = "SET OLDPOS HERE (Z)"
+setoh.Position = UDim2.new(0.57, 0,0.781, 0)
+setoh.Size = UDim2.new(0, 93,0, 50)
+setoh.Parent = mainframe
+setoh.Visible = true
+setoh.TextScaled = true
+setoh.Interactable = false
+local tptotarget = Instance.new("TextButton")
+tptotarget.Name = "TpToTarget"
+tptotarget.Text = "TP TO TARGET (Y)"
+tptotarget.Position = UDim2.new(0, 0,0, 0)
+tptotarget.Size = UDim2.new(0, 93,0, 50)
+tptotarget.Parent = mainframe
+tptotarget.Visible = true
+tptotarget.TextScaled = true
+tptotarget.Interactable = false
+local kjrunlol = Instance.new("TextButton")
+kjrunlol.Name = "KJRUNLOL"
+kjrunlol.Text = "KJ RUN LOL (6) [KJ SCRIPT ACTIVATE FIRST]"
+kjrunlol.Position = UDim2.new(-0, 0,0.195, 0)
+kjrunlol.Size = UDim2.new(0, 93,0, 50)
+kjrunlol.Parent = mainframe
+kjrunlol.Visible = true
+kjrunlol.TextScaled = true
+kjrunlol.Interactable = false
+local ultimatedodge = Instance.new("TextButton")
+ultimatedodge.Name = "UltimateDodge"
+ultimatedodge.Text = "ULTIMATE DODGE (5)"
+ultimatedodge.Position = UDim2.new(0.571, 0,0, 0)
+ultimatedodge.Size = UDim2.new(0, 93,0, 50)
+ultimatedodge.Parent = mainframe
+ultimatedodge.Visible = true
+ultimatedodge.TextScaled = true
+ultimatedodge.Interactable = false
+local reversetime = Instance.new("TextButton")
+reversetime.Name = "ReverseTime"
+reversetime.Text = "GO TO OLDPOS (E)"
+reversetime.Position = UDim2.new(0.285, 0,0.195, 0)
+reversetime.Size = UDim2.new(0, 93,0, 50)
+reversetime.Parent = mainframe
+reversetime.Visible = true
+reversetime.TextScaled = true
+reversetime.Interactable = false
+local tpforward = Instance.new("TextButton")
+tpforward.Name = "TpForward"
+tpforward.Text = "Tp Forward (T)"
+tpforward.Position = UDim2.new(0.571, 0,0.195, 0)
+tpforward.Size = UDim2.new(0, 93,0, 50)
+tpforward.Parent = mainframe
+tpforward.Visible = true
+tpforward.TextScaled = true
+tpforward.Interactable = false
+local autododge = Instance.new("TextButton")
+autododge.Name = "AUTODODGE"
+autododge.Text = "AUTO DODGE (V) [Off]"
+autododge.Position = UDim2.new(0.286, 0,0.777, 0)
+autododge.Size = UDim2.new(0, 93,0, 50)
+autododge.Parent = mainframe
+autododge.Visible = true
+autododge.TextScaled = true
+autododge.Interactable = false
+local tptomountain = Instance.new("TextButton")
+tptomountain.Name = "TpToMountain"
+tptomountain.Text = "Tp To Mountain (U)"
+tptomountain.Position = UDim2.new(-0, 0,0.39, 0)
+tptomountain.Size = UDim2.new(0, 93,0, 50)
+tptomountain.Parent = mainframe
+tptomountain.Visible = true
+tptomountain.TextScaled = true
+tptomountain.Interactable = false
+local tpeverywhere = Instance.new("TextButton")
+tpeverywhere.Name = "TpEveryWhere"
+tpeverywhere.Text = "Tp Everywhere (J)"
+tpeverywhere.Position = UDim2.new(0.57, 0,0.39,0)
+tpeverywhere.Size = UDim2.new(0, 93,0, 50)
+tpeverywhere.Parent = mainframe
+tpeverywhere.Visible = true
+tpeverywhere.TextScaled = true
+tpeverywhere.Interactable = false
+local tpatomic = Instance.new("TextButton")
+tpatomic.Name = "TpAtomicCs"
+tpatomic.Text = "ATOMIC CUTSCENE (CLICK / C)"
+tpatomic.Position = UDim2.new(-0, 0,0.586, 0)
+tpatomic.Size = UDim2.new(0, 93,0, 50)
+tpatomic.Parent = mainframe
+tpatomic.Visible = true
+tpatomic.TextScaled = true
+local tpdeathcounter = Instance.new("TextButton")
+tpdeathcounter.Name = "TpAtomicCs"
+tpdeathcounter.Text = "DEATH COUNTER CUTSCENE (CLICK)"
+tpdeathcounter.Position = UDim2.new(0.285, 0,0.586,0)
+tpdeathcounter.Size = UDim2.new(0, 93,0, 50)
+tpdeathcounter.Parent = mainframe
+tpdeathcounter.Visible = true
+tpdeathcounter.TextScaled = true
+local textlabel = Instance.new("TextLabel")
+textlabel.Name = "2TextLabel"
+textlabel.Text = "CAT LOL SCRIPT"
+textlabel.Position = UDim2.new(0, 109,0, -50)
+textlabel.Size = UDim2.new(0, 200,0, 50)
+textlabel.Parent = hiddenframe
+textlabel.Visible = true
+textlabel.TextScaled = true
+textlabel.Interactable = false
+textlabel.TextStrokeColor3 = Color3.new(1, 1, 1)
+textlabel.TextColor3 = Color3.new(0, 0, 0)
+textlabel.TextStrokeTransparency = 0
+textlabel.BackgroundTransparency = 1
+local walkspeed = Instance.new("TextBox")
+walkspeed.Name = "Walkspeed"
+walkspeed.Text = "WalkSpeed: Speed Here"
+walkspeed.Position = UDim2.new(0, 0,0, 0)
+walkspeed.Size = UDim2.new(0, 93,0, 50)
+walkspeed.Parent = mainframe
+walkspeed.Visible = true
+walkspeed.TextScaled = true
+walkspeed.Interactable = true
+local afklabel = Instance.new("TextLabel")
+afklabel.Name = "afklabel"
+if plr.Name ~= "tunhaiohga" then
+	afklabel.Text = "BLUD IS AFK LOL"
+end
+if plr.Name == "tunhaiohga" then
+	afklabel.Text = "Cute cat is afk! :3"
+end
+if plr.Name == "kaisigmanofake2" then
+	afklabel.Text = "Sigma person is afking lol"
+end
+afklabel.Position = UDim2.new(0.265, 0,-1.02, 0)
+afklabel.Size = UDim2.new(0, 200,0, 50)
+afklabel.Parent = hiddenframe
+afklabel.Visible = false
+afklabel.TextScaled = true
+afklabel.Interactable = false
+afklabel.BackgroundTransparency = 1
+afklabel.TextStrokeColor3 = Color3.new(1, 1, 1)
+afklabel.TextStrokeTransparency = 0
+afklabel.TextColor3 = Color3.new(0, 0, 0)
+local toggle = Instance.new("TextButton")
+toggle.Name = "Open/Close"
+toggle.Text = "Open/Close Ui"
+toggle.Position = UDim2.new(0, 0,0.471, 0)
+toggle.Size = UDim2.new(0, 78,0, 32)
+toggle.Parent = UI
+toggle.Visible = true
+toggle.TextScaled = true
+toggle.BackgroundColor3 = Color3.new(1, 0, 0)
+toggle.BackgroundTransparency = 0.5
+toggle.TextColor3 = Color3.new(1, 1, 1)
+toggle.MouseButton1Click:Connect(function()
+	hiddenframe.Visible = not hiddenframe.Visible
+	local canclick = true
+	local sound = Instance.new("Sound")
+	sound.SoundId = soundva.SoundId
+	sound.Volume = 2
+	sound.Parent = plr.PlayerGui
+	sound:Play()
+	game.Debris:AddItem(sound,5)
+end)
+local otherhub = Instance.new("TextButton")
+otherhub.Name = "OtherHub"
+otherhub.Text = "StreamSnipe"
+otherhub.Position = UDim2.new(0, 0,0.59, 0)
+otherhub.Size = UDim2.new(0, 78,0, 32)
+otherhub.Parent = UI
+otherhub.Visible = true
+otherhub.TextScaled = true
+otherhub.BackgroundColor3 = Color3.new(0, 1, 0)
+otherhub.BackgroundTransparency = 0.5
+otherhub.TextColor3 = Color3.new(1, 1, 1)
+local edittheme = Instance.new("TextButton")
+edittheme.Name = "theme"
+edittheme.Text = "Edit Theme"
+edittheme.Position = UDim2.new(0, 0,0.531, 0)
+edittheme.Size = UDim2.new(0, 78,0, 32)
+edittheme.Parent = UI
+edittheme.Visible = true
+edittheme.TextScaled = true
+edittheme.BackgroundColor3 = Color3.new(0, 0, 0)
+edittheme.BackgroundTransparency = 0.5
+edittheme.TextColor3 = Color3.new(1, 1, 1)
+edittheme.MouseButton1Click:Connect(function()
+	EditThemeFrame.Visible = not EditThemeFrame.Visible
+	local sound = Instance.new("Sound")
+	sound.SoundId = soundva.SoundId
+	sound.Volume = 2
+	sound.Parent = plr.PlayerGui
+	sound:Play()
+	game.Debris:AddItem(sound,5)
+end)
+for i,v in pairs(mainframe:GetChildren()) do
+	if v.ClassName == "TextButton" or v.ClassName == "TextLabel" or v.ClassName == "TextBox" then
+		v.BackgroundTransparency = 0.75
+	    v.BackgroundColor = BrickColor.new(bgc1va,bgc2va,bgc3va)
+		v.Parent = buttonlistframe
+		v.TextColor = BrickColor.new(tc1va,tc2va,tc3va)
+		local canclick = true
+		if v.ClassName == "TextButton" then
+		v.MouseButton1Click:Connect(function()
+			if canclick == true then
+				local sound = Instance.new("Sound")
+				sound.SoundId = soundva.SoundId
+				sound.Volume = 2
+				sound.Parent = game.Players.LocalPlayer.PlayerGui
+				sound:Play()
+				game.Debris:AddItem(sound,5)
+			end
+			end)
+		end
+		coroutine.resume(coroutine.create(function()
+			repeat wait() until savechange == true
+			canclick = false
+		end))
+	end
+end
+textlabel.Parent = mainframe
+targethim.Parent = mainframe
+rpl.Parent = mainframe
+buttonsave.MouseButton1Click:Connect(function()
+	EditThemeFrame.Visible = false
+	tc1va = buttontc1.Text
+	tc2va = buttontc2.Text
+	tc3va = buttontc3.Text
+	bgc1va = buttonbc1.Text
+	bgc2va = buttonbc2.Text
+	bgc3va = buttonbc3.Text
+	themeid = "rbxassetid://"..buttontheme.Text
+	soundva.SoundId = "rbxassetid://"..buttonsound.Text
+	local sound = Instance.new("Sound")
+	sound.SoundId = "rbxassetid://7148585764"
+	sound.Volume = 2
+	sound.Parent = game.Players.LocalPlayer.PlayerGui
+	sound:Play()
+	game.Debris:AddItem(sound,5)
+	savechange = true
+	wait(1)
+	savechange = false
+	mainframe.Image = themeid
+	mainframe2.Image = themeid
+	mainframe.BackgroundColor = BrickColor.new(bgc1va,bgc2va,bgc3va)
+	mainframe2.BackgroundColor = BrickColor.new(bgc1va,bgc2va,bgc3va)
+	for i,v in pairs(buttonlistframe:GetChildren()) do
+		if v.ClassName == "TextLabel" or v.ClassName == "TextBox" then
+			v.BackgroundColor = BrickColor.new(bgc1va,bgc2va,bgc3va)
+			v.TextColor = BrickColor.new(tc1va,tc2va,tc3va)
+		end
+		if v.ClassName == "TextButton" then
+			local canclick = true
+			v.MouseButton1Click:Connect(function()
+				if canclick == true then
+				local sound = Instance.new("Sound")
+				sound.SoundId = soundva.SoundId
+				sound.Volume = 2
+				sound.Parent = game.Players.LocalPlayer.PlayerGui
+				sound:Play()
+				game.Debris:AddItem(sound,5)
+				end
+			end)
+			v.BackgroundColor = BrickColor.new(bgc1va,bgc2va,bgc3va)
+			v.TextColor = BrickColor.new(tc1va,tc2va,tc3va)
+			coroutine.resume(coroutine.create(function()
+				repeat wait() until savechange == true
+                canclick = false
+			end))
+		end
+	end
+	for i,v in pairs(buttonlistframe2:GetChildren()) do
+		if v.ClassName == "TextLabel" or v.ClassName == "TextBox" then
+			v.BackgroundColor = BrickColor.new(bgc1va,bgc2va,bgc3va)
+			v.TextColor = BrickColor.new(tc1va,tc2va,tc3va)
+		end
+		if v.ClassName == "TextButton" then
+			local canclick = true
+			v.MouseButton1Click:Connect(function()
+				if canclick == true then
+					local sound = Instance.new("Sound")
+					sound.SoundId = soundva.SoundId
+					sound.Volume = 2
+					sound.Parent = game.Players.LocalPlayer.PlayerGui
+					sound:Play()
+					game.Debris:AddItem(sound,5)
+				end
+			end)
+			v.BackgroundColor = BrickColor.new(bgc1va,bgc2va,bgc3va)
+			v.TextColor = BrickColor.new(tc1va,tc2va,tc3va)
+			coroutine.resume(coroutine.create(function()
+				repeat wait() until savechange == true
+				canclick = false
+			end))
+		end
+	end
+end)
+walkspeed:GetPropertyChangedSignal("Text"):Connect(function()
+	if walkspeed.Text == "WalkSpeed: Speed" then return end
+	local ezr = false
+	coroutine.resume(coroutine.create(function()
+		while wait() do
+			if ezr == true then break end
+			if not plr.Character then return end
+			if not plr.Character:FindFirstChild("Humanoid") then return end
+			if game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= walkspeed.Text then
+				game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = walkspeed.Text
+			end
+		end
+	end))
+	walkspeed:GetPropertyChangedSignal("Text"):Connect(function()
+		ezr = true
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+	end)
+	local sound = Instance.new("Sound")
+	sound.SoundId = "rbxassetid://9119720940"
+	sound.Volume = 2
+	sound.Parent = plr.PlayerGui
+	sound:Play()
+	game.Debris:AddItem(sound,5)
+end)
+local animscriptactivate = false
+kjanim.MouseButton1Click:Connect(function()
+	if animscriptactivate == true then return end
+	animscriptactivate = true
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/catlolroblox/catlolroblox/refs/heads/main/test"))()
+	print("run kj anim script")
+end)
+whatthefuckanim.MouseButton1Click:Connect(function()
+	if animscriptactivate == true then return end
+	animscriptactivate = true
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/Mautiku/ehh/main/strong%20guest.lua.txt'))()
+	print("run what the fuck anim script")
+end)
+gojoanim.MouseButton1Click:Connect(function()
+	if animscriptactivate == true then return end
+	animscriptactivate = true
+	_G.settings = {
+		["RedStartupId"] = "rbxassetid://1177475221",
+		["RedHitId"] = "rbxassetid://8625377966",
+	}
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/skibiditoiletfan2007/BaldyToSorcerer/main/Latest.lua"))()
+	print("run gojo anim script")
+end)
+tpcrab.MouseButton1Click:Connect(function()
+	if game.Workspace.Live:FindFirstChild("Crab Boss") then
+		plr.Character.HumanoidRootPart.CFrame = game.Workspace.Live["Crab Boss"].HumanoidRootPart.CFrame
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://5066021887"
+		sound.Volume = 0.5
+		sound.Parent = plr.PlayerGui
+		sound:Play()
+		game.Debris:AddItem(sound,5)
+	end
+end)
+coroutine.resume(coroutine.create(function()
+	while task.wait() do
+		for i,v in pairs(game.Workspace.Live:GetChildren()) do
+			if v.ClassName == "Model" and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
+				for p,a in pairs(v:GetChildren()) do
+					if a.Name:find("Counter") then
+					if not v:FindFirstChild("ESPPLAYERULTLOL") then
+						local va = Instance.new("BoolValue")
+						va.Name = "ESPPLAYERULTLOL"
+						va.Parent = v
+						local highlightplr = Instance.new("Highlight")
+						highlightplr.Parent = v
+						highlightplr.Enabled = true
+						highlightplr.FillColor = Color3.new(0, 0, 0.498039)
+						coroutine.resume(coroutine.create(function()
+							repeat wait() until not v:FindFirstChild(a)
+							highlightplr:Destroy()
+							va:Destroy()
+						end))
+						end
+					end
+				end
+				if v:FindFirstChildOfClass("ForceField") then
+					if not v:FindFirstChild("ESPPLAYERFFLOL") then
+						local va = Instance.new("BoolValue")
+						va.Name = "ESPPLAYERFFLOL"
+						va.Parent = v
+						local highlightplr = Instance.new("Highlight")
+						highlightplr.Parent = v
+						highlightplr.Enabled = true
+						highlightplr.FillColor = Color3.new(1, 1, 1)
+						coroutine.resume(coroutine.create(function()
+							repeat wait() until not v:FindFirstChildOfClass("ForceField")
+							highlightplr:Destroy()
+							va:Destroy()
+						end))
+					end
+				end
+				if not v:FindFirstChild("ESPPLAYERLOL") then
+					if v.Name == "Crab Boss" then
+						local va = Instance.new("BoolValue")
+						va.Name = "ESPPLAYERLOL"
+						va.Parent = v
+						local highlightplr = Instance.new("Highlight")
+						highlightplr.Parent = v
+						highlightplr.Enabled = true
+						highlightplr.FillColor = Color3.new(0.333333, 1, 0)
+						local espthinglol = Instance.new("Beam")
+						local e = Instance.new("Attachment")
+						local z = Instance.new("Attachment")
+						espthinglol.Name = "ESPTHING"
+						espthinglol.Brightness = 1
+						espthinglol.Color = ColorSequence.new(Color3.new(1, 0, 0),Color3.new(1, 0, 0))
+						espthinglol.Attachment1 = e
+						espthinglol.Attachment0 = z
+						espthinglol.Width0 = 0.3
+						espthinglol.Width1 = 0.3
+						e.Parent = v.HumanoidRootPart
+						z.Parent = plr.Character.HumanoidRootPart
+						espthinglol.Parent = v
+						espthinglol.FaceCamera = true
+					end
+					if v.Name == target and v:FindFirstChild("HumanoidRootPart") then
+						local va = Instance.new("BoolValue")
+						va.Name = "ESPPLAYERLOL"
+						va.Parent = v
+						local highlightplr = Instance.new("Highlight")
+						highlightplr.Parent = v
+						highlightplr.Enabled = true
+						highlightplr.FillColor = Color3.new(0.333333, 1, 0)
+						local espthinglol = Instance.new("Beam")
+						local e = Instance.new("Attachment")
+						local z = Instance.new("Attachment")
+						espthinglol.Name = "ESPTHING"
+						espthinglol.Brightness = 1
+						espthinglol.Color = ColorSequence.new(Color3.new(0.333333, 1, 0),Color3.new(0.333333, 1, 0))
+						espthinglol.Attachment1 = e
+						espthinglol.Attachment0 = z
+						espthinglol.Width0 = 0.3
+						espthinglol.Width1 = 0.3
+						e.Parent = v.HumanoidRootPart
+						z.Parent = plr.Character.HumanoidRootPart
+						espthinglol.Parent = v
+						espthinglol.FaceCamera = true
+						coroutine.resume(coroutine.create(function()
+							repeat wait() until target ~= v.Name
+							highlightplr:Destroy()
+							espthinglol:Destroy()
+							va:Destroy()
+							e:Destroy()
+							z:Destroy()
+						end))
+					end
+				end
+			end
+		end
+	end
+end))
+function getplayerlist()
+	print("Getting playerlist")
+	if close == true then return end
+	for i,v in pairs(playerlistframe:GetChildren()) do
+		if v.ClassName == "TextButton" then
+			v:Destroy()
+		end
+	end
+	
+	for i,v in pairs(game.Players:GetChildren()) do
+		if v.Name ~= plr.Name then
+		local button = Instance.new("TextButton")
+			button.Parent = playerlistframe
+			button.Text = v.Name
+			if not v.Character then
+				print("player "..v.Name.." Failed to find his character bro what the")
+			end
+			if v.Character then
+			if v.Character:FindFirstChild("Humanoid") then
+		       button.Text = v.Character.Humanoid.DisplayName.." ("..v.Name..")"
+			end	
+			if not v.Character:FindFirstChild("Humanoid") then
+				print("player "..v.Name.." Failed to find humanoid")
+				end
+			end
+		button.Name = "Player"..i
+		button.TextScaled = true
+		button.MouseButton1Click:Connect(function()
+			target = v.Name
+				print("Select "..v.Name)
+				local sound = Instance.new("Sound")
+				sound.SoundId = "rbxassetid://9119713951"
+				sound.Volume = 2
+				sound.Parent = plr.PlayerGui
+				sound:Play()
+				game.Debris:AddItem(sound,5)
+			end)
+		end
+	end
+	
+end
+local afk = false
+local autododgetoggle = false
+UIS.InputBegan:Connect(function(key ,typing)
+	if typing == true then return end
+	if key.KeyCode == Enum.KeyCode.V then
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://12221967"
+		sound.Volume = 3
+		sound.Parent = plr.PlayerGui
+		sound:Play()
+		game.Debris:AddItem(sound,5)
+		autododgetoggle = not autododgetoggle
+		if autododgetoggle == true then
+			autododge.Text = "AUTO DODGE (V) [ON]"
+		else
+			autododge.Text = "AUTO DODGE (V) [OFF]"
+		end
+	end
+end)
+function autododgelol()
+local autododgehitbox = Instance.new("Part")
+autododgehitbox.Transparency = 1
+autododgehitbox.Size = Vector3.new(25,25,25)
+autododgehitbox.CanCollide = false
+autododgehitbox.Color = Color3.new(1, 1, 1)
+autododgehitbox.CanTouch = true
+autododgehitbox.Anchored = false
+local push = Instance.new("BodyVelocity")
+push.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+push.Velocity = Vector3.new(0,1,0)
+push.Parent = autododgehitbox
+autododgehitbox.Parent = game.Workspace
+local autododgecd = false
+local autododgecd2 = false
+coroutine.resume(coroutine.create(function()
+	while task.wait() do
+		if close == true then break end
+		if not autododgehitbox then return end
+		if not plr.Character then return end
+		if not plr.Character:FindFirstChild("HumanoidRootPart") then return end
+		if autododgetoggle == true then
+			autododgehitbox.Transparency = 0.75
+			autododgehitbox.CFrame = plr.Character.HumanoidRootPart.CFrame
+		else
+			autododgehitbox.Transparency = 1
+		end
+	end
+end))
+autododgehitbox.Touched:Connect(function(hit)
+	if close == true then return end
+	if autododgetoggle == false then return end
+	if autododgecd == true then return end
+	if hit.Parent:FindFirstChild("Humanoid") and hit.Parent.Name ~= plr.Name then
+		plr.Character.HumanoidRootPart.CFrame *= CFrame.new(math.random(-25,25),0,math.random(-25,25))
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://5066021887"
+		sound.Volume = 0.5
+		sound.Parent = plr.PlayerGui
+		sound:Play()
+		game.Debris:AddItem(sound,5)
+		coroutine.resume(coroutine.create(function()
+			autododgecd = true
+			wait(0.01)
+			autododgecd = false
+		end))
+	end
+end)
+local autododgehitbox2 = Instance.new("Part")
+autododgehitbox2.Transparency = 1
+autododgehitbox2.Size = Vector3.new(150,25,150)
+autododgehitbox2.Color = Color3.new(0, 1, 1)
+autododgehitbox2.CanCollide = false
+autododgehitbox2.CanTouch = true
+autododgehitbox2.Anchored = false
+local push = Instance.new("BodyVelocity")
+push.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+push.Velocity = Vector3.new(0,1,0)
+push.Parent = autododgehitbox2
+autododgehitbox2.Parent = game.Workspace
+local autododgecd = false
+coroutine.resume(coroutine.create(function()
+	while task.wait() do
+		if close == true then break end
+		if not autododgehitbox2 then return end
+		if not plr.Character then return end
+		if not plr.Character:FindFirstChild("HumanoidRootPart") then return end
+		if autododgetoggle == true then
+			autododgehitbox2.Transparency = 0.75
+			autododgehitbox2.CFrame = plr.Character.HumanoidRootPart.CFrame
+		else
+			autododgehitbox2.Transparency = 1
+		end
+	end
+end))
+autododgehitbox2.Touched:Connect(function(hit)
+	if close == true then return end
+	if autododgetoggle == false then return end
+	if autododgecd2 == true then return end
+	if hit.Parent:FindFirstChild("Humanoid") and hit.Parent.Name ~= plr.Name then
+		for i,v in pairs(hit.Parent:GetChildren()) do
+			if v.Name:find("Counter") or v.ClassName == "ForceField" or v.Name == "Slowed" or v.Name == "Freeze" then
+				plr.Character.HumanoidRootPart.CFrame *= CFrame.new(math.random(-75,75),0,math.random(-75,75))
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://5066021887"
+		sound.Volume = 0.5
+		sound.Parent = plr.PlayerGui
+		sound:Play()
+		game.Debris:AddItem(sound,5)
+		coroutine.resume(coroutine.create(function()
+		autododgecd2 = true
+		wait(0.1)
+		autododgecd2 = false
+			end))
+			end
+		end
+	end
+	end)
+end
+autododgelol()
+local oldpospart = Instance.new("Part")
+oldpospart.Transparency = 0
+oldpospart.Size = Vector3.new(2.5,2.5,2.5)
+oldpospart.CanCollide = false
+oldpospart.Anchored = true
+oldpospart.Parent = game.Workspace
+local highlight = Instance.new("Highlight")
+highlight.Parent = oldpospart
+highlight.FillColor = Color3.new(0.333333, 1, 0)
+local targetval = Instance.new("StringValue")
+targetval.Name = "Target"
+targetval.Parent = mainframe
+targethim.MouseButton1Click:Connect(function()
+	if game.Players:FindFirstChild(target) then
+		mainframe.Target.Value = target
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://7433801607"
+		sound.Volume = 2
+		sound.Parent = plr.PlayerGui
+		sound:Play()
+		game.Debris:AddItem(sound,5)
+		print("Target SUCCESS "..target)
+	else
+		print("failed to target")
+	end
+end)
+coroutine.resume(coroutine.create(function()
+	while task.wait() do
+		if close == true then break end
+		if not plr.Character then return end
+		if not plr.Character:FindFirstChild("HumanoidRootPart") then return end
+		if afk == true and plr.Character and plr.Character:FindFirstChild("HumanoidRootPart") and oldpos ~= nil then
+			plr.Character.HumanoidRootPart.CFrame = oldpos
+			local bodyvelocity = Instance.new("BodyVelocity")
+			bodyvelocity.Parent = plr.Character.HumanoidRootPart
+			bodyvelocity.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+			bodyvelocity.Velocity = Vector3.new(0,2.5,0)
+			game.Debris:AddItem(bodyvelocity, 1)
+		end
+	end
+end))
+getplayerlist()
+game.Players.ChildAdded:Connect(function()
+	if close == true then return end
+	getplayerlist()
+end)
+game.Players.ChildRemoved:Connect(function()
+	if close == true then return end
+	getplayerlist()
+end)
+function cdfuc(len)
+	if close == true then return end
+	coroutine.resume(coroutine.create(function()
+	cd = true
+	wait(len)
+	cd = false
+	end))
+end
+rpl.MouseButton1Click:Connect(function()
+	getplayerlist()
+	target = nil
+	local sound = Instance.new("Sound")
+	sound.SoundId = "rbxassetid://9119713951"
+	sound.Volume = 2
+	sound.Parent = plr.PlayerGui
+	sound:Play()
+	game.Debris:AddItem(sound,5)
+end)
+antilag.MouseButton1Click:Connect(function()
+	antilag:Destroy()
+	local sound = Instance.new("Sound")
+	sound.SoundId = "rbxassetid://4643776975"
+	sound.Volume = 2
+	sound.Parent = plr.PlayerGui
+	sound:Play()
+	game.Debris:AddItem(sound,5)
+	for i,v in pairs(game.Workspace.Map:GetChildren()) do
+		if v.ClassName == "Part" then
+			v.Material = Enum.Material.SmoothPlastic
+			v.CastShadow = false
+			if v:FindFirstChildOfClass("Decal") then
+				v:FindFirstChildOfClass("Decal"):Destroy()
+			end
+			if v:FindFirstChildOfClass("Texture") then
+				v:FindFirstChildOfClass("Texture"):Destroy()
+			end
+		end
+		if v.ClassName == "MeshPart" then
+			v.Material = Enum.Material.SmoothPlastic
+			v.CastShadow = false
+			v.TextureID = ""
+			if v:FindFirstChildOfClass("Decal") then
+				v:FindFirstChildOfClass("Decal"):Destroy()
+			end
+			if v:FindFirstChildOfClass("Texture") then
+				v:FindFirstChildOfClass("Texture"):Destroy()
+			end
+		end
+		if v.ClassName == "Model" then
+			for k,m in pairs(v:GetChildren()) do
+				if m.ClassName == "Part" then
+					m.Material = Enum.Material.SmoothPlastic
+					m.CastShadow = false
+					if m:FindFirstChildOfClass("Decal") then
+						m:FindFirstChildOfClass("Decal"):Destroy()
+					end
+					if m:FindFirstChildOfClass("Texture") then
+						m:FindFirstChildOfClass("Texture"):Destroy()
+					end
+				end
+				if m.ClassName == "MeshPart" then
+					m.Material = Enum.Material.SmoothPlastic
+					m.CastShadow = false
+					m.TextureID = ""
+					if m:FindFirstChildOfClass("Decal") then
+						m:FindFirstChildOfClass("Decal"):Destroy()
+					end
+					if m:FindFirstChildOfClass("Texture") then
+						m:FindFirstChildOfClass("Texture"):Destroy()
+					end
+				end
+				if m.ClassName == "Model" then
+					for u,n in pairs(m:GetChildren()) do
+						if n.ClassName == "Part" then
+							n.Material = Enum.Material.SmoothPlastic
+							n.CastShadow = false
+							if n:FindFirstChildOfClass("Texture") then
+								n:FindFirstChildOfClass("Texture"):Destroy()
+							end
+						end
+						if n.ClassName == "MeshPart" then
+							n.Material = Enum.Material.SmoothPlastic
+							n.CastShadow = false
+							n.TextureID = ""
+							if n:FindFirstChildOfClass("Decal") then
+								n:FindFirstChildOfClass("Decal"):Destroy()
+							end
+							if n:FindFirstChildOfClass("Texture") then
+								n:FindFirstChildOfClass("Texture"):Destroy()
+							end
+						end
+					end
+				end
+			end
+		end
+		if v.ClassName == "Folder" then
+			for k,m in pairs(v:GetChildren()) do
+				if m.ClassName == "Part" then
+					m.Material = Enum.Material.SmoothPlastic
+					m.CastShadow = false
+					if m:FindFirstChildOfClass("Texture") then
+						m:FindFirstChildOfClass("Texture"):Destroy()
+					end
+				end
+				if m.ClassName == "MeshPart" then
+					m.Material = Enum.Material.SmoothPlastic
+					m.CastShadow = false
+					m.TextureID = ""
+					if m:FindFirstChildOfClass("Decal") then
+						m:FindFirstChildOfClass("Decal"):Destroy()
+					end
+					if m:FindFirstChildOfClass("Texture") then
+						m:FindFirstChildOfClass("Texture"):Destroy()
+					end
+				end
+				if m.ClassName == "Model" then
+					for p,a in pairs(m:GetChildren()) do
+						if a.ClassName == "Part" then
+							a.Material = Enum.Material.SmoothPlastic
+							a.CastShadow = false
+							if a:FindFirstChildOfClass("Texture") then
+								a:FindFirstChildOfClass("Texture"):Destroy()
+							end
+						end
+						if a.ClassName == "MeshPart" then
+							a.Material = Enum.Material.SmoothPlastic
+							a.CastShadow = false
+							a.TextureID = ""
+							if a:FindFirstChildOfClass("Decal") then
+								a:FindFirstChildOfClass("Decal"):Destroy()
+							end
+							if a:FindFirstChildOfClass("Texture") then
+								a:FindFirstChildOfClass("Texture"):Destroy()
+							end
+						end
+						if a.ClassName == "Model" then
+							for u,n in pairs(a:GetChildren()) do
+								if n.ClassName == "Part" then
+									n.Material = Enum.Material.SmoothPlastic
+									n.CastShadow = false
+									if n:FindFirstChildOfClass("Texture") then
+										n:FindFirstChildOfClass("Texture"):Destroy()
+									end
+								end
+								if n.ClassName == "MeshPart" then
+									n.Material = Enum.Material.SmoothPlastic
+									n.CastShadow = false
+									n.TextureID = ""
+									if n:FindFirstChildOfClass("Decal") then
+										n:FindFirstChildOfClass("Decal"):Destroy()
+									end
+									if n:FindFirstChildOfClass("Texture") then
+										n:FindFirstChildOfClass("Texture"):Destroy()
+									end
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+	end
+	for i,v in pairs(game.Workspace.Summermap:GetChildren()) do
+		if v.ClassName == "Part" then
+			v.Material = Enum.Material.SmoothPlastic
+			v.CastShadow = false
+			if v:FindFirstChildOfClass("Decal") then
+				v:FindFirstChildOfClass("Decal"):Destroy()
+			end
+			if v:FindFirstChildOfClass("Texture") then
+				v:FindFirstChildOfClass("Texture"):Destroy()
+			end
+		end
+		if v.ClassName == "MeshPart" then
+			v.Material = Enum.Material.SmoothPlastic
+			v.CastShadow = false
+			v.TextureID = ""
+			if v:FindFirstChildOfClass("Decal") then
+				v:FindFirstChildOfClass("Decal"):Destroy()
+			end
+			if v:FindFirstChildOfClass("Texture") then
+				v:FindFirstChildOfClass("Texture"):Destroy()
+			end
+		end
+		if v.ClassName == "Model" then
+			for k,m in pairs(v:GetChildren()) do
+				if m.ClassName == "Part" then
+					m.Material = Enum.Material.SmoothPlastic
+					m.CastShadow = false
+					if m:FindFirstChildOfClass("Decal") then
+						m:FindFirstChildOfClass("Decal"):Destroy()
+					end
+					if m:FindFirstChildOfClass("Texture") then
+						m:FindFirstChildOfClass("Texture"):Destroy()
+					end
+				end
+				if m.ClassName == "MeshPart" then
+					m.Material = Enum.Material.SmoothPlastic
+					m.CastShadow = false
+					m.TextureID = ""
+					if m:FindFirstChildOfClass("Decal") then
+						m:FindFirstChildOfClass("Decal"):Destroy()
+					end
+					if m:FindFirstChildOfClass("Texture") then
+						m:FindFirstChildOfClass("Texture"):Destroy()
+					end
+				end
+				if m.ClassName == "Model" then
+					for u,n in pairs(m:GetChildren()) do
+						if n.ClassName == "Part" then
+							n.Material = Enum.Material.SmoothPlastic
+							n.CastShadow = false
+							if n:FindFirstChildOfClass("Texture") then
+								n:FindFirstChildOfClass("Texture"):Destroy()
+							end
+						end
+						if n.ClassName == "MeshPart" then
+							n.Material = Enum.Material.SmoothPlastic
+							n.CastShadow = false
+							n.TextureID = ""
+							if n:FindFirstChildOfClass("Decal") then
+								n:FindFirstChildOfClass("Decal"):Destroy()
+							end
+							if n:FindFirstChildOfClass("Texture") then
+								n:FindFirstChildOfClass("Texture"):Destroy()
+							end
+						end
+					end
+				end
+			end
+		end
+		if v.ClassName == "Folder" then
+			for k,m in pairs(v:GetChildren()) do
+				if m.ClassName == "Part" then
+					m.Material = Enum.Material.SmoothPlastic
+					m.CastShadow = false
+					if m:FindFirstChildOfClass("Texture") then
+						m:FindFirstChildOfClass("Texture"):Destroy()
+					end
+				end
+				if m.ClassName == "MeshPart" then
+					m.Material = Enum.Material.SmoothPlastic
+					m.CastShadow = false
+					m.TextureID = ""
+					if m:FindFirstChildOfClass("Decal") then
+						m:FindFirstChildOfClass("Decal"):Destroy()
+					end
+					if m:FindFirstChildOfClass("Texture") then
+						m:FindFirstChildOfClass("Texture"):Destroy()
+					end
+				end
+				if m.ClassName == "Model" then
+					for p,a in pairs(m:GetChildren()) do
+						if a.ClassName == "Part" then
+							a.Material = Enum.Material.SmoothPlastic
+							a.CastShadow = false
+							if a:FindFirstChildOfClass("Texture") then
+								a:FindFirstChildOfClass("Texture"):Destroy()
+							end
+						end
+						if a.ClassName == "MeshPart" then
+							a.Material = Enum.Material.SmoothPlastic
+							a.CastShadow = false
+							a.TextureID = ""
+							if a:FindFirstChildOfClass("Decal") then
+								a:FindFirstChildOfClass("Decal"):Destroy()
+							end
+							if a:FindFirstChildOfClass("Texture") then
+								a:FindFirstChildOfClass("Texture"):Destroy()
+							end
+						end
+						if a.ClassName == "Model" then
+							for u,n in pairs(a:GetChildren()) do
+								if n.ClassName == "Part" then
+									n.Material = Enum.Material.SmoothPlastic
+									n.CastShadow = false
+									if n:FindFirstChildOfClass("Texture") then
+										n:FindFirstChildOfClass("Texture"):Destroy()
+									end
+								end
+								if n.ClassName == "MeshPart" then
+									n.Material = Enum.Material.SmoothPlastic
+									n.CastShadow = false
+									n.TextureID = ""
+									if n:FindFirstChildOfClass("Decal") then
+										n:FindFirstChildOfClass("Decal"):Destroy()
+									end
+									if n:FindFirstChildOfClass("Texture") then
+										n:FindFirstChildOfClass("Texture"):Destroy()
+									end
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+	end
+end)
+local debugmode = false
+UIS.InputBegan:Connect(function(key, typing)
+	if typing == true then return end
+	if close == true then return end
+	if key.KeyCode == Enum.KeyCode.Seven then
+		debugmode = not debugmode
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://9068077052"
+		sound.Volume = 1
+		sound.Parent = plr.PlayerGui
+		sound:Play()
+		game.Debris:AddItem(sound,5)
+	end
+end)
+local needspawn = false
+local debugpart = Instance.new("Part")
+debugpart.Parent = game.Workspace
+debugpart.Size = Vector3.new(1,5,5)
+debugpart.Transparency = 0.5
+debugpart.Material = Enum.Material.SmoothPlastic
+debugpart.Color = Color3.new(1, 1, 1)
+debugpart.Anchored = true
+debugpart.CanCollide = false
+coroutine.resume(coroutine.create(function()
+	while task.wait() do
+		if debugmode == true and close == false then
+			if debugpart then
+				debugpart.CFrame = plr.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,-2.5)
+			end
+		end
+	end
+end))
+coroutine.resume(coroutine.create(function()
+	while task.wait() do
+		if close == true then break end
+	if plr.Character then
+		if plr.Character:FindFirstChild("Humanoid") then
+			if plr.Character.Humanoid.Health <= 0 then
+				needspawn = true
+				walkspeed.Text = "WalkSpeed: Speed"
+			end
+			if plr.Character.Humanoid.Health > 0 then
+				if needspawn == true then
+						needspawn = false
+						animscriptactivate = false
+					repeat task.wait() until plr.Character	
+					repeat task.wait() until plr.Character:FindFirstChild("HumanoidRootPart")
+						if plr.Character and plr.Character:FindFirstChild("HumanoidRootPart") then
+							autododgelol()	
+						end
+						if plr.Character and oldpos ~= nil and plr.Character:FindFirstChild("HumanoidRootPart") then
+						plr.Character.HumanoidRootPart.CFrame = oldpos
+						end	
+						coroutine.resume(coroutine.create(function()
+							while task.wait() do
+								if close == true then break end
+								if not plr.Character then return end
+								if not plr.Character:FindFirstChild("HumanoidRootPart") then return end
+								if afk == true and plr.Character and plr.Character:FindFirstChild("HumanoidRootPart") and oldpos ~= nil then
+									plr.Character.HumanoidRootPart.CFrame = oldpos
+								end
+							end
+						end))
+				end
+			end
+		end
+		end
+	end
+end))
+tpatomic.MouseButton1Click:Connect(function()
+	cdfuc(0.1)
+	plr.Character.HumanoidRootPart.CFrame = CFrame.new(1073.91, 300, 23000.9)
+	local sound = Instance.new("Sound")
+	sound.SoundId = "rbxassetid://2502245370"
+	sound.Volume = 5
+	sound.Parent = plr.PlayerGui
+	sound:Play()
+	game.Debris:AddItem(sound,5)
+end)
+tpdeathcounter.MouseButton1Click:Connect(function()
+	cdfuc(0.1)
+	plr.Character.HumanoidRootPart.CFrame = CFrame.new(-66.4153, 38.8347, 20345.9)
+	local sound = Instance.new("Sound")
+	sound.SoundId = "rbxassetid://2502245370"
+	sound.Volume = 5
+	sound.Parent = plr.PlayerGui
+	sound:Play()
+	game.Debris:AddItem(sound,5)
+end)
+tptowd.MouseButton1Click:Connect(function()
+	plr.Character.HumanoidRootPart.CFrame = game.Workspace.Live["Weakest Dummy"].HumanoidRootPart.CFrame
+	local sound = Instance.new("Sound")
+	sound.SoundId = "rbxassetid://405593386"
+	sound.Volume = 5
+	sound.Parent = plr.PlayerGui
+	sound:Play()
+	game.Debris:AddItem(sound,5)
+end)
+UIS.InputBegan:Connect(function(key ,typing)
+	if typing == true then return end
+	if close == true then return end
+	if key.KeyCode == Enum.KeyCode.Zero then
+		close = true
+		UI:Destroy()
+		oldpospart:Destroy()
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://7148585764"
+		sound.Volume = 2
+		sound.Parent = plr.PlayerGui
+		sound:Play()
+		game.Debris:AddItem(sound,5)
+		print("script has been close.")
+		script:Destroy()
+	end
+	if key.KeyCode == Enum.KeyCode.Z and cd == false then
+		cdfuc(0.01)
+		oldpos = plr.Character.HumanoidRootPart.CFrame
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://405593386"
+		sound.Volume = 5
+		sound.Parent = plr.PlayerGui
+		sound:Play()
+		game.Debris:AddItem(sound,5)
+	    oldpospart.CFrame = plr.Character.HumanoidRootPart.CFrame
+	end
+	if key.KeyCode == Enum.KeyCode.E and cd == false then
+		cdfuc(0.01)
+		plr.Character.HumanoidRootPart.CFrame = oldpos
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://2502245370"
+		sound.Volume = 5
+		sound.Parent = plr.PlayerGui
+		sound:Play()
+		game.Debris:AddItem(sound,5)
+	end
+	if key.KeyCode == Enum.KeyCode.C and cd == false then
+		plr.Character.HumanoidRootPart.CFrame = CFrame.new(1064.5376, 153.16777, 23007.7812)
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://2502245370"
+		sound.Volume = 5
+		sound.Parent = plr.PlayerGui
+		sound:Play()
+		game.Debris:AddItem(sound,5)
+	end
+	if key.KeyCode == Enum.KeyCode.J and cd == false then
+		cdfuc(2.5)
+		local oldpos = plr.Character.HumanoidRootPart.CFrame
+		
+		plr.Character.HumanoidRootPart.CFrame = CFrame.new(598.023, 677.615, 368.587)
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://743521691"
+		sound.Volume = 2
+		sound.Parent = plr.PlayerGui
+		sound:Play()
+		game.Debris:AddItem(sound,5)
+		
+		wait(0.1)
+		
+		plr.Character.HumanoidRootPart.CFrame = CFrame.new(1427.56519, 706.783447, 210.242722)
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://743521691"
+		sound.Volume = 2
+		sound.Parent = plr.PlayerGui
+		sound:Play()
+		game.Debris:AddItem(sound,5)
+		
+		wait(0.125)
+
+		plr.Character.HumanoidRootPart.CFrame = CFrame.new(1270.58655, 810.672607, -882.062195)
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://743521691"
+		sound.Volume = 2
+		sound.Parent = plr.PlayerGui
+		sound:Play()
+		game.Debris:AddItem(sound,5)
+		
+		wait(0.145)
+
+		plr.Character.HumanoidRootPart.CFrame = CFrame.new(361.287018, 668.365112, -909.278259)
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://743521691"
+		sound.Volume = 2
+		sound.Parent = plr.PlayerGui
+		sound:Play()
+		game.Debris:AddItem(sound,5)
+		
+		wait(0.175)
+
+		plr.Character.HumanoidRootPart.CFrame = CFrame.new(1244.64441, 442.505676, -200.091705)
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://743521691"
+		sound.Volume = 2
+		sound.Parent = plr.PlayerGui
+		sound:Play()
+		game.Debris:AddItem(sound,5)
+		
+		wait(0.2)
+
+		plr.Character.HumanoidRootPart.CFrame = CFrame.new(785.2, 440.606, -80.5222)
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://743521691"
+		sound.Volume = 2
+		sound.Parent = plr.PlayerGui
+		sound:Play()
+		game.Debris:AddItem(sound,5)
+		
+		wait(0.25)
+
+		plr.Character.HumanoidRootPart.CFrame = CFrame.new(47.4173, 440.506, -269.28)
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://743521691"
+		sound.Volume = 2
+		sound.Parent = plr.PlayerGui
+		sound:Play()
+		game.Debris:AddItem(sound,5)
+		
+		wait(0.25)
+
+		plr.Character.HumanoidRootPart.CFrame = CFrame.new(-66.4153, 38.8347, 20345.9)
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://743521691"
+		sound.Volume = 2
+		sound.Parent = plr.PlayerGui
+		sound:Play()
+		game.Debris:AddItem(sound,5)
+		
+		wait(0.25)
+
+		plr.Character.HumanoidRootPart.CFrame = CFrame.new(1073.91, 300, 23000.9)
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://743521691"
+		sound.Volume = 2
+		sound.Parent = plr.PlayerGui
+		sound:Play()
+		game.Debris:AddItem(sound,5)
+		
+		wait(0.25)
+		
+		plr.Character.HumanoidRootPart.CFrame = oldpos
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://2502245370"
+		sound.Volume = 5
+		sound.Parent = plr.PlayerGui
+		sound:Play()
+		game.Debris:AddItem(sound,5)
+	end
+	if key.KeyCode == Enum.KeyCode.T and cd == false then
+		cdfuc(0.01)
+		plr.Character.HumanoidRootPart.CFrame *= CFrame.new(0,0,-100)
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://2502245370"
+		sound.Volume = 5
+		sound.Parent = plr.PlayerGui
+		sound:Play()
+		game.Debris:AddItem(sound,5)
+	end
+	if key.KeyCode == Enum.KeyCode.H and cd == false then
+		cdfuc(0.1)
+		plr.Character.HumanoidRootPart.CFrame *= CFrame.new(0,100,0)
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://2502245370"
+		sound.Volume = 5
+		sound.Parent = plr.PlayerGui
+		sound:Play()
+		game.Debris:AddItem(sound,5)
+	end
+	if key.KeyCode == Enum.KeyCode.U and cd == false then
+		cdfuc(0.1)
+		plr.Character.HumanoidRootPart.CFrame = CFrame.new(992.302, 665.942, 614.392)
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://2502245370"
+		sound.Volume = 5
+		sound.Parent = plr.PlayerGui
+		sound:Play()
+		game.Debris:AddItem(sound,5)
+	end
+	if key.KeyCode == Enum.KeyCode.R and cd == false then
+		cdfuc(2.5)
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://743521691"
+		sound.Volume = 2
+		sound.Parent = plr.PlayerGui
+		sound:Play()
+		game.Debris:AddItem(sound,5)
+		local oldpos = plr.Character.HumanoidRootPart.CFrame
+		plr.Character.HumanoidRootPart.CFrame = CFrame.new(0,-490,0)
+		task.wait(0.1)
+		plr.Character.HumanoidRootPart.CFrame = CFrame.fromEulerAnglesXYZ(math.rad(-90),0,0)
+		plr.Character.HumanoidRootPart.Anchored = true
+		wait(2)
+		plr.Character.HumanoidRootPart.CFrame = oldpos
+		plr.Character.HumanoidRootPart.Anchored = false
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://743521691"
+		sound.Volume = 2
+		sound.Parent = plr.PlayerGui
+		sound:Play()
+		game.Debris:AddItem(sound,5)
+	end
+	if key.KeyCode == Enum.KeyCode.Y and cd == false then
+		cdfuc(0.01)
+		local enemy = game.Workspace.Live[targetval.Value]
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://743521691"
+		sound.Volume = 2
+		sound.Parent = plr.PlayerGui
+		sound:Play()
+		game.Debris:AddItem(sound,5)
+		plr.Character.HumanoidRootPart.CFrame = enemy.HumanoidRootPart.CFrame * CFrame.new(0,0,5)
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://743521691"
+		sound.Volume = 2
+		sound.Parent = plr.PlayerGui
+		sound:Play()
+		game.Debris:AddItem(sound,5)
+	end
+	if key.KeyCode == Enum.KeyCode.Five and cd == false then		local enemy = game.Workspace.Live[targetval.Value]
+		local oldpos = plr.Character.HumanoidRootPart.CFrame
+		for i=1,15 do
+			if cd == true then return end
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://743521691"
+		sound.Volume = 2
+		sound.Parent = plr.PlayerGui
+		sound:Play()
+		game.Debris:AddItem(sound,5)
+		plr.Character.HumanoidRootPart.CFrame = enemy.HumanoidRootPart.CFrame * CFrame.new(math.random(-25,25),0,math.random(-25,25))
+			wait(0.01)
+			if cd == true then return end
+			plr.Character.HumanoidRootPart.CFrame = CFrame.lookAt(plr.Character.HumanoidRootPart.Position, enemy.HumanoidRootPart.Position)	
+			wait(0.01)
+			if cd == true then return end
+		plr.Character.HumanoidRootPart.CFrame = oldpos
+		end
+		if cd == true then return end
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://743521691"
+		sound.Volume = 2
+		sound.Parent = plr.PlayerGui
+		sound:Play()
+		game.Debris:AddItem(sound,5)
+		plr.Character.HumanoidRootPart.CFrame = oldpos
+	end
+	if key.KeyCode == Enum.KeyCode.Six and cd == false and animscriptactivate == true then
+		cdfuc(5)
+		playanim(11365563255,5)
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://18460952794 "
+		sound.Volume = 2
+		sound.Parent = plr.PlayerGui
+		sound:Play()
+		game.Debris:AddItem(sound,5)
+		plr.Character.Humanoid.AutoRotate = false
+		wait(0.75)
+		for i=1,60 do
+			wait(0.01)
+			plr.Character.HumanoidRootPart.CFrame *= CFrame.new(0,0,-1)
+		end
+		for i=1,20 do
+			wait(0.01)
+			plr.Character.HumanoidRootPart.CFrame *= CFrame.new(0,0,-2)
+		end
+		for i=1,10 do
+			wait(0.01)
+			plr.Character.HumanoidRootPart.CFrame *= CFrame.new(0,0,-3)
+		end
+		for i=1,10 do
+			wait(0.01)
+			plr.Character.HumanoidRootPart.CFrame *= CFrame.new(0,0,-4)
+		end
+		repeat wait(0.01)
+			plr.Character.HumanoidRootPart.CFrame *= CFrame.new(0,0,-5)
+		until cd == false
+		plr.Character.HumanoidRootPart.CFrame *= CFrame.new(0,0,-200)
+		plr.Character.Humanoid.AutoRotate = true
+	end
+	if key.KeyCode == Enum.KeyCode.M then
+		afk = not afk
+		if afk == true then
+			afklabel.Visible = true
+		end
+		if afk == false then
+			afklabel.Visible = false
+		end
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://4702564143 "
+		sound.Volume = 2
+		sound.Parent = plr.PlayerGui
+		sound:Play()
+		game.Debris:AddItem(sound,5)
+	end
+end)
+UI.ResetOnSpawn = false
+------------------------------------------------------------------------
+-- Freecam
+-- Cinematic free camera for spectating and video production.
+------------------------------------------------------------------------
+
+local pi    = math.pi
+local abs   = math.abs
+local clamp = math.clamp
+local exp   = math.exp
+local rad   = math.rad
+local sign  = math.sign
+local sqrt  = math.sqrt
+local tan   = math.tan
+
+local ContextActionService = game:GetService("ContextActionService")
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local StarterGui = game:GetService("StarterGui")
+local UserInputService = game:GetService("UserInputService")
+local Workspace = game:GetService("Workspace")
+
+local LocalPlayer = Players.LocalPlayer
+if not LocalPlayer then
+	Players:GetPropertyChangedSignal("LocalPlayer"):Wait()
+	LocalPlayer = Players.LocalPlayer
+end
+
+local Camera = Workspace.CurrentCamera
+Workspace:GetPropertyChangedSignal("CurrentCamera"):Connect(function()
+	local newCamera = Workspace.CurrentCamera
+	if newCamera then
+		Camera = newCamera
+	end
+end)
+
+------------------------------------------------------------------------
+
+local TOGGLE_INPUT_PRIORITY = Enum.ContextActionPriority.Low.Value
+local INPUT_PRIORITY = Enum.ContextActionPriority.High.Value
+local FREECAM_MACRO_KB = {Enum.KeyCode.LeftControl, Enum.KeyCode.P}
+
+local NAV_GAIN = Vector3.new(1, 1, 1)*64
+local PAN_GAIN = Vector2.new(0.75, 1)*8
+local FOV_GAIN = 300
+
+local PITCH_LIMIT = rad(90)
+
+local VEL_STIFFNESS = 1.5
+local PAN_STIFFNESS = 1.0
+local FOV_STIFFNESS = 4.0
+
+------------------------------------------------------------------------
+
+local Spring = {} do
+	Spring.__index = Spring
+
+	function Spring.new(freq, pos)
+		local self = setmetatable({}, Spring)
+		self.f = freq
+		self.p = pos
+		self.v = pos*0
+		return self
+	end
+
+	function Spring:Update(dt, goal)
+		local f = self.f*2*pi
+		local p0 = self.p
+		local v0 = self.v
+
+		local offset = goal - p0
+		local decay = exp(-f*dt)
+
+		local p1 = goal + (v0*dt - offset*(f*dt + 1))*decay
+		local v1 = (f*dt*(offset*f - v0) + v0)*decay
+
+		self.p = p1
+		self.v = v1
+
+		return p1
+	end
+
+	function Spring:Reset(pos)
+		self.p = pos
+		self.v = pos*0
+	end
+end
+
+------------------------------------------------------------------------
+
+local cameraPos = Vector3.new()
+local cameraRot = Vector2.new()
+local cameraFov = 0
+
+local velSpring = Spring.new(VEL_STIFFNESS, Vector3.new())
+local panSpring = Spring.new(PAN_STIFFNESS, Vector2.new())
+local fovSpring = Spring.new(FOV_STIFFNESS, 0)
+
+------------------------------------------------------------------------
+
+local Input = {} do
+	local thumbstickCurve do
+		local K_CURVATURE = 2.0
+		local K_DEADZONE = 0.15
+
+		local function fCurve(x)
+			return (exp(K_CURVATURE*x) - 1)/(exp(K_CURVATURE) - 1)
+		end
+
+		local function fDeadzone(x)
+			return fCurve((x - K_DEADZONE)/(1 - K_DEADZONE))
+		end
+
+		function thumbstickCurve(x)
+			return sign(x)*clamp(fDeadzone(abs(x)), 0, 1)
+		end
+	end
+
+	local gamepad = {
+		ButtonX = 0,
+		ButtonY = 0,
+		DPadDown = 0,
+		DPadUp = 0,
+		ButtonL2 = 0,
+		ButtonR2 = 0,
+		Thumbstick1 = Vector2.new(),
+		Thumbstick2 = Vector2.new(),
+	}
+
+	local keyboard = {
+		W = 0,
+		A = 0,
+		S = 0,
+		D = 0,
+		E = 0,
+		Q = 0,
+		U = 0,
+		H = 0,
+		J = 0,
+		K = 0,
+		I = 0,
+		Y = 0,
+		Up = 0,
+		Down = 0,
+		LeftShift = 0,
+		RightShift = 0,
+	}
+
+	local mouse = {
+		Delta = Vector2.new(),
+		MouseWheel = 0,
+	}
+
+	local NAV_GAMEPAD_SPEED  = Vector3.new(1, 1, 1)
+	local NAV_KEYBOARD_SPEED = Vector3.new(1, 1, 1)
+	local PAN_MOUSE_SPEED    = Vector2.new(1, 1)*(pi/64)
+	local PAN_GAMEPAD_SPEED  = Vector2.new(1, 1)*(pi/8)
+	local FOV_WHEEL_SPEED    = 1.0
+	local FOV_GAMEPAD_SPEED  = 0.25
+	local NAV_ADJ_SPEED      = 0.75
+	local NAV_SHIFT_MUL      = 0.25
+
+	local navSpeed = 1
+
+	function Input.Vel(dt)
+		navSpeed = clamp(navSpeed + dt*(keyboard.Up - keyboard.Down)*NAV_ADJ_SPEED, 0.01, 4)
+
+		local kGamepad = Vector3.new(
+			thumbstickCurve(gamepad.Thumbstick1.X),
+			thumbstickCurve(gamepad.ButtonR2) - thumbstickCurve(gamepad.ButtonL2),
+			thumbstickCurve(-gamepad.Thumbstick1.Y)
+		)*NAV_GAMEPAD_SPEED
+
+		local kKeyboard = Vector3.new(
+			keyboard.D - keyboard.A + keyboard.K - keyboard.H,
+			keyboard.E - keyboard.Q + keyboard.I - keyboard.Y,
+			keyboard.S - keyboard.W + keyboard.J - keyboard.U
+		)*NAV_KEYBOARD_SPEED
+
+		local shift = UserInputService:IsKeyDown(Enum.KeyCode.LeftShift) or UserInputService:IsKeyDown(Enum.KeyCode.RightShift)
+
+		return (kGamepad + kKeyboard)*(navSpeed*(shift and NAV_SHIFT_MUL or 1))
+	end
+
+	function Input.Pan(dt)
+		local kGamepad = Vector2.new(
+			thumbstickCurve(gamepad.Thumbstick2.Y),
+			thumbstickCurve(-gamepad.Thumbstick2.X)
+		)*PAN_GAMEPAD_SPEED
+		local kMouse = mouse.Delta*PAN_MOUSE_SPEED
+		mouse.Delta = Vector2.new()
+		return kGamepad + kMouse
+	end
+
+	function Input.Fov(dt)
+		local kGamepad = (gamepad.ButtonX - gamepad.ButtonY)*FOV_GAMEPAD_SPEED
+		local kMouse = mouse.MouseWheel*FOV_WHEEL_SPEED
+		mouse.MouseWheel = 0
+		return kGamepad + kMouse
+	end
+
+	do
+		local function Keypress(action, state, input)
+			keyboard[input.KeyCode.Name] = state == Enum.UserInputState.Begin and 1 or 0
+			return Enum.ContextActionResult.Sink
+		end
+
+		local function GpButton(action, state, input)
+			gamepad[input.KeyCode.Name] = state == Enum.UserInputState.Begin and 1 or 0
+			return Enum.ContextActionResult.Sink
+		end
+
+		local function MousePan(action, state, input)
+			local delta = input.Delta
+			mouse.Delta = Vector2.new(-delta.y, -delta.x)
+			return Enum.ContextActionResult.Sink
+		end
+
+		local function Thumb(action, state, input)
+			gamepad[input.KeyCode.Name] = input.Position
+			return Enum.ContextActionResult.Sink
+		end
+
+		local function Trigger(action, state, input)
+			gamepad[input.KeyCode.Name] = input.Position.z
+			return Enum.ContextActionResult.Sink
+		end
+
+		local function MouseWheel(action, state, input)
+			mouse[input.UserInputType.Name] = -input.Position.z
+			return Enum.ContextActionResult.Sink
+		end
+
+		local function Zero(t)
+			for k, v in pairs(t) do
+				t[k] = v*0
+			end
+		end
+
+		function Input.StartCapture()
+			ContextActionService:BindActionAtPriority("FreecamKeyboard", Keypress, false, INPUT_PRIORITY,
+				Enum.KeyCode.W, Enum.KeyCode.U,
+				Enum.KeyCode.A, Enum.KeyCode.H,
+				Enum.KeyCode.S, Enum.KeyCode.J,
+				Enum.KeyCode.D, Enum.KeyCode.K,
+				Enum.KeyCode.E, Enum.KeyCode.I,
+				Enum.KeyCode.Q, Enum.KeyCode.Y,
+				Enum.KeyCode.Up, Enum.KeyCode.Down
+			)
+			ContextActionService:BindActionAtPriority("FreecamMousePan",          MousePan,   false, INPUT_PRIORITY, Enum.UserInputType.MouseMovement)
+			ContextActionService:BindActionAtPriority("FreecamMouseWheel",        MouseWheel, false, INPUT_PRIORITY, Enum.UserInputType.MouseWheel)
+			ContextActionService:BindActionAtPriority("FreecamGamepadButton",     GpButton,   false, INPUT_PRIORITY, Enum.KeyCode.ButtonX, Enum.KeyCode.ButtonY)
+			ContextActionService:BindActionAtPriority("FreecamGamepadTrigger",    Trigger,    false, INPUT_PRIORITY, Enum.KeyCode.ButtonR2, Enum.KeyCode.ButtonL2)
+			ContextActionService:BindActionAtPriority("FreecamGamepadThumbstick", Thumb,      false, INPUT_PRIORITY, Enum.KeyCode.Thumbstick1, Enum.KeyCode.Thumbstick2)
+		end
+
+		function Input.StopCapture()
+			navSpeed = 1
+			Zero(gamepad)
+			Zero(keyboard)
+			Zero(mouse)
+			ContextActionService:UnbindAction("FreecamKeyboard")
+			ContextActionService:UnbindAction("FreecamMousePan")
+			ContextActionService:UnbindAction("FreecamMouseWheel")
+			ContextActionService:UnbindAction("FreecamGamepadButton")
+			ContextActionService:UnbindAction("FreecamGamepadTrigger")
+			ContextActionService:UnbindAction("FreecamGamepadThumbstick")
+		end
+	end
+end
+
+local function GetFocusDistance(cameraFrame)
+	local znear = 0.1
+	local viewport = Camera.ViewportSize
+	local projy = 2*tan(cameraFov/2)
+	local projx = viewport.x/viewport.y*projy
+	local fx = cameraFrame.rightVector
+	local fy = cameraFrame.upVector
+	local fz = cameraFrame.lookVector
+
+	local minVect = Vector3.new()
+	local minDist = 512
+
+	for x = 0, 1, 0.5 do
+		for y = 0, 1, 0.5 do
+			local cx = (x - 0.5)*projx
+			local cy = (y - 0.5)*projy
+			local offset = fx*cx - fy*cy + fz
+			local origin = cameraFrame.p + offset*znear
+			local _, hit = Workspace:FindPartOnRay(Ray.new(origin, offset.unit*minDist))
+			local dist = (hit - origin).magnitude
+			if minDist > dist then
+				minDist = dist
+				minVect = offset.unit
+			end
+		end
+	end
+
+	return fz:Dot(minVect)*minDist
+end
+
+------------------------------------------------------------------------
+
+local function StepFreecam(dt)
+	local vel = velSpring:Update(dt, Input.Vel(dt))
+	local pan = panSpring:Update(dt, Input.Pan(dt))
+	local fov = fovSpring:Update(dt, Input.Fov(dt))
+
+	local zoomFactor = sqrt(tan(rad(70/2))/tan(rad(cameraFov/2)))
+
+	cameraFov = clamp(cameraFov + fov*FOV_GAIN*(dt/zoomFactor), 1, 120)
+	cameraRot = cameraRot + pan*PAN_GAIN*(dt/zoomFactor)
+	cameraRot = Vector2.new(clamp(cameraRot.x, -PITCH_LIMIT, PITCH_LIMIT), cameraRot.y%(2*pi))
+
+	local cameraCFrame = CFrame.new(cameraPos)*CFrame.fromOrientation(cameraRot.x, cameraRot.y, 0)*CFrame.new(vel*NAV_GAIN*dt)
+	cameraPos = cameraCFrame.p
+
+	Camera.CFrame = cameraCFrame
+	Camera.Focus = cameraCFrame*CFrame.new(0, 0, -GetFocusDistance(cameraCFrame))
+	Camera.FieldOfView = cameraFov
+end
+
+------------------------------------------------------------------------
+
+local PlayerState = {} do
+	local mouseBehavior
+	local mouseIconEnabled
+	local cameraType
+	local cameraFocus
+	local cameraCFrame
+	local cameraFieldOfView
+	local screenGuis = {}
+	local coreGuis = {
+		Backpack = true,
+		Chat = true,
+		Health = true,
+		PlayerList = true,
+	}
+	local setCores = {
+		BadgesNotificationsActive = true,
+		PointsNotificationsActive = true,
+	}
+
+	-- Save state and set up for freecam
+	function PlayerState.Push()
+
+		cameraFieldOfView = Camera.FieldOfView
+		Camera.FieldOfView = 70
+
+		cameraType = Camera.CameraType
+		Camera.CameraType = Enum.CameraType.Custom
+
+		cameraCFrame = Camera.CFrame
+		cameraFocus = Camera.Focus
+
+		mouseIconEnabled = UserInputService.MouseIconEnabled
+		UserInputService.MouseIconEnabled = false
+
+		mouseBehavior = UserInputService.MouseBehavior
+		UserInputService.MouseBehavior = Enum.MouseBehavior.Default
+	end
+
+	-- Restore state
+	function PlayerState.Pop()
+
+		Camera.FieldOfView = cameraFieldOfView
+		cameraFieldOfView = nil
+
+		Camera.CameraType = cameraType
+		cameraType = nil
+
+		Camera.CFrame = cameraCFrame
+		cameraCFrame = nil
+
+		Camera.Focus = cameraFocus
+		cameraFocus = nil
+
+		UserInputService.MouseIconEnabled = mouseIconEnabled
+		mouseIconEnabled = nil
+
+		UserInputService.MouseBehavior = mouseBehavior
+		mouseBehavior = nil
+	end
+end
+
+local function StartFreecam()
+	if close == true then return end
+	local cameraCFrame = Camera.CFrame
+	cameraRot = Vector2.new(cameraCFrame:toEulerAnglesYXZ())
+	cameraPos = cameraCFrame.p
+	cameraFov = Camera.FieldOfView
+
+	velSpring:Reset(Vector3.new())
+	panSpring:Reset(Vector2.new())
+	fovSpring:Reset(0)
+
+	PlayerState.Push()
+	RunService:BindToRenderStep("Freecam", Enum.RenderPriority.Camera.Value, StepFreecam)
+	Input.StartCapture()
+end
+
+local function StopFreecam()
+	Input.StopCapture()
+	RunService:UnbindFromRenderStep("Freecam")
+	PlayerState.Pop()
+end
+
+------------------------------------------------------------------------
+
+do
+	local enabled = false
+
+	local function ToggleFreecam()
+		if close == true then return end
+		if enabled then
+			StopFreecam()
+			local sound = Instance.new("Sound")
+			sound.SoundId = "rbxassetid://2865227271"
+			sound.Volume = 2
+			sound.Parent = game.Players.LocalPlayer.PlayerGui
+			sound:Play()
+			game.Debris:AddItem(sound,5)
+		else
+			StartFreecam()
+			local sound = Instance.new("Sound")
+			sound.SoundId = "rbxassetid://2865227271"
+			sound.Volume = 2
+			sound.Parent = game.Players.LocalPlayer.PlayerGui
+			sound:Play()
+			game.Debris:AddItem(sound,5)
+		end
+		enabled = not enabled
+	end
+
+	local function CheckMacro(macro)
+		if close == true then return end
+		for i = 1, #macro - 1 do
+			if not UserInputService:IsKeyDown(macro[i]) then
+				return
+			end
+		end
+		ToggleFreecam()
+	end
+
+	local function HandleActivationInput(action, state, input)
+		if state == Enum.UserInputState.Begin then
+			if input.KeyCode == FREECAM_MACRO_KB[#FREECAM_MACRO_KB] then
+				CheckMacro(FREECAM_MACRO_KB)
+			end
+		end
+		return Enum.ContextActionResult.Pass
+	end
+
+	ContextActionService:BindActionAtPriority("FreecamToggle", HandleActivationInput, false, TOGGLE_INPUT_PRIORITY, FREECAM_MACRO_KB[#FREECAM_MACRO_KB])
+end
+
+otherhub.MouseButton1Click:Connect(function()
+	local canclick = true
+	otherhub.MouseButton1Click:Connect(function()
+		if canclick == true then
+			local sound = Instance.new("Sound")
+			sound.SoundId = soundva.SoundId
+			sound.Volume = 2
+			sound.Parent = game.Players.LocalPlayer.PlayerGui
+			sound:Play()
+			game.Debris:AddItem(sound,5)
+		end
+	end)
+	coroutine.resume(coroutine.create(function()
+		repeat wait() until savechange == true
+		canclick = false
+	end))
+	print("running "..otherhub.Text)
+	local Screenguini = Instance.new("ScreenGui")
+	local Frame = Instance.new("Frame")
+	local TextLabel = Instance.new("TextLabel")
+	local TextLabel_2 = Instance.new("TextLabel")
+	local UsernameBox = Instance.new("TextBox")
+	local TextLabel_3 = Instance.new("TextLabel")
+	local PlaceIdBox = Instance.new("TextBox")
+	local StartButton = Instance.new("TextButton")
+	local TextLabel_4 = Instance.new("TextLabel")
+	local UsernameLabel = Instance.new("TextLabel")
+	local TextLabel_5 = Instance.new("TextLabel")
+	local UserIdLabel = Instance.new("TextLabel")
+	local GamerPicture = Instance.new("ImageLabel")
+
+	local HttpService = game:GetService("HttpService")
+	local Players = game:GetService("Players")
+	local TeleportService = game:GetService("TeleportService")
+
+	Screenguini.Name = HttpService:GenerateGUID(false)
+	Screenguini.Parent = game:GetService("CoreGui")
+
+	Frame.Parent = Screenguini
+	Frame.Active = true
+	Frame.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
+	Frame.BorderColor3 = Color3.fromRGB(31, 31, 31)
+	Frame.Draggable = true
+	Frame.Size = UDim2.new(0, 400, 0, 260)
+
+	TextLabel.Parent = Frame
+	TextLabel.Active = true
+	TextLabel.BackgroundColor3 = Color3.fromRGB(255, 170, 0)
+	TextLabel.BorderColor3 = Color3.fromRGB(31, 31, 40)
+	TextLabel.Size = UDim2.new(0, 400, 0, 40)
+	TextLabel.Font = Enum.Font.SourceSansLight
+	TextLabel.Text = "Synapse X Stream Sniper"
+	TextLabel.TextSize = 24.000
+
+	TextLabel_2.Parent = Frame
+	TextLabel_2.Active = true
+	TextLabel_2.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
+	TextLabel_2.BorderColor3 = Color3.fromRGB(31, 31, 31)
+	TextLabel_2.Position = UDim2.new(0, 10, 0, 49)
+	TextLabel_2.Size = UDim2.new(0, 150, 0, 20)
+	TextLabel_2.Font = Enum.Font.SourceSansLight
+	TextLabel_2.Text = "Username/UserId:"
+	TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+	TextLabel_2.TextSize = 16.000
+
+	UsernameBox.Name = "UsernameBox"
+	UsernameBox.Parent = Frame
+	UsernameBox.BackgroundColor3 = Color3.fromRGB(61, 61, 61)
+	UsernameBox.BorderColor3 = Color3.fromRGB(31, 31, 31)
+	UsernameBox.Position = UDim2.new(0, 10, 0, 80)
+	UsernameBox.Size = UDim2.new(0, 150, 0, 35)
+	UsernameBox.Font = Enum.Font.SourceSansLight
+	UsernameBox.PlaceholderColor3 = Color3.fromRGB(255, 255, 255)
+	UsernameBox.PlaceholderText = "Enter Username Here"
+	UsernameBox.Text = ""
+	UsernameBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+	UsernameBox.TextSize = 18.000
+
+	TextLabel_3.Parent = Frame
+	TextLabel_3.Active = true
+	TextLabel_3.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
+	TextLabel_3.BorderColor3 = Color3.fromRGB(31, 31, 31)
+	TextLabel_3.Position = UDim2.new(0, 10, 0, 130)
+	TextLabel_3.Size = UDim2.new(0, 150, 0, 20)
+	TextLabel_3.Font = Enum.Font.SourceSansLight
+	TextLabel_3.Text = "Place Id:"
+	TextLabel_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+	TextLabel_3.TextSize = 16.000
+
+	PlaceIdBox.Name = "PlaceIdBox"
+	PlaceIdBox.Parent = Frame
+	PlaceIdBox.BackgroundColor3 = Color3.fromRGB(61, 61, 61)
+	PlaceIdBox.BorderColor3 = Color3.fromRGB(31, 31, 31)
+	PlaceIdBox.Position = UDim2.new(0, 10, 0, 157)
+	PlaceIdBox.Size = UDim2.new(0, 150, 0, 35)
+	PlaceIdBox.Font = Enum.Font.SourceSansLight
+	PlaceIdBox.PlaceholderColor3 = Color3.fromRGB(255, 255, 255)
+	PlaceIdBox.PlaceholderText = "Enter PlaceId Here"
+	PlaceIdBox.Text = ""
+	PlaceIdBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+	PlaceIdBox.TextSize = 18.000
+
+	StartButton.Name = "StartButton"
+	StartButton.Parent = Frame
+	StartButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+	StartButton.BorderColor3 = Color3.fromRGB(31, 31, 31)
+	StartButton.Position = UDim2.new(0, 10, 0, 210)
+	StartButton.Size = UDim2.new(0, 380, 0, 40)
+	StartButton.Font = Enum.Font.SourceSansLight
+	StartButton.Text = "Start"
+	StartButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+	StartButton.TextSize = 24.000
+
+	TextLabel_4.Parent = Frame
+	TextLabel_4.Active = true
+	TextLabel_4.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
+	TextLabel_4.BackgroundTransparency = 1.000
+	TextLabel_4.BorderColor3 = Color3.fromRGB(31, 31, 31)
+	TextLabel_4.Position = UDim2.new(0, 200, 0, 49)
+	TextLabel_4.Size = UDim2.new(0, 0, 0, 20)
+	TextLabel_4.AutomaticSize = Enum.AutomaticSize.X
+	TextLabel_4.Font = Enum.Font.SourceSansBold
+	TextLabel_4.Text = "Username:"
+	TextLabel_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+	TextLabel_4.TextSize = 16.000
+	TextLabel_4.TextWrapped = true
+	TextLabel_4.TextXAlignment = Enum.TextXAlignment.Left
+
+	UsernameLabel.Name = "UsernameLabel"
+	UsernameLabel.Parent = TextLabel_4
+	UsernameLabel.Active = true
+	UsernameLabel.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
+	UsernameLabel.BackgroundTransparency = 1.000
+	UsernameLabel.BorderColor3 = Color3.fromRGB(31, 31, 31)
+	UsernameLabel.Position = UDim2.new(0.5, 0, 0, 0)
+	UsernameLabel.Size = UDim2.new(0, 150, 0, 20)
+	UsernameLabel.Font = Enum.Font.SourceSansLight
+	UsernameLabel.Text = ""
+	UsernameLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+	UsernameLabel.TextSize = 16.000
+	UsernameLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+	TextLabel_5.Parent = Frame
+	TextLabel_5.Active = true
+	TextLabel_5.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
+	TextLabel_5.BackgroundTransparency = 1.000
+	TextLabel_5.BorderColor3 = Color3.fromRGB(31, 31, 31)
+	TextLabel_5.Position = UDim2.new(0, 200, 0, 69)
+	TextLabel_5.Size = UDim2.new(0, 0, 0, 20)
+	TextLabel_5.AutomaticSize = Enum.AutomaticSize.X
+	TextLabel_5.Font = Enum.Font.SourceSansBold
+	TextLabel_5.Text = "UserId:"
+	TextLabel_5.TextColor3 = Color3.fromRGB(255, 255, 255)
+	TextLabel_5.TextSize = 16.000
+	TextLabel_5.TextWrapped = true
+	TextLabel_5.TextXAlignment = Enum.TextXAlignment.Left
+
+	UserIdLabel.Name = "UserIdLabel"
+	UserIdLabel.Parent = TextLabel_5
+	UserIdLabel.Active = true
+	UserIdLabel.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
+	UserIdLabel.BackgroundTransparency = 1.000
+	UserIdLabel.BorderColor3 = Color3.fromRGB(31, 31, 31)
+	UserIdLabel.Position = UDim2.new(0.5, 0, 0, 0)
+	UserIdLabel.Size = UDim2.new(0, 150, 0, 20)
+	UserIdLabel.Font = Enum.Font.SourceSansLight
+	UserIdLabel.Text = ""
+	UserIdLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+	UserIdLabel.TextSize = 16.000
+	UserIdLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+	GamerPicture.Name = "GamerPicture"
+	GamerPicture.Parent = Frame
+	GamerPicture.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	GamerPicture.Position = UDim2.new(0, 200, 0, 95)
+	GamerPicture.Size = UDim2.new(0, 97, 0, 97)
+	GamerPicture.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+
+	if shared.STREAM_SNIPER then
+		shared.STREAM_SNIPER:Destroy()
+	end
+	shared.STREAM_SNIPER = Screenguini
+
+	local searching = false
+	local confirm = false
+
+	local function HttpGet(url)
+		return pcall(HttpService.JSONDecode, HttpService, game:HttpGet(url))
+	end
+
+	local function Status(text, tout)
+		StartButton.Text = text
+
+		if tout then
+			task.delay(tout, function()
+				if StartButton.Text == text then
+					searching = false
+					StartButton.Text = "Start"    
+				end
+			end)
+		end
+	end
+
+	local function getServers(id, cursor)
+		local fullurl = "https://games.roblox.com/v1/games/".. id .."/servers/Public?limit=100"
+		if cursor then
+			fullurl = "&cursor=".. cursor
+		end
+
+		return HttpGet(fullurl)
+	end
+
+	local function fetchThumbs(tokens)
+		local payload = {
+			Url = "https://thumbnails.roblox.com/v1/batch",
+			Headers = {
+				["Content-Type"] = "application/json"
+			},
+			Method = "POST",
+
+			Body = {}
+		}
+
+		for _, token in ipairs(tokens) do
+			table.insert(payload.Body, {
+				requestId = "0:".. token ..":AvatarHeadshot:150x150:png:regular",
+				type = "AvatarHeadShot",
+				targetId = 0,
+				token = token,
+				format = "png",
+				size = "150x150"
+			})
+		end
+
+		payload.Body = HttpService:JSONEncode(payload.Body)
+		local result = syn.request(payload)
+		local s, data = pcall(HttpService.JSONDecode, HttpService, result.Body)
+		return s, data and data.data or data
+	end
+
+	local function teleport(placeId, guid)
+		TeleportService:TeleportToPlaceInstance(placeId, guid)
+	end
+
+
+	local threads = 30
+
+	StartButton.MouseButton1Click:Connect(function()
+		if confirm then
+			confirm = false
+			searching = false
+			Status("Cancelled")
+			return
+		end
+
+		if searching then
+			confirm = true
+			local old = StartButton.Text
+			Status("Click again to confirm.")
+			task.delay(5, function()
+				if "Click again to confirm." == StartButton.Text then
+					confirm = false
+					StartButton.Text = old
+				end
+			end)
+			return
+		end
+
+		searching = true
+
+		-- User ID
+		Status("Getting user id...")
+
+		local s, Username, UserId = pcall(function() -- TODO FIX: fix for only numbers players
+			local userId = tonumber(UsernameBox.Text) or Players:GetUserIdFromNameAsync(UsernameBox.Text)
+			local username = Players:GetNameFromUserIdAsync(userId)
+
+			return username, userId
+		end)
+
+		if not s then
+			return Status("Username or UserId does not exist!", 3)
+		end
+
+		local s, thumbUrl = pcall(Players.GetUserThumbnailAsync, Players, UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size150x150)
+
+		UsernameLabel.Text = Username
+		UserIdLabel.Text = UserId
+		GamerPicture.Image = s and thumbUrl or ""
+
+		Status("Getting user's thumbnail...")
+		local s, response = HttpGet("https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=" .. UserId .. "&format=Png&size=150x150&isCircular=false")
+		--local s, response = HttpGet("https://www.roblox.com/headshot-thumbnail/json?userId=" .. UserId .. "&width=150&height=150")
+		local thumbnail = s and response['data'][1].imageUrl
+
+		Status("Searching for (".. UserId ..")")
+
+		-- Place ID
+		Status("Getting place id...")
+
+		local placeId = tonumber(PlaceIdBox.Text)
+
+		if PlaceIdBox.Text:gsub("%s", "") == "" then
+			placeId = game.PlaceId
+
+		elseif not placeId then
+			Status("Invalid place id", 3)
+			return
+		end
+
+		Status("Searching...")
+		local cursor = nil
+		local searched = 0
+		local maxSearchs = 0
+		local players = 0
+		-- Server search
+		while searching do
+			if not Screenguini or not Screenguini.Parent then
+				break
+			end
+			local s, result = getServers(placeId, cursor)
+
+			if s then
+				local servers = result.data
+				cursor = result.nextPageCursor
+
+				if StartButton.Text:match("Searching") then
+					maxSearchs = maxSearchs + #servers
+					Status(searched .."/".. maxSearchs .." servers scanned, players found: ".. players)
+				end
+
+				-- Search all servers
+				for index, server in ipairs(servers) do
+					local function fetchServer()
+						local s, thumbs = fetchThumbs(server.playerTokens)
+						if s then
+							players = players + #thumbs
+							for _, playerThumb in ipairs(thumbs) do
+								if playerThumb.imageUrl then
+									if playerThumb.imageUrl == thumbnail then
+										searching = false
+										Status("Found player, teleporting...")
+
+										teleport(placeId, server.id)
+										local try = 0
+										Player.OnTeleport:Connect(function(teleportState)
+											if teleportState == Enum.TeleportState.Failed then
+												try = try + 1
+												Status("Teleport failed, try #".. try)
+												teleport(placeId, server.id)
+											end
+										end)
+									end
+								else
+									Status("token failed, id:", playerThumb.requestId, playerThumb.state, playerThumb.errorMessage)
+									--print("token failed, id:", playerThumb.requestId, playerThumb.state, playerThumb.errorMessage)
+								end
+							end
+						else
+							Status("token failed", s, thumb)
+							--print("token failed", s, thumbs)
+						end
+					end
+					searched = searched + 1
+					if index % threads ~= 0 then
+						task.spawn(fetchServer)
+						task.wait()
+
+					else
+						fetchServer()
+					end
+
+					if searching then
+						Status(searched .."/".. maxSearchs .." servers scanned, players found: ".. players)
+					end
+				end
+
+				-- Player not found
+				if not cursor then
+					break
+				end
+			else
+				return Status("Failed to find servers", 3)
+			end
+
+			task.wait()
+		end
+
+		if searching then
+			Status("Failed to find ".. Username ..", maybe in a vip server", 3)
+		end
+	end)
+end)
