@@ -47,6 +47,8 @@ coroutine.resume(coroutine.create(function()
 		if not plr.Character:FindFirstChild("Humanoid") then return end
 		if not plr.Character:FindFirstChild("Ragdoll") then
 			plr.Character.Humanoid.AutoRotate = true
+			game.Workspace.CurrentCamera.CameraType = Enum.CameraType.Custom
+			game.Workspace.CurrentCamera.FieldOfView = 70
 		end
 	end
 end))
@@ -838,9 +840,27 @@ UIS.InputBegan:Connect(function(key ,typing)
 end)
 local p = false
 function autododgelol()
+	local rs =game:GetService("RunService")
+	rs.RenderStepped:Connect(function()
+	if close == true then return end
+			if not plr.Character then return end
+			if not plr.Character:FindFirstChild("HumanoidRootPart") then return end
+			if autododgetoggle == false then return end
+		if plr.Character.HumanoidRootPart.Velocity.Y < -200 then
+				if oldpos ~= nil then
+					plr.Character.HumanoidRootPart.CFrame = oldpos
+					local sound = Instance.new("Sound")
+					sound.SoundId = "rbxassetid://5066021887"
+					sound.Volume = 0.5
+					sound.Parent = plr.PlayerGui
+					sound:Play()
+					game.Debris:AddItem(sound,5)
+				end
+		end
+    end)
 local autododgehitbox = Instance.new("Part")
 autododgehitbox.Transparency = 1
-autododgehitbox.Size = Vector3.new(100,25,100)
+autododgehitbox.Size = Vector3.new(100,500,100)
 autododgehitbox.CanCollide = false
 	autododgehitbox.Color = Color3.new(1, 1, 1)
 	coroutine.resume(coroutine.create(function()
@@ -852,7 +872,7 @@ autododgehitbox.CanTouch = true
 	autododgehitbox.CastShadow = false
 local push = Instance.new("BodyVelocity")
 push.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
-	push.Velocity = Vector3.new(0,10,0)
+	push.Velocity = Vector3.new(0,0,0)
 push.Parent = autododgehitbox
 autododgehitbox.Parent = game.Workspace
 local autododgecd = false
@@ -867,9 +887,12 @@ coroutine.resume(coroutine.create(function()
 		if autododgetoggle == true then
 			autododgehitbox.Transparency = 0.75
 			autododgehitbox.CFrame = plr.Character.HumanoidRootPart.CFrame
-		else
-			autododgehitbox.Transparency = 1
-		end
+				push.Velocity = Vector3.new(0,10,0)
+			else
+				autododgehitbox.Transparency = 0.9
+				autododgehitbox.CFrame = CFrame.new(1073.91, 300, 23000.9)
+				push.Velocity = Vector3.new(0,0,0)
+			end
 	end
 end))
 autododgehitbox.Touched:Connect(function(hit)
@@ -889,12 +912,22 @@ autododgehitbox.Touched:Connect(function(hit)
 			autododgecd = true
 			task.wait(1)
 			autododgecd = false
-		end))
+			end))
+			for i,v in pairs(hit.Parent:GetChildren()) do
+				if v.Name == "GreenAura" or v.Name == "GlowingArm" or v.Name == "HasKatana" then
+					local vim = game:GetService("VirtualInputManager")
+					vim:SendKeyEvent(true, Enum.KeyCode.F, false, nil)
+					coroutine.resume(coroutine.create(function()
+						repeat task.wait() until not hit.Parent:FindFirstChild(v)
+						vim:SendKeyEvent(false, Enum.KeyCode.F, false, nil)
+					end))
+				end
+			end
 	end
 end)
 local autododgehitbox2 = Instance.new("Part")
 autododgehitbox2.Transparency = 1
-autododgehitbox2.Size = Vector3.new(500,25,500)
+autododgehitbox2.Size = Vector3.new(1000,500,1000)
 autododgehitbox2.Color = Color3.new(0, 1, 1)
 autododgehitbox2.CanCollide = false
 	autododgehitbox2.CanTouch = true
@@ -906,7 +939,7 @@ autododgehitbox2.CanCollide = false
 	autododgehitbox2.CastShadow = false
 local push = Instance.new("BodyVelocity")
 push.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
-	push.Velocity = Vector3.new(0,10,0)
+	push.Velocity = Vector3.new(0,0,0)
 push.Parent = autododgehitbox2
 autododgehitbox2.Parent = game.Workspace
 local autododgecd = false
@@ -919,9 +952,12 @@ coroutine.resume(coroutine.create(function()
 		if autododgetoggle == true then
 			autododgehitbox2.Transparency = 0.75
 			autododgehitbox2.CFrame = plr.Character.HumanoidRootPart.CFrame
-		else
-			autododgehitbox2.Transparency = 1
-		end
+				push.Velocity = Vector3.new(0,10,0)
+			else
+				autododgehitbox2.Transparency = 0.9
+				autododgehitbox2.CFrame = CFrame.new(1073.91, 300, 23000.9)
+				push.Velocity = Vector3.new(0,0,0)
+			end
 	end
 end))
 autododgehitbox2.Touched:Connect(function(hit)
@@ -931,8 +967,8 @@ autododgehitbox2.Touched:Connect(function(hit)
 	if hit.Parent:FindFirstChild("Humanoid") and hit.Parent.Name ~= plr.Name then
 		for i,v in pairs(hit.Parent:GetChildren()) do
 		if v.Name:find("Counter") or v.ClassName == "ForceField" or v.Name == "Slowed" or v.Name == "Freeze" then
-					if hit.Parent.Humanoid.FloorMaterial == Enum.Material.Air then return end	
-					plr.Character.HumanoidRootPart.CFrame = hit.Parent.HumanoidRootPart.CFrame * CFrame.new(0,0,55)
+		if hit.Parent.Humanoid.FloorMaterial == Enum.Material.Air then return end	
+		plr.Character.HumanoidRootPart.CFrame = hit.Parent.HumanoidRootPart.CFrame * CFrame.new(0,0,55)
 		local sound = Instance.new("Sound")
 		sound.SoundId = "rbxassetid://5066021887"
 		sound.Volume = 0.5
@@ -945,12 +981,37 @@ autododgehitbox2.Touched:Connect(function(hit)
 		autododgecd2 = false
 			end))
 			end
-		end
+			end
+			for i,v in pairs(hit.Parent:GetChildren()) do
+				if v.Name == "GlowingArm" or v.Name == "HiddenFist" or v.Name == "HasKatana" or v.Name == "DoingBladeSkill" or v.Name == "GreenAura" or v.Name == "NoRotateUltimate" then
+					if hit.Parent.Humanoid.FloorMaterial == Enum.Material.Air then return end	
+					if v.Name == "GreenAura" then
+						local vim = game:GetService("VirtualInputManager")
+						vim:SendKeyEvent(true, Enum.KeyCode.F, false, nil)
+						task.wait(1)
+						vim:SendKeyEvent(false, Enum.KeyCode.F, false, nil)
+					end		
+					repeat wait(0.5)
+					plr.Character.HumanoidRootPart.CFrame = hit.Parent.HumanoidRootPart.CFrame * CFrame.new(0,0,55)
+					until not hit.Parent:FindFirstChild(v)
+					local sound = Instance.new("Sound")
+					sound.SoundId = "rbxassetid://5066021887"
+					sound.Volume = 0.5
+					sound.Parent = plr.PlayerGui
+					sound:Play()
+					game.Debris:AddItem(sound,5)
+					coroutine.resume(coroutine.create(function()
+						autododgecd2 = true
+						task.wait(1)
+						autododgecd2 = false
+					end))
+				end
+			end
 	end
 	end)
 	local autododgehitbox3 = Instance.new("Part")
 	autododgehitbox3.Transparency = 1
-	autododgehitbox3.Size = Vector3.new(230,25,230)
+	autododgehitbox3.Size = Vector3.new(230,500,230)
 	autododgehitbox3.CanCollide = false
 	autododgehitbox3.Color = Color3.new(1, 1, 0)
 	autododgehitbox3.CanTouch = true
@@ -962,7 +1023,7 @@ autododgehitbox2.Touched:Connect(function(hit)
 	autododgehitbox3.CastShadow = false
 	local push = Instance.new("BodyVelocity")
 	push.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
-	push.Velocity = Vector3.new(0,10,0)
+	push.Velocity = Vector3.new(0,0,0)
 	push.Parent = autododgehitbox3
 	autododgehitbox3.Parent = game.Workspace
 	coroutine.resume(coroutine.create(function()
@@ -974,8 +1035,11 @@ autododgehitbox2.Touched:Connect(function(hit)
 			if autododgetoggle == true then
 				autododgehitbox3.Transparency = 0.75
 				autododgehitbox3.CFrame = plr.Character.HumanoidRootPart.CFrame
+				push.Velocity = Vector3.new(0,10,0)
 			else
-				autododgehitbox3.Transparency = 1
+				autododgehitbox3.Transparency = 0.9
+				autododgehitbox3.CFrame = CFrame.new(1073.91, 300, 23000.9)
+				push.Velocity = Vector3.new(0,0,0)
 			end
 		end
 	end))
@@ -983,8 +1047,9 @@ autododgehitbox2.Touched:Connect(function(hit)
 		if close == true then return end
 		if autododgetoggle == false then return end
 		if autododgecd3 == true then return end
-		if hit.Parent:FindFirstChild("Humanoid") and hit.Parent.Name ~= plr.Name and hit.Parent:FindFirstChild("HumanoidRootPart") and hit.Parent:FindFirstChildOfClass("BodyVelocity") then
+		if hit.Parent:FindFirstChild("Humanoid") and hit.Parent.Name ~= plr.Name and hit.Parent:FindFirstChild("HumanoidRootPart") then
 			if hit.Parent.Humanoid.FloorMaterial == Enum.Material.Air then return end
+		    if hit.Parent:FindFirstChildOfClass("BodyVelocity") or hit.Parent:FindFirstChildOfClass("BodyGyro") or hit.Parent:FindFirstChildOfClass("BodyPosition") then
 			plr.Character.HumanoidRootPart.CFrame = hit.Parent.HumanoidRootPart.CFrame * CFrame.new(0,0,105)
 			local sound = Instance.new("Sound")
 			sound.SoundId = "rbxassetid://5066021887"
@@ -996,24 +1061,35 @@ autododgehitbox2.Touched:Connect(function(hit)
 				autododgecd3 = true
 				task.wait(0.01)
 				autododgecd3 = false
-			end))
+				end))
+				for i,v in pairs(hit.Parent:GetChildren()) do
+					if v.Name == "GreenAura" or v.Name == "GlowingArm" or v.Name == "HasKatana" then
+						local vim = game:GetService("VirtualInputManager")
+						vim:SendKeyEvent(true, Enum.KeyCode.F, false, nil)
+						coroutine.resume(coroutine.create(function()
+							repeat task.wait() until not hit.Parent:FindFirstChild(v)
+							vim:SendKeyEvent(false, Enum.KeyCode.F, false, nil)
+						end))
+					end
+				end
+			end
 		end
 	end)
 	local autododgehitbox4 = Instance.new("Part")
 	autododgehitbox4.Transparency = 1
-	autododgehitbox4.Size = Vector3.new(25,25,25)
+	autododgehitbox4.Size = Vector3.new(25,500,25)
 	autododgehitbox4.CanCollide = false
 	autododgehitbox4.Color = Color3.new(0, 0, 0)
 	coroutine.resume(coroutine.create(function()
 		repeat wait() until close == true
-		autododgehitbox:Destroy()
+		autododgehitbox4:Destroy()
 	end))
 	autododgehitbox4.CanTouch = true
 	autododgehitbox4.Anchored = false
 	autododgehitbox4.CastShadow = false
 	local push = Instance.new("BodyVelocity")
 	push.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
-	push.Velocity = Vector3.new(0,10,0)
+	push.Velocity = Vector3.new(0,0,0)
 	push.Parent = autododgehitbox4
 	autododgehitbox4.Parent = game.Workspace
 	local autododgecd4 = false
@@ -1026,8 +1102,11 @@ autododgehitbox2.Touched:Connect(function(hit)
 			if autododgetoggle == true then
 				autododgehitbox4.Transparency = 0.75
 				autododgehitbox4.CFrame = plr.Character.HumanoidRootPart.CFrame
+				push.Velocity = Vector3.new(0,10,0)
 			else
-				autododgehitbox4.Transparency = 1
+				autododgehitbox4.Transparency = 0.9
+				autododgehitbox4.CFrame = CFrame.new(1073.91, 300, 23000.9)
+				push.Velocity = Vector3.new(0,0,0)
 			end
 		end
 	end))
@@ -1049,6 +1128,16 @@ autododgehitbox2.Touched:Connect(function(hit)
 				task.wait(1)
 				autododgecd4 = false
 			end))
+			for i,v in pairs(hit.Parent:GetChildren()) do
+				if v.Name == "GreenAura" or v.Name == "GlowingArm" or v.Name == "HasKatana" then
+					local vim = game:GetService("VirtualInputManager")
+					vim:SendKeyEvent(true, Enum.KeyCode.F, false, nil)
+					coroutine.resume(coroutine.create(function()
+						repeat task.wait() until not hit.Parent:FindFirstChild(v)
+						vim:SendKeyEvent(false, Enum.KeyCode.F, false, nil)
+					end))
+				end
+			end
 		end
 	end)
 end
