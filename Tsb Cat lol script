@@ -39,9 +39,9 @@ function playanim(id,length)
 		end
 	end))
 end
-coroutine.resume(coroutine.create(function()
-	while task.wait() do
-		if close == true then break end
+local rs = game:GetService("RunService")
+rs.RenderStepped:Connect(function()
+		if close == true then return end
 		-- always rotate --
 		if not plr.Character then return end
 		if not plr.Character:FindFirstChild("Humanoid") then return end
@@ -50,8 +50,7 @@ coroutine.resume(coroutine.create(function()
 			game.Workspace.CurrentCamera.CameraType = Enum.CameraType.Custom
 			game.Workspace.CurrentCamera.FieldOfView = 70
 		end
-	end
-end))
+end)
 local soundva = Instance.new("Sound")
 soundva.SoundId = "rbxassetid://9119713951"
 local tc1va = 1
