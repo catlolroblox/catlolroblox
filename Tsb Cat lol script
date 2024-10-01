@@ -864,7 +864,7 @@ autododgehitbox.Size = Vector3.new(100,500,100)
 autododgehitbox.CanCollide = false
 	autododgehitbox.Color = Color3.new(1, 1, 1)
 	coroutine.resume(coroutine.create(function()
-		repeat wait() until close == true
+		repeat wait() until close == true or plr.Character.Humanoid.Health <= 0
 		autododgehitbox:Destroy()
 	end))
 autododgehitbox.CanTouch = true
@@ -932,7 +932,7 @@ autododgehitbox2.Color = Color3.new(0, 1, 1)
 autododgehitbox2.CanCollide = false
 	autododgehitbox2.CanTouch = true
 	coroutine.resume(coroutine.create(function()
-		repeat wait() until close == true
+		repeat wait() until close == true or plr.Character.Humanoid.Health <= 0
 		autododgehitbox2:Destroy()
 	end))
 	autododgehitbox2.Anchored = false
@@ -1016,7 +1016,7 @@ autododgehitbox2.Touched:Connect(function(hit)
 	autododgehitbox3.Color = Color3.new(1, 1, 0)
 	autododgehitbox3.CanTouch = true
 	coroutine.resume(coroutine.create(function()
-		repeat wait() until close == true
+		repeat wait() until close == true or plr.Character.Humanoid.Health <= 0
 		autododgehitbox3:Destroy()
 	end))
 	autododgehitbox3.Anchored = false
@@ -1081,7 +1081,7 @@ autododgehitbox2.Touched:Connect(function(hit)
 	autododgehitbox4.CanCollide = false
 	autododgehitbox4.Color = Color3.new(0, 0, 0)
 	coroutine.resume(coroutine.create(function()
-		repeat wait() until close == true
+		repeat wait() until close == true or plr.Character.Humanoid.Health <= 0
 		autododgehitbox4:Destroy()
 	end))
 	autododgehitbox4.CanTouch = true
