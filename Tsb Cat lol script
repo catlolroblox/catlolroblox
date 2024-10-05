@@ -736,15 +736,17 @@ coroutine.resume(coroutine.create(function()
 						espthinglol.Attachment0 = z
 						espthinglol.Width0 = 0.3
 						espthinglol.Width1 = 0.3
+						v.HumanoidRootPart.Transparency = 0
 						e.Parent = v.HumanoidRootPart
 						z.Parent = plr.Character.HumanoidRootPart
-						espthinglol.Parent = v
+						espthinglol.Parent = plr.Character
 						espthinglol.FaceCamera = true
 					end
 					if v.Name == target and v:FindFirstChild("HumanoidRootPart") then
 						local va = Instance.new("BoolValue")
 						va.Name = "ESPPLAYERLOL"
 						va.Parent = v
+						v.HumanoidRootPart.Transparency = 0
 						local highlightplr = Instance.new("Highlight")
 						highlightplr.Parent = v
 						highlightplr.Enabled = true
@@ -761,7 +763,7 @@ coroutine.resume(coroutine.create(function()
 						espthinglol.Width1 = 0.3
 						e.Parent = v.HumanoidRootPart
 						z.Parent = plr.Character.HumanoidRootPart
-						espthinglol.Parent = v
+						espthinglol.Parent = plr.Character
 						espthinglol.FaceCamera = true
 						coroutine.resume(coroutine.create(function()
 							repeat wait() until target ~= v.Name
