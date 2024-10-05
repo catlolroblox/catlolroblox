@@ -14,7 +14,7 @@ sound.Parent = game.Players.LocalPlayer.PlayerGui
 sound:Play()
 game.Debris:AddItem(sound,5)
 
-print("run ai tsb script by cat lol (Sonic JUN MOVESET)")
+print("run ai tsb script by cat lol (Sonic SONIC MOVESET)")
 warn("Press P To Stop")
 warn("Recommended This On Private Server With Friend For Challenge! Not Recommend On Public")
 warn("This Script Has Auto Chat Beware Of It!")
@@ -313,7 +313,7 @@ local chatrem = game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageReq
 
 local UMessage = " "
 local SPrefix = "[S]:"
-local SMessage = "A Boss raid Jun has been spawned!"
+local SMessage = "A Boss raid Sonic has been spawned!"
 local A_1   = UMessage.."                                                                                                                                              ".. SPrefix.. " ".. SMessage
 local A_2   = "All"
 
@@ -734,13 +734,39 @@ function p()
 									end
 								end
 							end
-							if v.ClassName == "ForceField" then
+							if v.Name == "AbsoluteImmortal" then
 								local thing = v
 								dontgoyet = true
 								dontm1yet = true
 								canattack = false
 								canlock = false
-								repeat wait(0.1) until not enemychar:FindFirstChildOfClass("ForceField")
+								wait(0.25)
+								local chatrem = game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest
+								chatrem:FireServer("Bro got an iframe? i'd hide","All")
+								plr.Character.HumanoidRootPart.CFrame = CFrame.new(0,-400,0)
+								wait(0.25)
+								plr.Character.HumanoidRootPart.Anchored = true
+								repeat wait(0.1)
+								until not enemychar:FindFirstChild("AbsoluteImmortal")
+								plr.Character.HumanoidRootPart.CFrame = oldpos
+								wait(0.25)
+								plr.Character.HumanoidRootPart.Anchored = false
+								dontgoyet = false
+								dontm1yet = false
+								canattack = true
+								canlock = true
+							end
+							if v.ClassName == "ForceField" and v.Name ~= "AbsoluteImmortal" then
+								local thing = v
+								dontgoyet = true
+								dontm1yet = true
+								canattack = false
+								canlock = false
+								repeat wait(0.1)
+									plr.Character.Humanoid.WalkSpeed = 1000
+									vim:SendKeyEvent(true, Enum.KeyCode.S, false, nil)	
+								until not enemychar:FindFirstChildOfClass("ForceField")
+								vim:SendKeyEvent(false, Enum.KeyCode.W, false, nil)	
 								dontgoyet = false
 								dontm1yet = false
 								canattack = true
@@ -885,8 +911,8 @@ function p()
 							vim:SendKeyEvent(false, Enum.KeyCode.A, false, nil)	
 							vim:SendKeyEvent(false, Enum.KeyCode.D, false, nil)	
 							vim:SendKeyEvent(false, Enum.KeyCode.S, false, nil)	
-							plr.Character.HumanoidRootPart.CFrame = CFrame.new(992.302, 665.942, 614.392)
-							local hideoutpos = CFrame.new(992.302, 665.942, 614.392)
+							plr.Character.HumanoidRootPart.CFrame = CFrame.new(0,-400,0)
+							local hideoutpos = CFrame.new(0,-400,0)
 							wait(0.25)
 							dontm1yet = true
 							dontgoyet = true
@@ -899,7 +925,8 @@ function p()
 									if stopnow == true then
 										break
 									end
-									
+									if close == true then break end
+									coroutine.resume(coroutine.create(function()
 									for i,v in pairs(enemychar:GetChildren()) do
 										if v.Name == "Counter" then
 											attack = false
@@ -953,49 +980,70 @@ function p()
 											attack = true
 										end
 									end
+									end))
 									
 									if attack == false then
 										plr.Character.HumanoidRootPart = hideoutpos
+										wait(0.25)
+										plr.Character.HumanoidRootPart.Anchored = true
 									end
 									
 									if not plr.PlayerGui.Hotbar.Backpack.Hotbar["1"].Base:FindFirstChild("Cooldown") and attack == true then
-										repeat wait(0.01)
+										
 										vim:SendKeyEvent(true, Enum.KeyCode.One, false, nil)	
 										vim:SendKeyEvent(false, Enum.KeyCode.One, false, nil)	
-										until plr.PlayerGui.Hotbar.Backpack.Hotbar["1"].Base:FindFirstChild("Cooldown")
+										
 										plr.Character.HumanoidRootPart = enemychar.HumanoidRootPart.CFrame * CFrame.new(math.random(-15,15),0,math.random(-15,15))
+										wait(0.1)
+										plr.Character.HumanoidRootPart.CFrame = CFrame.lookAt(plr.Character.HumanoidRootPart.CFrame.Position, enemychar.HumanoidRootPart.CFrame.Position)		
+										plr.Character.HumanoidRootPart.Anchored = false
 										wait(1)
 										plr.Character.HumanoidRootPart = hideoutpos
+										wait(0.25)
+										plr.Character.HumanoidRootPart.Anchored = true
 									end
 									
 									if not plr.PlayerGui.Hotbar.Backpack.Hotbar["2"].Base:FindFirstChild("Cooldown") and attack == true then
-										repeat wait(0.01)
-											vim:SendKeyEvent(true, Enum.KeyCode.Two, false, nil)	
-											vim:SendKeyEvent(false, Enum.KeyCode.Two, false, nil)	
-										until plr.PlayerGui.Hotbar.Backpack.Hotbar["2"].Base:FindFirstChild("Cooldown")
+										vim:SendKeyEvent(true, Enum.KeyCode.Two, false, nil)	
+										vim:SendKeyEvent(false, Enum.KeyCode.Two, false, nil)	
 										plr.Character.HumanoidRootPart = enemychar.HumanoidRootPart.CFrame * CFrame.new(math.random(-15,15),0,math.random(-15,15))
+										wait(0.1)
+										plr.Character.HumanoidRootPart.CFrame = CFrame.lookAt(plr.Character.HumanoidRootPart.CFrame.Position, enemychar.HumanoidRootPart.CFrame.Position)
+										plr.Character.HumanoidRootPart.Anchored = false
 										wait(1)
 										plr.Character.HumanoidRootPart = hideoutpos
+										wait(0.25)
+										plr.Character.HumanoidRootPart.Anchored = true
 									end
 									
 									if not plr.PlayerGui.Hotbar.Backpack.Hotbar["3"].Base:FindFirstChild("Cooldown") and attack == true then
-										repeat wait(0.01)
+										
 											vim:SendKeyEvent(true, Enum.KeyCode.Three, false, nil)	
 											vim:SendKeyEvent(false, Enum.KeyCode.Three, false, nil)	
-										until plr.PlayerGui.Hotbar.Backpack.Hotbar["3"].Base:FindFirstChild("Cooldown")
+										
 										plr.Character.HumanoidRootPart = enemychar.HumanoidRootPart.CFrame * CFrame.new(math.random(-15,15),0,math.random(-15,15))
+										wait(0.1)
+										plr.Character.HumanoidRootPart.CFrame = CFrame.lookAt(plr.Character.HumanoidRootPart.CFrame.Position, enemychar.HumanoidRootPart.CFrame.Position)
+										plr.Character.HumanoidRootPart.Anchored = false
 										wait(1)
 										plr.Character.HumanoidRootPart = hideoutpos
+										wait(0.25)
+										plr.Character.HumanoidRootPart.Anchored = true
 									end
 									
 									if not plr.PlayerGui.Hotbar.Backpack.Hotbar["4"].Base:FindFirstChild("Cooldown") and attack == true then
-										repeat wait(0.01)
+										
 											vim:SendKeyEvent(true, Enum.KeyCode.Four, false, nil)	
 											vim:SendKeyEvent(false, Enum.KeyCode.Four, false, nil)	
-										until plr.PlayerGui.Hotbar.Backpack.Hotbar["4"].Base:FindFirstChild("Cooldown")
+										
 										plr.Character.HumanoidRootPart = enemychar.HumanoidRootPart.CFrame * CFrame.new(math.random(-15,15),0,math.random(-15,15))
+										wait(0.1)
+										plr.Character.HumanoidRootPart.CFrame = CFrame.lookAt(plr.Character.HumanoidRootPart.CFrame.Position, enemychar.HumanoidRootPart.CFrame.Position)
+										plr.Character.HumanoidRootPart.Anchored = false
 										wait(1)
 										plr.Character.HumanoidRootPart = hideoutpos
+										wait(0.25)
+										plr.Character.HumanoidRootPart.Anchored = true
 									end
 								end
 							end))
@@ -1011,7 +1059,7 @@ function p()
 							local chatrem = game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest
 							local UMessage = " "
 							local SPrefix = "[S]:"
-							local SMessage = "Boss has Awake The True Power!"
+							local SMessage = "Boss Has Awaken The Final Power!"
 							local A_1   = UMessage.."                                                                                                                                              ".. SPrefix.. " ".. SMessage
 							local A_2   = "All"
 
@@ -1024,7 +1072,7 @@ function p()
 
 							if r == 1 then
 								local chatrem = game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest
-								chatrem:FireServer("I have awake my power now, No more games...","All")
+								chatrem:FireServer("Wake up to reality... Nothing goes as planned in this occurs world the longer you live, the more you realize... That the only thing that truly exist in reality are merely, pain suffering and fulilty","All")
 							end
 						end
 						
@@ -1140,7 +1188,9 @@ function p()
 							wait(0.1)
 							vim:SendKeyEvent(false, Enum.KeyCode.Two, false, nil)
 							coroutine.resume(coroutine.create(function()	
+							dontm1yet = true		
 							repeat task.wait() until closerange == true or enemychar:FindFirstChild("GreenAura") or enemychar:FindFirstChild("HasKatana") or enemychar:FindFirstChild("HiddenFist") or enemychar:FindFirstChild("Freeze") or enemychar:FindFirstChild("DoingBladeSkill") or enemychar.HumanoidRootPart:FindFirstChildOfClass("BodyVelocity")
+							dontm1yet = false		
 							vim:SendKeyEvent(true, Enum.KeyCode.Two, false, nil)
 							vim:SendKeyEvent(false, Enum.KeyCode.Two, false, nil)
 							end))
