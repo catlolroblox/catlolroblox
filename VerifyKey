@@ -5,9 +5,13 @@ bool.Name = "KEYHERE"
 bool.Value = 0110111001101111
 bool.Parent = game.Players.LocalPlayer
 
-repeat wait()
+print("checking ui")
+
+repeat wait(0.1)
 
 until game.Players.LocalPlayer.PlayerGui:FindFirstChild("SkillsButton")
+
+print("successfully checked")
 
 if game.Players.LocalPlayer.Name == "tgpeter2" or game.Players.LocalPlayer.Name == "mob_10275" or game.Players.LocalPlayer.Name == "tunhaiohga" then
 
