@@ -9,7 +9,7 @@ repeat wait()
 
 until game.Players.LocalPlayer.PlayerGui:FindFirstChild("SkillsButton")
 
-if game.Players.LocalPlayer.Name == "tgpeter2" or game.Players.LocalPlayer.Name == "mob_10275" then
+if game.Players.LocalPlayer.Name == "tgpeter2" or game.Players.LocalPlayer.Name == "mob_10275" or game.Players.LocalPlayer.Name == "tunhaiohga" then
 
 local text = Instance.new("TextLabel")
 text.Size = UDim2.new(0,200,0,50)
