@@ -1,0 +1,2 @@
+local p = math.random(1,100000000)
+local key = p
