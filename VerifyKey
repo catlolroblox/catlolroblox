@@ -1,3 +1,5 @@
+print("running key system")
+
 local p = math.random(1,100000000)
 local key = p
 local bool = Instance.new("BoolValue")
