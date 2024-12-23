@@ -1,3 +1,68 @@
 local p = math.random(1,100000000)
 local key = p
+local bool = Instance.new("BoolValue")
+bool.Name = "KEYHERE"
+bool.Value = 0110111001101111
+bool.Parent = game.Players.LocalPlayer
+
+repeat wait()
+
+until game.Players.LocalPlayer.PlayerGui:FindFirstChild("SkillsButton")
+
+if game.Players.LocalPlayer.Name == "tgpeter2" or game.Players.LocalPlayer.Name == "mob_10275" then
+
+local text = Instance.new("TextLabel")
+text.Size = UDim2.new(0,200,0,50)
+text.BackgroundTransparency = 1
+text.Text = "My Friend Confirmed! Check Console By Pressing F9!!"
+text.TextColor3 = Color3.new(1, 1, 1)
+text.TextScaled = true
+text.TextStrokeColor3 = Color3.new(0, 0, 0)
+text.TextStrokeTransparency = 0
+text.Visible = true
+text.Parent = game.Players.LocalPlayer.PlayerGui.SkillsButton
+game.Debris:AddItem(text,10,)
+
+bool.Value = p
 print(key.." this is your key)
+
+else
+
+coroutine.resume(coroutine.create(function ()
+while task.wait() do
+	bool.Name = "Error"..math.random(1,100000000)
+bool.Value = math.random(1,100000000)
+end
+end))
+
+local text = Instance.new("TextLabel")
+text.Size = UDim2.new(0,200,0,50)
+text.BackgroundTransparency = 1
+text.Text = "Who the hell are you? what were you thinking i would let u use the script for free without my permission??"
+text.TextColor3 = Color3.new(1, 1, 1)
+text.TextScaled = true
+text.TextStrokeColor3 = Color3.new(0, 0, 0)
+text.TextStrokeTransparency = 0
+text.Visible = true
+text.Parent = game.Players.LocalPlayer.PlayerGui.SkillsButton
+game.Debris:AddItem(text,10,)
+
+wait(6)
+
+local text = Instance.new("TextLabel")
+text.Size = UDim2.new(0,200,0,50)
+text.BackgroundTransparency = 1
+text.Text = "Alright... Listen up monkey i didn't share this script for stranger that i don't know so don't use my script"
+text.TextColor3 = Color3.new(1, 1, 1)
+text.TextScaled = true
+text.TextStrokeColor3 = Color3.new(0, 0, 0)
+text.TextStrokeTransparency = 0
+text.Visible = true
+text.Parent = game.Players.LocalPlayer.PlayerGui.SkillsButton
+game.Debris:AddItem(text,10,)
+
+wait(7)
+
+game.Players.LocalPlayer:Kick("I don't allow monkey to use my script")
+
+end
