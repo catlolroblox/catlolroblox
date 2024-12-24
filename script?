@@ -1,0 +1,2327 @@
+if game.Players.LocalPlayer.PlayerGui:FindFirstChild("Backgroundsonglol") then
+	game.Players.LocalPlayer.PlayerGui.Backgroundsonglol:Destroy()
+end
+
+if game.Players.LocalPlayer.PlayerGui:FindFirstChild("SkillsButton") then
+	game.Players.LocalPlayer.PlayerGui.SkillsButton:Destroy()
+end
+
+local sound = Instance.new("Sound")
+
+local r = math.random(1,5) -- random song
+
+if r == 1 then
+	sound.SoundId = "rbxassetid://1841647093"
+end
+
+if r == 2 then
+	sound.SoundId = "rbxassetid://1848354536"
+end
+
+if r == 3 then
+	sound.SoundId = "rbxassetid://1840684529"
+end
+
+if r == 4 then
+	sound.SoundId = "rbxassetid://9046862941"
+end
+
+if r == 5 then
+	sound.SoundId = "rbxassetid://9042437001"
+end
+
+sound.Parent = game.Players.LocalPlayer.PlayerGui
+sound.Volume = 1
+sound.Name = "Backgroundsonglol"
+sound:Play()
+
+print("script is running")
+
+local close = false
+
+-- press F9 to open console for those message --
+print("blox fruit advanced script made by Cat lol (Mint)")
+warn("Keybinds")
+warn("U = Auto Activate Race")
+warn("G = Kill Aura")
+warn("H = Auto Collect Embers")
+warn("N = Anti Stuck")
+warn("M = Highlight Berries")
+warn("L = Walk On Water")
+warn("B = Portal V2")
+warn("Left Alt = Auto Kill Nearest Enemy V1")
+warn("Right Alt = Auto Kill Nearest Enemy V2")
+warn("Left Ctrl = Auto Walkthrough Sea Level 6 (Only Beast Hunter)")
+warn("; = Teleport to Spawned Fruit / Bring Spawned Fruit")
+warn(", = Freeze Boat")
+
+-- other config --
+
+local prediected = false -- set to true = if mirage spawn it auto type /spawn MysticIsland
+
+local stopwhenseaevent = true --  only famous sea event
+
+local alwaysbighitboxmob = true -- big hitbox on every mobs you found
+
+-- ends --
+
+-- config boat speed --
+
+local walkingspeed = 350
+
+local rs = game:GetService("RunService")
+
+-- ends config --
+
+-- LOCAL CONFIG AUTO KILL NEAREST ENEMY --
+
+-- v2 --
+
+local starterwepaon = "Melee"
+local masteryweapon = "Gun"
+
+local enemyhealthtarget = 30 -- %
+
+-- v1 --
+
+local meleeandswordskill = false
+local gunskill = true
+local fruitskillz = true
+local fruitskillx = true
+local fruitskillc = true
+local fruitskillv = true
+local fruitskillf = true
+
+-- ends config --
+
+local UIS = game:GetService("UserInputService")
+
+local findberry = false
+local autoactivaterace = false
+local fakegodmode = false
+local killaura = false
+local autocollectember = false
+local walkonwater = false
+local antistuck = false
+local autobringmob = false
+local autokillnearestenemy = false
+local autokillnearestenemyalt = false
+local autokillcd = false
+
+-- keybinds button --
+
+local rs = game:GetService("RunService")
+
+local plr = game.Players.LocalPlayer
+
+local die = false
+
+local plr = game.Players.LocalPlayer
+
+local hour = 0
+local minute = 0
+local sec = 0
+
+local timebutton = Instance.new("TextLabel")
+timebutton.Size = UDim2.new(0,300,0,50)
+timebutton.BackgroundTransparency = 1
+timebutton.TextColor3 = Color3.new(1, 1, 1)
+timebutton.TextScaled = true
+timebutton.TextStrokeColor3 = Color3.new(0, 0, 0)
+timebutton.TextStrokeTransparency = 0
+timebutton.Visible = true
+
+local skillsbuttons = Instance.new("ScreenGui")
+skillsbuttons.Parent = plr.PlayerGui
+skillsbuttons.Enabled = true
+skillsbuttons.Name = "SkillsButton"
+local uilist = Instance.new("UIListLayout")
+uilist.Parent = skillsbuttons
+uilist.FillDirection = Enum.FillDirection.Vertical
+uilist.HorizontalAlignment = Enum.HorizontalAlignment.Center
+uilist.VerticalAlignment = Enum.VerticalAlignment.Top
+
+-- starter key system --
+
+if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ALREADYHAVETHEKEY") then
+	
+print("running key system")
+
+local p = math.random(1,100000000)
+local key = p
+
+print("checking ui")
+
+repeat wait(0.1)
+
+until game.Players.LocalPlayer.PlayerGui:FindFirstChild("SkillsButton")
+
+print("successfully checked")
+
+if game.Players.LocalPlayer.Name == "tgpeter2" or game.Players.LocalPlayer.Name == "mob_10275" or game.Players.LocalPlayer.Name == "tunhaiohga" then
+
+	local text = Instance.new("TextLabel")
+	text.Size = UDim2.new(0,200,0,50)
+	text.BackgroundTransparency = 1
+	text.Text = "My Friend Confirmed! Check Console By Pressing F9!!"
+	if game.Players.LocalPlayer.Name == "tunhaiohga" then
+		text.Text = "Hello My Cutie!! :3 Check Console!"
+	end
+	text.TextColor3 = Color3.new(1, 1, 1)
+	text.TextScaled = true
+	text.TextStrokeColor3 = Color3.new(0, 0, 0)
+	text.TextStrokeTransparency = 0
+	text.Visible = true
+	text.Parent = game.Players.LocalPlayer.PlayerGui.SkillsButton
+	game.Debris:AddItem(text,10)
+
+	print(key.." this is your key")
+
+else
+
+	local text = Instance.new("TextLabel")
+	text.Size = UDim2.new(0,200,0,50)
+	text.BackgroundTransparency = 1
+	text.Text = "Who the hell are you? what were you thinking i would let u use the script for free without my permission??"
+	text.TextColor3 = Color3.new(1, 1, 1)
+	text.TextScaled = true
+	text.TextStrokeColor3 = Color3.new(0, 0, 0)
+	text.TextStrokeTransparency = 0
+	text.Visible = true
+	text.Parent = game.Players.LocalPlayer.PlayerGui.SkillsButton
+	game.Debris:AddItem(text,10)
+
+	wait(6)
+
+	local text = Instance.new("TextLabel")
+	text.Size = UDim2.new(0,200,0,50)
+	text.BackgroundTransparency = 1
+	text.Text = "Alright... Listen up monkey i didn't share this script for stranger that i don't know so don't use my script"
+	text.TextColor3 = Color3.new(1, 1, 1)
+	text.TextScaled = true
+	text.TextStrokeColor3 = Color3.new(0, 0, 0)
+	text.TextStrokeTransparency = 0
+	text.Visible = true
+	text.Parent = game.Players.LocalPlayer.PlayerGui.SkillsButton
+	game.Debris:AddItem(text,10)
+
+	wait(7)
+
+	game.Players.LocalPlayer:Kick("I don't allow monkey to use my script")
+
+end
+
+-- ends --
+
+timebutton.Parent = skillsbuttons
+
+timebutton.Text = "Loading Key System!"
+
+wait(1)
+
+-- key system --
+
+local correctkey = false
+
+timebutton.Text = "Key System Need To Verify Please Type /e /enterkey (key number)"
+
+game.Players.LocalPlayer.Chatted:Connect(function(msg)
+	if msg:lower():find("/e /enterkey "..key) then
+		correctkey = true
+	end
+end)
+
+repeat wait(0.1) 
+	
+until correctkey == true
+
+	print("Correct Key!")
+	
+	local Bool = Instance.new("BoolValue")
+	Bool.Name = "ALREADYHAVETHEKEY"
+	Bool.Parent = game.Players.LocalPlayer.PlayerGui.Main
+	
+end
+
+-- ends key system
+timebutton.Text = "Please wait while loading server time"
+
+local doneloadingservertime = false
+
+coroutine.resume(coroutine.create(function()
+	while task.wait(1) do
+
+		if doneloadingservertime == true then
+
+			sec += 1
+
+			if sec >= 60 then
+				sec -= 60
+				minute += 1
+			end
+			if minute >= 60 then
+				minute -= 60
+				hour += 1
+			end
+
+			timebutton.Text = "Server Time: "..hour.."H : "..minute.."M : "..sec.."S"
+		end
+
+	end
+end))
+
+wait(0.01)
+
+local servertime = game.Workspace.DistributedGameTime
+
+repeat
+
+	servertime -= 1 -- decrease by 1 sec
+
+	sec += 1
+	if sec >= 60 then
+		sec -= 60
+		minute += 1
+	end
+	if minute >= 60 then
+		minute -= 60
+		hour += 1
+	end
+
+until servertime <= 0
+
+timebutton.Parent = skillsbuttons
+
+doneloadingservertime = true
+
+uilist.FillDirection = Enum.FillDirection.Horizontal
+
+sound:Stop()
+
+local autouseracebutton = Instance.new("TextLabel")
+autouseracebutton.Size = UDim2.new(0,200,0,50)
+autouseracebutton.BackgroundTransparency = 1
+autouseracebutton.Text = "Auto Activate Race (Toggled)"
+autouseracebutton.TextColor3 = Color3.new(1, 1, 1)
+autouseracebutton.TextScaled = true
+autouseracebutton.TextStrokeColor3 = Color3.new(0, 0, 0)
+autouseracebutton.TextStrokeTransparency = 0
+autouseracebutton.Visible = true
+autouseracebutton.Parent = game.ReplicatedStorage
+
+local killaurabutton = Instance.new("TextLabel")
+killaurabutton.Size = UDim2.new(0,200,0,50)
+killaurabutton.BackgroundTransparency = 1
+killaurabutton.Text = "Kill Aura (Toggled)"
+killaurabutton.TextColor3 = Color3.new(1, 1, 1)
+killaurabutton.TextScaled = true
+killaurabutton.TextStrokeColor3 = Color3.new(0, 0, 0)
+killaurabutton.TextStrokeTransparency = 0
+killaurabutton.Visible = true
+killaurabutton.Parent = game.ReplicatedStorage
+
+local autocollectemberbutton = Instance.new("TextLabel")
+autocollectemberbutton.Size = UDim2.new(0,200,0,50)
+autocollectemberbutton.BackgroundTransparency = 1
+autocollectemberbutton.Text = "Auto Collect Embers (Toggled)"
+autocollectemberbutton.TextColor3 = Color3.new(1, 1, 1)
+autocollectemberbutton.TextScaled = true
+autocollectemberbutton.TextStrokeColor3 = Color3.new(0, 0, 0)
+autocollectemberbutton.TextStrokeTransparency = 0
+autocollectemberbutton.Visible = true
+autocollectemberbutton.Parent = game.ReplicatedStorage
+
+local antistuckbutton = Instance.new("TextLabel")
+antistuckbutton.Size = UDim2.new(0,200,0,50)
+antistuckbutton.BackgroundTransparency = 1
+antistuckbutton.Text = "Anti Stuck (Activated)"
+antistuckbutton.TextColor3 = Color3.new(1, 1, 1)
+antistuckbutton.TextScaled = true
+antistuckbutton.TextStrokeColor3 = Color3.new(0, 0, 0)
+antistuckbutton.TextStrokeTransparency = 0
+antistuckbutton.Visible = true
+antistuckbutton.Parent = game.ReplicatedStorage
+
+local highlightberrybutton = Instance.new("TextLabel")
+highlightberrybutton.Size = UDim2.new(0,200,0,50)
+highlightberrybutton.BackgroundTransparency = 1
+highlightberrybutton.Text = "Highlight Things (Toggled)"
+highlightberrybutton.TextColor3 = Color3.new(1, 1, 1)
+highlightberrybutton.TextScaled = true
+highlightberrybutton.TextStrokeColor3 = Color3.new(0, 0, 0)
+highlightberrybutton.TextStrokeTransparency = 0
+highlightberrybutton.Visible = true
+highlightberrybutton.Parent = game.ReplicatedStorage
+
+local walkonwaterbutton = Instance.new("TextLabel")
+walkonwaterbutton.Size = UDim2.new(0,200,0,50)
+walkonwaterbutton.BackgroundTransparency = 1
+walkonwaterbutton.Text = "Walk On Water (Toggled)"
+walkonwaterbutton.TextColor3 = Color3.new(1, 1, 1)
+walkonwaterbutton.TextScaled = true
+walkonwaterbutton.TextStrokeColor3 = Color3.new(0, 0, 0)
+walkonwaterbutton.TextStrokeTransparency = 0
+walkonwaterbutton.Visible = true
+walkonwaterbutton.Parent = game.ReplicatedStorage
+
+local portalbutton = Instance.new("TextLabel")
+portalbutton.Size = UDim2.new(0,200,0,50)
+portalbutton.BackgroundTransparency = 1
+portalbutton.Text = "Portal V2 (Activated)"
+portalbutton.TextColor3 = Color3.new(1, 1, 1)
+portalbutton.TextScaled = true
+portalbutton.TextStrokeColor3 = Color3.new(0, 0, 0)
+portalbutton.TextStrokeTransparency = 0
+portalbutton.Visible = true
+portalbutton.Parent = game.ReplicatedStorage
+
+local autokillnearestmobbutton = Instance.new("TextLabel")
+autokillnearestmobbutton.Size = UDim2.new(0,200,0,50)
+autokillnearestmobbutton.BackgroundTransparency = 1
+autokillnearestmobbutton.Text = "Auto Kill Nearest Mob (Toggled)"
+autokillnearestmobbutton.TextColor3 = Color3.new(1, 1, 1)
+autokillnearestmobbutton.TextScaled = true
+autokillnearestmobbutton.TextStrokeColor3 = Color3.new(0, 0, 0)
+autokillnearestmobbutton.TextStrokeTransparency = 0
+autokillnearestmobbutton.Visible = true
+autokillnearestmobbutton.Parent = game.ReplicatedStorage
+
+local autokillnearestmobbutton2 = Instance.new("TextLabel")
+autokillnearestmobbutton2.Size = UDim2.new(0,200,0,50)
+autokillnearestmobbutton2.BackgroundTransparency = 1
+autokillnearestmobbutton2.Text = "Auto Kill Nearest Mob [ALT] (Toggled)"
+autokillnearestmobbutton2.TextColor3 = Color3.new(1, 1, 1)
+autokillnearestmobbutton2.TextScaled = true
+autokillnearestmobbutton2.TextStrokeColor3 = Color3.new(0, 0, 0)
+autokillnearestmobbutton2.TextStrokeTransparency = 0
+autokillnearestmobbutton2.Visible = true
+autokillnearestmobbutton2.Parent = game.ReplicatedStorage
+
+local boostboatspeedbutton = Instance.new("TextLabel")
+boostboatspeedbutton.Size = UDim2.new(0,200,0,50)
+boostboatspeedbutton.BackgroundTransparency = 1
+boostboatspeedbutton.Text = "Inf Walkthrough Sea Level 6 (Activated)"
+boostboatspeedbutton.TextColor3 = Color3.new(1, 1, 1)
+boostboatspeedbutton.TextScaled = true
+boostboatspeedbutton.TextStrokeColor3 = Color3.new(0, 0, 0)
+boostboatspeedbutton.TextStrokeTransparency = 0
+boostboatspeedbutton.Visible = true
+boostboatspeedbutton.Parent = game.ReplicatedStorage
+
+-- ends --
+-- portal v2 started --
+local plr = game.Players.LocalPlayer
+local portalui = Instance.new("ScreenGui")
+portalui.Parent = plr.PlayerGui
+portalui.Enabled = false
+local uilist = Instance.new("UIListLayout")
+uilist.Parent = portalui
+uilist.HorizontalAlignment = Enum.HorizontalAlignment.Center
+uilist.VerticalAlignment = Enum.VerticalAlignment.Center
+local frame = Instance.new("ScrollingFrame")
+frame.Parent = portalui
+frame.Size = UDim2.new(0, 500,0, 405)
+frame.BackgroundTransparency = 0.5
+frame.BackgroundColor3 = Color3.new(0, 0, 0)
+frame.BorderColor3 = Color3.new(1, 1, 1)
+frame.BorderSizePixel = 5
+frame.CanvasSize = UDim2.new(0, 0, 5, 0)
+local uilist = Instance.new("UIListLayout")
+uilist.Parent = frame
+uilist.Wraps = true
+uilist.FillDirection = Enum.FillDirection.Horizontal
+uilist.HorizontalAlignment = Enum.HorizontalAlignment.Left
+uilist.VerticalAlignment = Enum.VerticalAlignment.Top
+local button = Instance.new("TextButton")
+button.TextScaled = true
+button.Text = "Close Ui"
+button.Size = UDim2.new(0, 100,0, 100)
+button.Parent = frame
+button.MouseButton1Click:Connect(function()
+	portalui.Enabled = false
+end)
+for i,v in pairs(game.Workspace._WorldOrigin.Locations:GetChildren()) do
+	local button = Instance.new("TextButton")
+	button.TextScaled = true
+	button.Text = v.Name
+	button.Size = UDim2.new(0, 100,0, 100)
+	button.Parent = frame
+	button.MouseButton1Click:Connect(function()
+		portalui.Enabled = false
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://2162239324"
+		sound.Parent = game.Players.LocalPlayer.PlayerGui
+		sound.Volume = 3
+		sound:Play()
+		coroutine.resume(coroutine.create(function()
+			for i=1,50 do
+				if plr.Character.Humanoid.Health == 0 then return end
+				wait(0.01)
+				plr.Character.HumanoidRootPart.CFrame = v.CFrame
+			end
+		end))
+		wait(1)
+		plr.Character.Humanoid.Health = 0
+	end)
+end
+-- portal v2 ended --
+UIS.InputBegan:Connect(function(key, typing)
+	if close == true or typing == true then return end
+	if key.KeyCode == Enum.KeyCode.P then
+		portalui:Destroy()
+		close = true
+		print("closed! ;c")
+		skillsbuttons:Destroy()
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://6349641063"
+		sound.Parent = game.Players.LocalPlayer.PlayerGui
+		sound.Volume = 3
+		sound:Play()
+		wait(0.5)
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+	end
+	if key.KeyCode == Enum.KeyCode.LeftAlt then
+		print("Toggle auto kill nearest mob!")
+		autokillnearestenemy = not autokillnearestenemy
+		if autokillnearestenemy == true then
+			local sound = Instance.new("Sound")
+			sound.SoundId = "rbxassetid://7817336081"
+			sound.Parent = game.Players.LocalPlayer.PlayerGui
+			sound.Volume = 5
+			sound:Play()
+
+			autokillnearestmobbutton.Parent = skillsbuttons
+		end
+		if autokillnearestenemy == false then
+			autokillcd = false
+			local sound = Instance.new("Sound")
+			sound.SoundId = "rbxassetid://7293523910"
+			sound.Parent = game.Players.LocalPlayer.PlayerGui
+			sound.Volume = 2
+			sound:Play()
+
+			autokillnearestmobbutton.Parent = game.ReplicatedStorage
+		end
+	end
+	if key.KeyCode == Enum.KeyCode.RightAlt then
+		print("Toggle auto kill nearest mob [ALT]!")
+		autokillnearestenemyalt = not autokillnearestenemyalt
+		if autokillnearestenemyalt == true then
+			local sound = Instance.new("Sound")
+			sound.SoundId = "rbxassetid://7817336081"
+			sound.Parent = game.Players.LocalPlayer.PlayerGui
+			sound.Volume = 5
+			sound:Play()
+
+			autokillnearestmobbutton2.Parent = skillsbuttons
+		end
+		if autokillnearestenemyalt == false then
+			autokillcd = false
+			local sound = Instance.new("Sound")
+			sound.SoundId = "rbxassetid://7293523910"
+			sound.Parent = game.Players.LocalPlayer.PlayerGui
+			sound.Volume = 2
+			sound:Play()
+
+			autokillnearestmobbutton2.Parent = game.ReplicatedStorage
+		end
+	end
+	if key.KeyCode == Enum.KeyCode.N then
+		print("anti stuck!")
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://7817336081"
+		sound.Parent = game.Players.LocalPlayer.PlayerGui
+		sound.Volume = 5
+		sound:Play()
+
+		local yesbutton = antistuckbutton:Clone()
+		yesbutton.Parent = skillsbuttons
+		game.Debris:AddItem(yesbutton, 3)
+
+		antistuck = not antistuck
+		for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+			if v:IsA("BasePart") then
+				v.Anchored = antistuck
+			end
+		end
+	end
+	if key.KeyCode == Enum.KeyCode.Semicolon then
+		print("bring spawned fruit!")
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://7817336081"
+		sound.Parent = game.Players.LocalPlayer.PlayerGui
+		sound.Volume = 5
+		sound:Play()
+
+		if game.Workspace:FindFirstChild("Fruit ") then
+			local yesbutton = antistuckbutton:Clone()
+			yesbutton.Parent = skillsbuttons
+			yesbutton.Text = "Teleport To Spawned Fruit"
+			game.Debris:AddItem(yesbutton, 3)
+			plr.Character.HumanoidRootPart.CFrame = game.Workspace["Fruit "].Fruit.RootPart	.CFrame
+		end
+
+	end
+	if key.KeyCode == Enum.KeyCode.RightControl then
+		print("flying boat!")
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://7817336081"
+		sound.Parent = game.Players.LocalPlayer.PlayerGui
+		sound.Volume = 5
+		sound:Play()
+
+		local yesbutton = boostboatspeedbutton:Clone()
+		yesbutton.Parent = skillsbuttons
+		game.Debris:AddItem(yesbutton, 3)
+
+		for i,v in pairs(game.Workspace.Boats:GetChildren()) do
+
+			if v:IsA("Model") and v.Name == "Beast Hunter" then
+
+				if v:FindFirstChild("VehicleSeat") and not v:FindFirstChild("FastBoatActivated") then
+					if v.VehicleSeat:FindFirstChild("BodyVelocity") then
+						local p = v.VehicleSeat.BodyVelocity
+						p:Destroy()
+					end
+
+					v.VehicleSeat.Anchored = false
+
+					local gui = Instance.new("BillboardGui")
+					gui.Parent = game.Players.LocalPlayer.PlayerGui
+
+					gui.Adornee = v.VehicleSeat
+
+					local text = Instance.new("TextLabel")
+					text.Text = v.Name
+					text.TextScaled = true
+					text.Parent = gui
+					text.Size = UDim2.new(0,200,0,50)
+					text.BackgroundTransparency = 0.75
+					gui.Size = UDim2.new(0,200,0,50)
+
+					gui.Enabled = true
+
+					gui.AlwaysOnTop = true
+					gui.MaxDistance = math.huge
+
+					game.Debris:AddItem(gui, 15)
+
+					if not v.SteeringWheelRig.Base.SteeringBaseSecondary:FindFirstChild("BodyVelocity") then
+						local e = Instance.new("BoolValue")
+						e.Name = "FastBoatActivated"
+						--e.Parent = v
+						local push2 = Instance.new("BodyVelocity")
+						push2.MaxForce = Vector3.new(0,0,0)
+						push2.Parent = v.VehicleSeat
+						wait(0.1)
+						local fly = Instance.new("BodyVelocity")
+						fly.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+						fly.Velocity = Vector3.new(0, 300, 0)
+						fly.Parent = v.SteeringWheelRig.Base.SteeringBaseSecondary
+						wait(1.5)
+						fly.Velocity = Vector3.new(-350, 0, 0)
+						wait(75)
+						fly.Velocity = Vector3.new(-350, -290, 0)
+						wait(1)
+						fly.Velocity = Vector3.new(-300, 0, -100)
+					elseif v.SteeringWheelRig.Base.SteeringBaseSecondary:FindFirstChild("BodyVelocity") then
+						v.SteeringWheelRig.Base.SteeringBaseSecondary.BodyVelocity:Destroy()
+						wait(1)
+						local e = Instance.new("BoolValue")
+						e.Name = "FastBoatActivated"
+						--e.Parent = v
+						local push2 = Instance.new("BodyVelocity")
+						push2.MaxForce = Vector3.new(0,0,0)
+						push2.Parent = v.VehicleSeat
+						wait(0.1)
+						local fly = Instance.new("BodyVelocity")
+						fly.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+						fly.Velocity = Vector3.new(0, 300, 0)
+						fly.Parent = v.SteeringWheelRig.Base.SteeringBaseSecondary
+						wait(1.5)
+						fly.Velocity = Vector3.new(-300, 0, -100)
+						wait(1)
+						fly.Velocity = Vector3.new(-300, -290, -100)
+						wait(1)
+						fly.Velocity = Vector3.new(-300, 0, -100)
+					end
+				end
+			end
+
+		end
+	end
+	if key.KeyCode == Enum.KeyCode.Period then
+		print("freeze boat!")
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://7817336081"
+		sound.Parent = game.Players.LocalPlayer.PlayerGui
+		sound.Volume = 5
+		sound:Play()
+
+		local yesbutton = boostboatspeedbutton:Clone()
+		yesbutton.Parent = skillsbuttons
+		yesbutton.Text = "Freeze Boat!"
+		game.Debris:AddItem(yesbutton, 3)
+
+		for i,v in pairs(game.Workspace.Boats:GetChildren()) do
+
+			if v:IsA("Model") and v.Name == "Beast Hunter" then
+				if v:FindFirstChild("VehicleSeat") and not v:FindFirstChild("FastBoatActivated") then
+
+					v.VehicleSeat.Anchored = true
+
+					local gui = Instance.new("BillboardGui")
+					gui.Parent = game.Players.LocalPlayer.PlayerGui
+
+					gui.Adornee = v.VehicleSeat
+
+					local text = Instance.new("TextLabel")
+					text.Text = v.Name
+					text.TextScaled = true
+					text.Parent = gui
+					text.Size = UDim2.new(0,200,0,50)
+					text.BackgroundTransparency = 0.75
+					gui.Size = UDim2.new(0,200,0,50)
+
+					gui.Enabled = true
+
+					gui.AlwaysOnTop = true
+					gui.MaxDistance = math.huge
+
+					game.Debris:AddItem(gui, 15)
+
+					if v.VehicleSeat:FindFirstChild("BodyVelocity") then
+						local p = v.VehicleSeat.BodyVelocity
+						p:Destroy()
+					end
+					if v.SteeringWheelRig.Base.SteeringBaseSecondary:FindFirstChild("BodyVelocity") then
+						v.SteeringWheelRig.Base.SteeringBaseSecondary.BodyVelocity:Destroy()
+					end					
+				end
+			end
+		end
+	end
+	if key.KeyCode == Enum.KeyCode.B then
+		print("portal v2!")
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://7817336081"
+		sound.Parent = game.Players.LocalPlayer.PlayerGui
+		sound.Volume = 5
+		sound:Play()
+
+		local yesbutton = portalbutton:Clone()
+		yesbutton.Parent = skillsbuttons
+		game.Debris:AddItem(yesbutton, 3)
+
+		portalui.Enabled = not portalui.Enabled
+	end
+	if key.KeyCode == Enum.KeyCode.L then
+		print("Toggle walk on water!")
+		walkonwater = not walkonwater
+		if walkonwater == true then
+			local sound = Instance.new("Sound")
+			sound.SoundId = "rbxassetid://7817336081"
+			sound.Parent = game.Players.LocalPlayer.PlayerGui
+			sound.Volume = 5
+			sound:Play()
+
+			walkonwaterbutton.Parent = skillsbuttons
+		elseif walkonwater == false then
+			local sound = Instance.new("Sound")
+			sound.SoundId = "rbxassetid://7293523910"
+			sound.Parent = game.Players.LocalPlayer.PlayerGui
+			sound.Volume = 2
+			sound:Play()
+
+			walkonwaterbutton.Parent = game.ReplicatedStorage
+		end
+	end
+	if key.KeyCode == Enum.KeyCode.M then
+		print("OMG BERRIESSSSSSSSSSSSSSSSSSSS!")
+		findberry = not findberry
+		if findberry == true then
+			local sound = Instance.new("Sound")
+			sound.SoundId = "rbxassetid://7817336081"
+			sound.Parent = game.Players.LocalPlayer.PlayerGui
+			sound.Volume = 5
+			sound:Play()
+
+			highlightberrybutton.Parent = skillsbuttons
+		end
+		if findberry == false then
+			local sound = Instance.new("Sound")
+			sound.SoundId = "rbxassetid://7293523910"
+			sound.Parent = game.Players.LocalPlayer.PlayerGui
+			sound.Volume = 2
+			sound:Play()
+
+			highlightberrybutton.Parent = game.ReplicatedStorage
+		end
+	end
+	if key.KeyCode == Enum.KeyCode.U then
+		print("toggle auto activate race!")
+		autoactivaterace = not autoactivaterace
+		if autoactivaterace == true then
+			local sound = Instance.new("Sound")
+			sound.SoundId = "rbxassetid://7817336081"
+			sound.Parent = game.Players.LocalPlayer.PlayerGui
+			sound.Volume = 5
+			sound:Play()
+
+			autouseracebutton.Parent = skillsbuttons
+		end
+		if autoactivaterace == false then
+			local sound = Instance.new("Sound")
+			sound.SoundId = "rbxassetid://7293523910"
+			sound.Parent = game.Players.LocalPlayer.PlayerGui
+			sound.Volume = 2
+			sound:Play()
+
+			autouseracebutton.Parent = game.ReplicatedStorage
+		end
+	end
+	if key.KeyCode == Enum.KeyCode.H then
+		print("toggle auto collect embers!")
+		autocollectember = not autocollectember
+		if autocollectember == true then
+			local sound = Instance.new("Sound")
+			sound.SoundId = "rbxassetid://7817336081"
+			sound.Parent = game.Players.LocalPlayer.PlayerGui
+			sound.Volume = 5
+			sound:Play()
+
+			autocollectemberbutton.Parent = skillsbuttons
+		end
+		if autocollectember == false then
+			local sound = Instance.new("Sound")
+			sound.SoundId = "rbxassetid://7293523910"
+			sound.Parent = game.Players.LocalPlayer.PlayerGui
+			sound.Volume = 2
+			sound:Play()
+
+			autocollectemberbutton.Parent = game.ReplicatedStorage
+		end
+	end
+	if key.KeyCode == Enum.KeyCode.G then
+		print("toggle killaura!")
+		killaura = not killaura
+		if killaura == true then
+			killaurabutton.Parent = skillsbuttons
+			local sound = Instance.new("Sound")
+			sound.SoundId = "rbxassetid://7817336081"
+			sound.Parent = game.Players.LocalPlayer.PlayerGui
+			sound.Volume = 5
+			sound:Play()
+			for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+				if v:FindFirstChildOfClass("Humanoid") then
+					v:FindFirstChildOfClass("Humanoid").Health = 0
+				end
+			end
+		end
+		if killaura == false then
+			local sound = Instance.new("Sound")
+			sound.SoundId = "rbxassetid://7293523910"
+			sound.Parent = game.Players.LocalPlayer.PlayerGui
+			sound.Volume = 2
+			sound:Play()
+			killaurabutton.Parent = game.ReplicatedStorage
+		end
+	end
+end)
+local sound = Instance.new("Sound")
+sound.SoundId = "rbxassetid://2209392847"
+sound.Parent = game.Players.LocalPlayer.PlayerGui
+sound.Volume = 5
+sound:Play()
+-- fire flower
+coroutine.resume(coroutine.create(function ()
+	repeat wait() until game.Workspace:FindFirstChild("FireFlowers")
+
+	if game.Workspace:FindFirstChild("FireFlowers") then
+		game.Workspace.FireFlowers.ChildAdded:Connect(function(ez)
+			if close == true then return end
+			print("a fire flower has spawn get it buddy")
+
+			local yes = antistuckbutton:Clone()
+			yes.Text = "A Fire Flower Has Spawned!"
+			yes.Parent = skillsbuttons
+			game.Debris:AddItem(yes, 10)
+
+			local sound = Instance.new("Sound")
+			sound.SoundId = "rbxassetid://9068935533"
+			sound.Parent = game.Players.LocalPlayer.PlayerGui
+			sound.Volume = 5
+			sound:Play()
+
+		end)
+	end
+
+end))
+-- player added
+game.Players.PlayerAdded:Connect(function(z)
+	if close == true then return end
+	print("player "..z.Name.." has joined the server!")
+
+	local yes = antistuckbutton:Clone()
+	yes.Text = z.Name.."Has Joined The Game."
+	yes.Parent = skillsbuttons
+	game.Debris:AddItem(yes, 10)
+
+	local sound = Instance.new("Sound")
+	sound.SoundId = "rbxassetid://5773338685"
+	sound.Parent = game.Players.LocalPlayer.PlayerGui
+	sound.Volume = 5
+	sound:Play()
+end)
+-- player left
+game.Players.PlayerRemoving:Connect(function(z)
+	if close == true then return end
+	print("player "..z.Name.." has left the server!")
+
+	local yes = antistuckbutton:Clone()
+	yes.Text = z.Name.."Has Left The Game."
+	yes.Parent = skillsbuttons
+	game.Debris:AddItem(yes, 10)
+
+	local sound = Instance.new("Sound")
+	sound.SoundId = "rbxassetid://6439289406"
+	sound.Parent = game.Players.LocalPlayer.PlayerGui
+	sound.Volume = 5
+	sound:Play()
+end)
+-- sea event island
+game.Workspace.Map.ChildAdded:Connect(function(ez)
+	if close == true then return end
+
+	if ez.Name == "PrehistoricIsland" then
+		print("Prehistoric Island spawned!")
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://5853668794"
+		sound.Parent = game.Players.LocalPlayer.PlayerGui
+		sound.Volume = 5
+		sound:Play()
+
+		if  stopwhenseaevent == true then
+
+			print("move boat around!")
+			local sound = Instance.new("Sound")
+			sound.SoundId = "rbxassetid://7817336081"
+			sound.Parent = game.Players.LocalPlayer.PlayerGui
+			sound.Volume = 5
+			sound:Play()
+
+			local yesbutton = boostboatspeedbutton:Clone()
+			yesbutton.Parent = skillsbuttons
+			yesbutton.Text = "Moving Boat Around Beacuse Encountered A Sea Event!"
+			game.Debris:AddItem(yesbutton, 3)
+
+			for i,v in pairs(game.Workspace.Boats:GetChildren()) do
+
+				if v:IsA("Model") and v.Name == "Beast Hunter" then
+
+					if v:FindFirstChild("VehicleSeat") and not v:FindFirstChild("FastBoatActivated") then
+						if v.VehicleSeat:FindFirstChild("BodyVelocity") then
+							local p = v.VehicleSeat.BodyVelocity
+							p:Destroy()
+						end
+
+						if v.SteeringWheelRig.Base.SteeringBaseSecondary:FindFirstChild("BodyVelocity") then
+							v.SteeringWheelRig.Base.SteeringBaseSecondary.BodyVelocity:Destroy()
+						end	
+						if v.SteeringWheelRig.Base.SteeringBaseSecondary:FindFirstChild("BodyVelocity") then
+							v.SteeringWheelRig.Base.SteeringBaseSecondary.BodyVelocity:Destroy()
+						end					
+
+						v.VehicleSeat.Anchored = false
+
+						local gui = Instance.new("BillboardGui")
+						gui.Parent = game.Players.LocalPlayer.PlayerGui
+
+						gui.Adornee = v.VehicleSeat
+
+						local text = Instance.new("TextLabel")
+						text.Text = v.Name
+						text.TextScaled = true
+						text.Parent = gui
+						text.Size = UDim2.new(0,200,0,50)
+						text.BackgroundTransparency = 0.75
+						gui.Size = UDim2.new(0,200,0,50)
+
+						gui.Enabled = true
+
+						gui.AlwaysOnTop = true
+						gui.MaxDistance = math.huge
+
+						game.Debris:AddItem(gui, 15)
+
+						local fly = Instance.new("BodyVelocity")
+						fly.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+						fly.Parent = v.SteeringWheelRig.Base.SteeringBaseSecondary
+
+						coroutine.resume(coroutine.create(function ()
+							while wait() do
+								fly.Velocity = Vector3.new(300, 0, 0)
+								wait(1)
+								fly.Velocity = Vector3.new(0, 0, 300)
+								wait(1)
+								fly.Velocity = Vector3.new(-300, 0, 0)
+								wait(1)
+								fly.Velocity = Vector3.new(0, 0, -300)
+								wait(1)
+							end
+						end))
+
+
+
+					end
+				end
+
+			end
+
+		end
+
+		local yes = antistuckbutton:Clone()
+		yes.Text = "Prehistoric Island Has Spawned!"
+		yes.Parent = skillsbuttons
+		game.Debris:AddItem(yes, 60)
+
+		if prediected == true then
+			local msg = "/spawn PrehistoricIsland"
+			game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(msg,"All")
+		end
+	end
+
+	if ez.Name == "" then
+		print(" island spawned!")
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://5853668794"
+		sound.Parent = game.Players.LocalPlayer.PlayerGui
+		sound.Volume = 5
+		sound:Play()
+
+
+
+		local yes = antistuckbutton:Clone()
+		yes.Text = " Island Has Spawned!"
+		yes.Parent = skillsbuttons
+		game.Debris:AddItem(yes, 60)
+	end
+
+	if ez.Name == "" then
+		print(" island spawned!")
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://5853668794"
+		sound.Parent = game.Players.LocalPlayer.PlayerGui
+		sound.Volume = 5
+		sound:Play()
+
+
+
+		local yes = antistuckbutton:Clone()
+		yes.Text = " Island Has Spawned!"
+		yes.Parent = skillsbuttons
+		game.Debris:AddItem(yes, 60)
+	end
+
+	if ez.Name == "MysticIsland" then
+		print("Mirage island spawned!")
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://5853668794"
+		sound.Parent = game.Players.LocalPlayer.PlayerGui
+		sound.Volume = 5
+		sound:Play()
+
+		if  stopwhenseaevent == true then
+
+			print("move boat around!")
+			local sound = Instance.new("Sound")
+			sound.SoundId = "rbxassetid://7817336081"
+			sound.Parent = game.Players.LocalPlayer.PlayerGui
+			sound.Volume = 5
+			sound:Play()
+
+			local yesbutton = boostboatspeedbutton:Clone()
+			yesbutton.Parent = skillsbuttons
+			yesbutton.Text = "Moving Boat Around Beacuse Encountered A Sea Event!"
+			game.Debris:AddItem(yesbutton, 3)
+
+			for i,v in pairs(game.Workspace.Boats:GetChildren()) do
+
+				if v:IsA("Model") and v.Name == "Beast Hunter" then
+
+					if v:FindFirstChild("VehicleSeat") and not v:FindFirstChild("FastBoatActivated") then
+						if v.VehicleSeat:FindFirstChild("BodyVelocity") then
+							local p = v.VehicleSeat.BodyVelocity
+							p:Destroy()
+						end
+
+						if v.SteeringWheelRig.Base.SteeringBaseSecondary:FindFirstChild("BodyVelocity") then
+							v.SteeringWheelRig.Base.SteeringBaseSecondary.BodyVelocity:Destroy()
+						end	
+						if v.SteeringWheelRig.Base.SteeringBaseSecondary:FindFirstChild("BodyVelocity") then
+							v.SteeringWheelRig.Base.SteeringBaseSecondary.BodyVelocity:Destroy()
+						end					
+
+						v.VehicleSeat.Anchored = false
+
+						local gui = Instance.new("BillboardGui")
+						gui.Parent = game.Players.LocalPlayer.PlayerGui
+
+						gui.Adornee = v.VehicleSeat
+
+						local text = Instance.new("TextLabel")
+						text.Text = v.Name
+						text.TextScaled = true
+						text.Parent = gui
+						text.Size = UDim2.new(0,200,0,50)
+						text.BackgroundTransparency = 0.75
+						gui.Size = UDim2.new(0,200,0,50)
+
+						gui.Enabled = true
+
+						gui.AlwaysOnTop = true
+						gui.MaxDistance = math.huge
+
+						game.Debris:AddItem(gui, 15)
+
+						local fly = Instance.new("BodyVelocity")
+						fly.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+						fly.Parent = v.SteeringWheelRig.Base.SteeringBaseSecondary
+
+						coroutine.resume(coroutine.create(function ()
+							while wait() do
+								fly.Velocity = Vector3.new(300, 0, 0)
+								wait(1)
+								fly.Velocity = Vector3.new(0, 0, 300)
+								wait(1)
+								fly.Velocity = Vector3.new(-300, 0, 0)
+								wait(1)
+								fly.Velocity = Vector3.new(0, 0, -300)
+								wait(1)
+							end
+						end))
+
+
+
+					end
+				end
+
+			end
+
+		end
+
+		local yes = antistuckbutton:Clone()
+		yes.Text = "Mirage Island Has Spawned!"
+		yes.Parent = skillsbuttons
+		game.Debris:AddItem(yes, 60)
+
+		if prediected == true then
+			local msg = "/spawn MysticIsland"
+			game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(msg,"All")
+		end
+	end
+
+	if ez.Name == "ShipwreckIsland" then
+		print("Shipwreck island spawned!")
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://5853668794"
+		sound.Parent = game.Players.LocalPlayer.PlayerGui
+		sound.Volume = 5
+		sound:Play()
+
+		local yes = antistuckbutton:Clone()
+		yes.Text = "Shipwreck Island Has Spawned!"
+		yes.Parent = skillsbuttons
+		game.Debris:AddItem(yes, 60)
+
+		if prediected == true then
+			local msg = "/spawn ShipwreckIsland"
+			game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(msg,"All")
+		end
+	end
+
+	if ez.Name == "TreeIsland" or ez.Name == "SandIsland" or ez.Name == "TinyIsland" then
+		print("Treasure island spawned!")
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://5853668794"
+		sound.Parent = game.Players.LocalPlayer.PlayerGui
+		sound.Volume = 5
+		--sound:Play()
+
+		local yes = antistuckbutton:Clone()
+		yes.Text = "Treasure Island Has Spawned!"
+		yes.Parent = skillsbuttons
+		game.Debris:AddItem(yes, 10)
+	end
+
+end)
+game.Workspace.Enemies.ChildAdded:Connect(function (ez)
+	if ez.Name == "Shark" then
+
+		local yes = antistuckbutton:Clone()
+		yes.Text = "BEAWARE shark has spawned!"
+		yes.Parent = skillsbuttons
+		game.Debris:AddItem(yes, 10)
+
+		local m = ez.HumanoidRootPart
+
+		if not m:FindFirstChildOfClass("BillboardGui") then
+
+			local gui = Instance.new("BillboardGui")
+			gui.Parent = game.Players.LocalPlayer.PlayerGui
+
+			gui.Adornee = m
+
+			local text = Instance.new("TextLabel")
+			text.Text = ez.Name
+			text.TextScaled = true
+			text.Parent = gui
+			text.Size = UDim2.new(0,200,0,50)
+			text.BackgroundTransparency = 0.75
+			gui.Size = UDim2.new(0,200,0,50)
+
+			gui.Enabled = true
+
+			gui.AlwaysOnTop = true
+			gui.MaxDistance = math.huge
+
+			coroutine.resume(coroutine.create(function ()
+				while wait() do
+					if not ez:FindFirstChild("Handle") or ez.Parent ~= game.Workspace then
+						gui:Destroy()
+					end
+				end
+			end))	
+
+		end
+
+		ez.Humanoid.Health = 0
+	end
+
+	if ez.Name == "Fish Crew Member" then
+
+		local yes = antistuckbutton:Clone()
+		yes.Text = "BEAWARE fish crew member has spawned!"
+		yes.Parent = skillsbuttons
+		game.Debris:AddItem(yes, 10)
+
+		local m = ez.HumanoidRootPart
+
+		if not m:FindFirstChildOfClass("BillboardGui") then
+
+			local gui = Instance.new("BillboardGui")
+			gui.Parent = game.Players.LocalPlayer.PlayerGui
+
+			gui.Adornee = m
+
+			local text = Instance.new("TextLabel")
+			text.Text = ez.Name
+			text.TextScaled = true
+			text.Parent = gui
+			text.Size = UDim2.new(0,200,0,50)
+			text.BackgroundTransparency = 0.75
+			gui.Size = UDim2.new(0,200,0,50)
+
+			gui.Enabled = true
+
+			gui.AlwaysOnTop = true
+			gui.MaxDistance = math.huge
+
+			coroutine.resume(coroutine.create(function ()
+				while wait() do
+					if not ez:FindFirstChild("Handle") or ez.Parent ~= game.Workspace then
+						gui:Destroy()
+					end
+				end
+			end))	
+
+		end
+
+		ez.Humanoid.Health = 0
+	end
+
+	if ez.Name == "Piranha" then
+
+		local yes = antistuckbutton:Clone()
+		yes.Text = "BEAWARE piranha has spawned!"
+		yes.Parent = skillsbuttons
+		game.Debris:AddItem(yes, 10)
+
+		local m = ez.HumanoidRootPart
+
+		if not m:FindFirstChildOfClass("BillboardGui") then
+
+			local gui = Instance.new("BillboardGui")
+			gui.Parent = game.Players.LocalPlayer.PlayerGui
+
+			gui.Adornee = m
+
+			local text = Instance.new("TextLabel")
+			text.Text = ez.Name
+			text.TextScaled = true
+			text.Parent = gui
+			text.Size = UDim2.new(0,200,0,50)
+			text.BackgroundTransparency = 0.75
+			gui.Size = UDim2.new(0,200,0,50)
+
+			gui.Enabled = true
+
+			gui.AlwaysOnTop = true
+			gui.MaxDistance = math.huge
+
+			coroutine.resume(coroutine.create(function ()
+				while wait() do
+					if not ez:FindFirstChild("Handle") or ez.Parent ~= game.Workspace then
+						gui:Destroy()
+					end
+				end
+			end))	
+
+		end
+
+		ez.Humanoid.Health = 0
+	end
+
+	if ez.Name == "Terrorshark" then
+
+		local yes = antistuckbutton:Clone()
+		yes.Text = "BEAWARE TERROR SHARK HAS SPAWNED!"
+		yes.Parent = skillsbuttons
+		game.Debris:AddItem(yes, 10)
+
+		local m = ez.HumanoidRootPart
+
+		if not m:FindFirstChildOfClass("BillboardGui") then
+
+			local gui = Instance.new("BillboardGui")
+			gui.Parent = game.Players.LocalPlayer.PlayerGui
+
+			gui.Adornee = m
+
+			local text = Instance.new("TextLabel")
+			text.Text = ez.Name
+			text.TextScaled = true
+			text.Parent = gui
+			text.Size = UDim2.new(0,200,0,50)
+			text.BackgroundTransparency = 0.75
+			gui.Size = UDim2.new(0,200,0,50)
+
+			gui.Enabled = true
+
+			gui.AlwaysOnTop = true
+			gui.MaxDistance = math.huge
+
+			coroutine.resume(coroutine.create(function ()
+				while wait() do
+					if not ez:FindFirstChild("Handle") or ez.Parent ~= game.Workspace then
+						gui:Destroy()
+					end
+				end
+			end))	
+
+		end
+
+	end
+
+	if ez.Name == "PirateGrandBrigade" or ez.Name == "FishBoat" or ez.Name == "PirateBrigade" then
+
+		local yes = antistuckbutton:Clone()
+		yes.Text = "BEAWARE Ghost Ship ("..ez.Name..") has spawned"
+		yes.Parent = skillsbuttons
+		game.Debris:AddItem(yes, 10)
+
+		local m = ez.Seat
+
+		if not m:FindFirstChildOfClass("BillboardGui") then
+
+			local gui = Instance.new("BillboardGui")
+			gui.Parent = game.Players.LocalPlayer.PlayerGui
+
+			gui.Adornee = m
+
+			local text = Instance.new("TextLabel")
+			text.Text = ez.Name
+			text.TextScaled = true
+			text.Parent = gui
+			text.Size = UDim2.new(0,200,0,50)
+			text.BackgroundTransparency = 0.75
+			gui.Size = UDim2.new(0,200,0,50)
+
+			gui.Enabled = true
+
+			gui.AlwaysOnTop = true
+			gui.MaxDistance = math.huge
+
+			coroutine.resume(coroutine.create(function ()
+				while wait() do
+					if not ez:FindFirstChild("Handle") or ez.Parent ~= game.Workspace then
+						gui:Destroy()
+					end
+				end
+			end))	
+
+		end
+
+	end
+end)
+game.Workspace.SeaBeasts.ChildAdded:Connect(function (ez)
+	local yes = antistuckbutton:Clone()
+	yes.Text = "BEAWARE SEA BEAST HAS SPAWNED!"
+	yes.Parent = skillsbuttons
+	game.Debris:AddItem(yes, 10)
+
+	local m = ez.HumanoidRootPart
+
+	if  stopwhenseaevent == true then
+
+		print("move boat around!")
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://7817336081"
+		sound.Parent = game.Players.LocalPlayer.PlayerGui
+		sound.Volume = 5
+		sound:Play()
+
+		local yesbutton = boostboatspeedbutton:Clone()
+		yesbutton.Parent = skillsbuttons
+		yesbutton.Text = "Moving Boat Around Beacuse Encountered A Sea Event!"
+		game.Debris:AddItem(yesbutton, 3)
+
+		for i,v in pairs(game.Workspace.Boats:GetChildren()) do
+
+			if v:IsA("Model") and v.Name == "Beast Hunter" then
+
+				if v:FindFirstChild("VehicleSeat") and not v:FindFirstChild("FastBoatActivated") then
+					if v.VehicleSeat:FindFirstChild("BodyVelocity") then
+						local p = v.VehicleSeat.BodyVelocity
+						p:Destroy()
+					end
+
+					if v.SteeringWheelRig.Base.SteeringBaseSecondary:FindFirstChild("BodyVelocity") then
+						v.SteeringWheelRig.Base.SteeringBaseSecondary.BodyVelocity:Destroy()
+					end	
+					if v.SteeringWheelRig.Base.SteeringBaseSecondary:FindFirstChild("BodyVelocity") then
+						v.SteeringWheelRig.Base.SteeringBaseSecondary.BodyVelocity:Destroy()
+					end					
+
+					v.VehicleSeat.Anchored = false
+
+					local gui = Instance.new("BillboardGui")
+					gui.Parent = game.Players.LocalPlayer.PlayerGui
+
+					gui.Adornee = v.VehicleSeat
+
+					local text = Instance.new("TextLabel")
+					text.Text = v.Name
+					text.TextScaled = true
+					text.Parent = gui
+					text.Size = UDim2.new(0,200,0,50)
+					text.BackgroundTransparency = 0.75
+					gui.Size = UDim2.new(0,200,0,50)
+
+					gui.Enabled = true
+
+					gui.AlwaysOnTop = true
+					gui.MaxDistance = math.huge
+
+					game.Debris:AddItem(gui, 15)
+
+					local fly = Instance.new("BodyVelocity")
+					fly.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+					fly.Parent = v.SteeringWheelRig.Base.SteeringBaseSecondary
+
+					coroutine.resume(coroutine.create(function ()
+						while wait() do
+							fly.Velocity = Vector3.new(300, 0, 0)
+							wait(1)
+							fly.Velocity = Vector3.new(0, 0, 300)
+							wait(1)
+							fly.Velocity = Vector3.new(-300, 0, 0)
+							wait(1)
+							fly.Velocity = Vector3.new(0, 0, -300)
+							wait(1)
+						end
+					end))
+
+
+
+				end
+			end
+
+		end
+
+	end
+
+	if not m:FindFirstChildOfClass("BillboardGui") then
+
+		local gui = Instance.new("BillboardGui")
+		gui.Parent = game.Players.LocalPlayer.PlayerGui
+
+		gui.Adornee = m
+
+		local text = Instance.new("TextLabel")
+		text.Text = ez.Name
+		text.TextScaled = true
+		text.Parent = gui
+		text.Size = UDim2.new(0,200,0,50)
+		text.BackgroundTransparency = 0.75
+		gui.Size = UDim2.new(0,200,0,50)
+
+		gui.Enabled = true
+
+		gui.AlwaysOnTop = true
+		gui.MaxDistance = math.huge
+
+		coroutine.resume(coroutine.create(function ()
+			while wait() do
+				if not ez:FindFirstChild("Handle") or ez.Parent ~= game.Workspace then
+					gui:Destroy()
+				end
+			end
+		end))	
+
+	end
+
+end)
+
+-- fruit spawn
+game.Workspace.ChildAdded:Connect(function(ez)
+	if close == true then return end
+	if ez.Name ~= "Fruit " and ez.Name:lower():find("fruit") then
+		print("some one drop this "..ez.Name)
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://4702564143"
+		sound.Parent = game.Players.LocalPlayer.PlayerGui
+		sound.Volume = 3
+		sound:Play()
+
+		local yes = antistuckbutton:Clone()
+		yes.Text = "Someone Dropped A "..ez.Name
+		yes.Parent = skillsbuttons
+		game.Debris:AddItem(yes, 10)
+
+		local m = ez.Fruit.RootPart
+
+		if not m:FindFirstChildOfClass("BillboardGui") then
+
+			local gui = Instance.new("BillboardGui")
+			gui.Parent = game.Players.LocalPlayer.PlayerGui
+
+			gui.Adornee = m
+
+			local text = Instance.new("TextLabel")
+			text.Text = ez.Name
+			text.TextScaled = true
+			text.Parent = gui
+			text.Size = UDim2.new(0,200,0,50)
+			text.BackgroundTransparency = 0.75
+			gui.Size = UDim2.new(0,200,0,50)
+
+			gui.Enabled = true
+
+			gui.AlwaysOnTop = true
+			gui.MaxDistance = math.huge
+
+			coroutine.resume(coroutine.create(function ()
+				while wait() do
+					if not ez:FindFirstChild("Handle") or ez.Parent ~= game.Workspace then
+						gui:Destroy()
+					end
+				end
+			end))	
+
+		end
+	end
+end)
+game.Workspace.ChildAdded:Connect(function(ez)
+	if close == true then return end
+	if ez.Name == "Fruit " then
+		print("A fruit has spawn GO AHEAD AND GET IT NOW BOIIIIIIIIIIIIIIIIIIIIIIIII")
+		local sound = Instance.new("Sound")
+		sound.SoundId = "rbxassetid://1844415184"
+		sound.Parent = game.Players.LocalPlayer.PlayerGui
+		sound.Volume = 5
+		sound:Play()
+
+		local m = ez.Fruit.RootPart		
+
+		local gui = Instance.new("BillboardGui")
+		gui.Parent = game.Players.LocalPlayer.PlayerGui
+
+		gui.Adornee = m
+
+		local text = Instance.new("TextLabel")
+		text.Text = "Fruit Spawned Here!"
+		text.TextScaled = true
+		text.Parent = gui
+		text.Size = UDim2.new(0,200,0,50)
+		text.BackgroundTransparency = 0.75
+		gui.Size = UDim2.new(0,200,0,50)
+
+		gui.Enabled = true
+
+		gui.AlwaysOnTop = true
+		gui.MaxDistance = math.huge
+
+		local yes = antistuckbutton:Clone()
+		yes.Text = "A Fruit Has Spawned Check For It NOWWWWWWWWW"
+		yes.Parent = skillsbuttons
+		game.Debris:AddItem(yes, 60)
+
+	end
+end)
+
+local vim = game:GetService("VirtualInputManager")
+
+local rs = game:GetService("RunService")
+
+local plr = game.Players.LocalPlayer
+
+local walkonwatercd = false
+
+local mouse = game.Players.LocalPlayer:GetMouse()
+
+local mouseX = 500
+local mouseY = 500
+
+mouse.Move:Connect(function()
+	if close == true then return end
+
+	mouseX = mouse.X
+	mouseY = mouse.Y
+
+end)
+
+rs.RenderStepped:Connect(function()
+	if close == true then return end
+
+	if game.Players.LocalPlayer.Character.Humanoid.Sit == true then
+		walkingspeed = 350
+	end
+
+	if game.Players.LocalPlayer.Character.Humanoid.Sit == false then
+		walkingspeed = 0
+	end
+
+	plr.Character.Humanoid.WalkSpeed = 350
+	game.Players.LocalPlayer.Character.Humanoid.JumpPower = 250
+	game.Players.LocalPlayer.VisionRadius.Value = 100000
+
+	if walkonwater == true then
+		local plr = game.Players.LocalPlayer
+		local part = Instance.new("Part")
+		part.Parent = game.Workspace
+		part.Anchored = true
+		part.Size = Vector3.new(500,50,500) -- size
+		part.CFrame = CFrame.new(Vector3.new(plr.Character.HumanoidRootPart.Position.X,-29,plr.Character.HumanoidRootPart.Position.Z)) -- the position between player and water perfectly fit to
+		part.Transparency = 1
+		coroutine.resume(coroutine.create(function()
+			part.CFrame = CFrame.new(Vector3.new(plr.Character.HumanoidRootPart.Position.X,-29,plr.Character.HumanoidRootPart.Position.Z))
+		end))
+		coroutine.resume(coroutine.create(function()
+			walkonwatercd = true
+			task.wait(0.1)
+			walkonwatercd = false
+			part:Destroy()
+		end))
+	end
+
+	if autokillnearestenemyalt == true or autokillnearestenemy == true then
+		local push = Instance.new("BodyVelocity")
+		push.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+		push.Velocity = Vector3.new(0,0,0)
+		push.Parent = plr.Character.HumanoidRootPart
+		game.Debris:AddItem(push, 3)
+	end
+
+	if alwaysbighitboxmob == true and autokillnearestenemy == false and autokillnearestenemyalt == false then
+		for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+
+			coroutine.resume(coroutine.create(function ()
+				wait(1.5)
+				if v:FindFirstChildOfClass("Humanoid") and plr.Character:FindFirstChildOfClass("Tool") and v:FindFirstChild("HumanoidRootPart") and (plr.Character.HumanoidRootPart.Position-v.HumanoidRootPart.Position).Magnitude < 500 then
+					if v:FindFirstChild("HumanoidRootPart") then		
+						v.Head.Size = Vector3.new(75,75,75)
+						v.Head.Transparency = 0.75
+					end
+				end
+			end))
+		end
+	end
+	if autokillcd == false and autokillnearestenemy == false and autokillnearestenemyalt == true then
+
+		coroutine.resume(coroutine.create(function()
+			wait(30)
+			autokillcd = false
+			return
+		end))
+
+		for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+
+			if v:FindFirstChildOfClass("Humanoid") and plr.Character:FindFirstChildOfClass("Tool") and v:FindFirstChild("HumanoidRootPart") and (plr.Character.HumanoidRootPart.Position-v.HumanoidRootPart.Position).Magnitude < 500 then
+				autokillcd = true
+				local oldcamcf = game.Workspace.CurrentCamera.CFrame
+				coroutine.resume(coroutine.create(function()
+					wait(5)
+					if v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+						autokillcd = false
+						v.Humanoid.Health = 0
+						return
+					end
+				end))
+				repeat wait(0.01) 
+
+
+
+					for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+						if v:IsA("Tool") and v.ToolTip == starterwepaon then
+							plr.Character.Humanoid:EquipTool(v)
+						end
+					end
+
+					if plr.Character:FindFirstChildOfClass("Tool") then
+						if starterwepaon == "Melee" or starterwepaon == "Sword" then
+							vim:SendMouseButtonEvent(mouseX, mouseY, 0, true, game, 1)
+							vim:SendMouseButtonEvent(mouseX, mouseY, 0, false, game, 1)
+							if v:FindFirstChild("HumanoidRootPart") then		
+								v.Head.Size = Vector3.new(75,75,75)
+								v.Head.Transparency = 0.75
+
+								plr.Character.HumanoidRootPart.CFrame = CFrame.new(v.HumanoidRootPart.Position) * CFrame.new(0,40,0)
+							end
+
+							if meleeandswordskill == true then
+								wait(0.25)
+								if v:FindFirstChild("HumanoidRootPart") then
+									plr.Character.HumanoidRootPart.CFrame = CFrame.new(v.HumanoidRootPart.Position) * CFrame.new(0,40,0)
+									v.Head.Size = Vector3.new(1,1,1)
+									v.Head.Transparency = 0
+								end
+
+								wait(0.1)
+
+								vim:SendKeyEvent(true, Enum.KeyCode.Z, false, nil)
+								vim:SendKeyEvent(false, Enum.KeyCode.Z, false, nil)
+
+								vim:SendKeyEvent(true, Enum.KeyCode.X, false, nil)
+								vim:SendKeyEvent(false, Enum.KeyCode.X, false, nil)
+
+								vim:SendKeyEvent(true, Enum.KeyCode.C, false, nil)
+								vim:SendKeyEvent(false, Enum.KeyCode.C, false, nil)
+							end
+						end
+						if starterwepaon == "Gun" then
+							vim:SendMouseButtonEvent(mouseX, mouseY, 0, true, game, 1)
+							vim:SendMouseButtonEvent(mouseX, mouseY, 0, false, game, 1)
+							if v:FindFirstChild("HumanoidRootPart") then	
+								v.Head.Size = Vector3.new(1,1,1)
+								v.Head.Transparency = 0
+
+								plr.Character.HumanoidRootPart.CFrame = CFrame.new(v.HumanoidRootPart.Position) * CFrame.new(0,40,0)
+							end
+
+							if gunskill == true then
+
+								vim:SendKeyEvent(true, Enum.KeyCode.Z, false, nil)
+								vim:SendKeyEvent(false, Enum.KeyCode.Z, false, nil)
+
+								vim:SendKeyEvent(true, Enum.KeyCode.X, false, nil)
+								vim:SendKeyEvent(false, Enum.KeyCode.X, false, nil)
+							end
+
+						end
+						if starterwepaon == "Blox Fruit" then
+							vim:SendMouseButtonEvent(mouseX, mouseY, 0, true, game, 1)
+							vim:SendMouseButtonEvent(mouseX, mouseY, 0, false, game, 1)
+							if v:FindFirstChild("HumanoidRootPart") then
+								v.Head.Size = Vector3.new(2,2,2)
+								v.Head.Transparency = 0
+
+								plr.Character.HumanoidRootPart.CFrame = CFrame.new(v.HumanoidRootPart.Position) * CFrame.new(0,40,0)
+							end
+
+							if fruitskillz == true then
+
+								vim:SendKeyEvent(true, Enum.KeyCode.Z, false, nil)
+								vim:SendKeyEvent(false, Enum.KeyCode.Z, false, nil)
+
+							end
+
+							if fruitskillx == true then
+
+								vim:SendKeyEvent(true, Enum.KeyCode.X, false, nil)
+								vim:SendKeyEvent(false, Enum.KeyCode.X, false, nil)
+
+							end
+
+							if fruitskillc == true then
+
+								vim:SendKeyEvent(true, Enum.KeyCode.C, false, nil)
+								vim:SendKeyEvent(false, Enum.KeyCode.C, false, nil)
+
+							end
+
+							if fruitskillv == true then
+
+								vim:SendKeyEvent(true, Enum.KeyCode.V, false, nil)
+								vim:SendKeyEvent(false, Enum.KeyCode.V, false, nil)
+
+							end
+
+							if fruitskillf == true then
+
+								vim:SendKeyEvent(true, Enum.KeyCode.F, false, nil)
+								vim:SendKeyEvent(false, Enum.KeyCode.F, false, nil)
+
+							end
+
+						end
+						if close == false and autokillnearestenemyalt == true then
+							wait(0.1)
+						end
+						game.Workspace.CurrentCamera.CFrame = oldcamcf
+
+					end
+
+				until v:FindFirstChildOfClass("Humanoid").Health <= (v:FindFirstChildOfClass("Humanoid").MaxHealth / 100) * enemyhealthtarget or close == true or autokillnearestenemyalt == false
+				coroutine.resume(coroutine.create(function()
+					wait(7)
+					if v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+						autokillcd = false
+						v.Humanoid.Health = 0
+						return
+					end
+				end))
+				repeat wait(0.01) 
+
+
+
+					for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+						if v:IsA("Tool") and v.ToolTip == masteryweapon then
+							plr.Character.Humanoid:EquipTool(v)
+						end
+					end
+
+					if plr.Character:FindFirstChildOfClass("Tool") then
+						if masteryweapon == "Melee" or masteryweapon == "Sword" then
+							vim:SendMouseButtonEvent(mouseX, mouseY, 0, true, game, 1)
+							vim:SendMouseButtonEvent(mouseX, mouseY, 0, false, game, 1)
+							if v:FindFirstChild("HumanoidRootPart") then	
+								v.Head.Size = Vector3.new(75,75,75)
+								v.Head.Transparency = 0.75
+
+								plr.Character.HumanoidRootPart.CFrame = CFrame.new(v.HumanoidRootPart.Position) * CFrame.new(0,40,0)
+							end
+
+							if meleeandswordskill == true then
+								wait(0.25)
+								if v:FindFirstChild("HumanoidRootPart") then
+									plr.Character.HumanoidRootPart.CFrame = CFrame.new(v.HumanoidRootPart.Position) * CFrame.new(0,40,0)
+									v.Head.Size = Vector3.new(1,1,1)
+									v.Head.Transparency = 0
+								end
+
+								wait(0.1)
+
+								vim:SendKeyEvent(true, Enum.KeyCode.Z, false, nil)
+								vim:SendKeyEvent(false, Enum.KeyCode.Z, false, nil)
+
+								vim:SendKeyEvent(true, Enum.KeyCode.X, false, nil)
+								vim:SendKeyEvent(false, Enum.KeyCode.X, false, nil)
+
+								vim:SendKeyEvent(true, Enum.KeyCode.C, false, nil)
+								vim:SendKeyEvent(false, Enum.KeyCode.C, false, nil)
+							end
+						end
+						if masteryweapon == "Gun" then
+							vim:SendMouseButtonEvent(mouseX, mouseY, 0, true, game, 1)
+							vim:SendMouseButtonEvent(mouseX, mouseY, 0, false, game, 1)
+							if v:FindFirstChild("HumanoidRootPart") then					
+								v.Head.Size = Vector3.new(1,1,1)
+								v.Head.Transparency = 0
+
+								plr.Character.HumanoidRootPart.CFrame = CFrame.new(v.HumanoidRootPart.Position) * CFrame.new(0,40,0)
+							end
+
+							if gunskill == true then
+
+								vim:SendKeyEvent(true, Enum.KeyCode.Z, false, nil)
+								vim:SendKeyEvent(false, Enum.KeyCode.Z, false, nil)
+
+								vim:SendKeyEvent(true, Enum.KeyCode.X, false, nil)
+								vim:SendKeyEvent(false, Enum.KeyCode.X, false, nil)
+							end
+
+						end
+						if masteryweapon == "Blox Fruit" then
+							vim:SendMouseButtonEvent(mouseX, mouseY, 0, true, game, 1)
+							vim:SendMouseButtonEvent(mouseX, mouseY, 0, false, game, 1)
+							if v:FindFirstChild("HumanoidRootPart") then
+								v.Head.Size = Vector3.new(2,2,2)
+								v.Head.Transparency = 0
+
+								plr.Character.HumanoidRootPart.CFrame = CFrame.new(v.HumanoidRootPart.Position) * CFrame.new(0,40,0)
+							end
+
+							if fruitskillz == true then
+
+								vim:SendKeyEvent(true, Enum.KeyCode.Z, false, nil)
+								vim:SendKeyEvent(false, Enum.KeyCode.Z, false, nil)
+
+							end
+
+							if fruitskillx == true then
+
+								vim:SendKeyEvent(true, Enum.KeyCode.X, false, nil)
+								vim:SendKeyEvent(false, Enum.KeyCode.X, false, nil)
+
+							end
+
+							if fruitskillc == true then
+
+								vim:SendKeyEvent(true, Enum.KeyCode.C, false, nil)
+								vim:SendKeyEvent(false, Enum.KeyCode.C, false, nil)
+
+							end
+
+							if fruitskillv == true then
+
+								vim:SendKeyEvent(true, Enum.KeyCode.V, false, nil)
+								vim:SendKeyEvent(false, Enum.KeyCode.V, false, nil)
+
+							end
+
+							if fruitskillf == true then
+
+								vim:SendKeyEvent(true, Enum.KeyCode.F, false, nil)
+								vim:SendKeyEvent(false, Enum.KeyCode.F, false, nil)
+
+							end
+
+						end
+
+						if close == false and autokillnearestenemyalt == true then
+							wait(0.1)
+						end
+
+						game.Workspace.CurrentCamera.CFrame = oldcamcf
+
+					end
+
+				until v:FindFirstChildOfClass("Humanoid").Health <= 0 or close == true or autokillnearestenemyalt == false
+				v:FindFirstChildOfClass("Humanoid").Health = 0
+			end
+
+		end
+
+		autokillcd = false
+
+	end
+
+	if autokillcd == false and autokillnearestenemy == true and autokillnearestenemyalt == false then
+
+		coroutine.resume(coroutine.create(function()
+			wait(30)
+			autokillcd = false
+			return
+		end))
+
+		for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+
+			if v:FindFirstChildOfClass("Humanoid") and plr.Character:FindFirstChildOfClass("Tool") and v:FindFirstChild("HumanoidRootPart") and (plr.Character.HumanoidRootPart.Position-v.HumanoidRootPart.Position).Magnitude < 500 then
+				autokillcd = true
+				local oldcamcf = game.Workspace.CurrentCamera.CFrame
+
+				coroutine.resume(coroutine.create(function()
+					wait(5)
+					if v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+						autokillcd = false
+						v.Humanoid.Health = 0
+						return
+					end
+				end))
+
+				repeat wait(0.01) 
+
+					if plr.Character:FindFirstChildOfClass("Tool") then
+						if plr.Character:FindFirstChildOfClass("Tool").ToolTip == "Melee" or plr.Character:FindFirstChildOfClass("Tool").ToolTip == "Sword" then
+							vim:SendMouseButtonEvent(mouseX, mouseY, 0, true, game, 1)
+							vim:SendMouseButtonEvent(mouseX, mouseY, 0, false, game, 1)
+							if v:FindFirstChild("HumanoidRootPart") then
+								plr.Character.HumanoidRootPart.CFrame = CFrame.new(v.HumanoidRootPart.Position) * CFrame.new(0,40,0)
+								v.Head.Size = Vector3.new(75,75,75)
+								v.Head.Transparency = 0.75
+							end
+
+							if meleeandswordskill == true then
+								wait(0.25)
+								if v:FindFirstChild("HumanoidRootPart") then
+									plr.Character.HumanoidRootPart.CFrame = CFrame.new(v.HumanoidRootPart.Position) * CFrame.new(0,40,0)
+									v.Head.Size = Vector3.new(1,1,1)
+									v.Head.Transparency = 0
+								end
+
+								wait(0.1)
+
+								vim:SendKeyEvent(true, Enum.KeyCode.Z, false, nil)
+								vim:SendKeyEvent(false, Enum.KeyCode.Z, false, nil)
+
+								vim:SendKeyEvent(true, Enum.KeyCode.X, false, nil)
+								vim:SendKeyEvent(false, Enum.KeyCode.X, false, nil)
+
+								vim:SendKeyEvent(true, Enum.KeyCode.C, false, nil)
+								vim:SendKeyEvent(false, Enum.KeyCode.C, false, nil)
+							end
+						end
+						if plr.Character:FindFirstChildOfClass("Tool").ToolTip == "Gun" then
+							vim:SendMouseButtonEvent(mouseX, mouseY, 0, true, game, 1)
+							vim:SendMouseButtonEvent(mouseX, mouseY, 0, false, game, 1)
+							if v:FindFirstChild("HumanoidRootPart") then
+								plr.Character.HumanoidRootPart.CFrame = CFrame.new(v.HumanoidRootPart.Position) * CFrame.new(0,40,0)
+								v.Head.Size = Vector3.new(1,1,1)
+								v.Head.Transparency = 0
+							end
+
+							if gunskill == true then
+
+								vim:SendKeyEvent(true, Enum.KeyCode.Z, false, nil)
+								vim:SendKeyEvent(false, Enum.KeyCode.Z, false, nil)
+
+								vim:SendKeyEvent(true, Enum.KeyCode.X, false, nil)
+								vim:SendKeyEvent(false, Enum.KeyCode.X, false, nil)
+							end
+
+						end
+						if plr.Character:FindFirstChildOfClass("Tool").ToolTip == "Blox Fruit" then
+							vim:SendMouseButtonEvent(mouseX, mouseY, 0, true, game, 1)
+							vim:SendMouseButtonEvent(mouseX, mouseY, 0, false, game, 1)
+							if v:FindFirstChild("HumanoidRootPart") then
+								plr.Character.HumanoidRootPart.CFrame = CFrame.new(v.HumanoidRootPart.Position) * CFrame.new(0,40,0)
+								v.Head.Size = Vector3.new(2,2,2)
+								v.Head.Transparency = 0
+							end
+
+							if fruitskillz == true then
+
+								vim:SendKeyEvent(true, Enum.KeyCode.Z, false, nil)
+								vim:SendKeyEvent(false, Enum.KeyCode.Z, false, nil)
+
+							end
+
+							if fruitskillx == true then
+
+								vim:SendKeyEvent(true, Enum.KeyCode.X, false, nil)
+								vim:SendKeyEvent(false, Enum.KeyCode.X, false, nil)
+
+							end
+
+							if fruitskillc == true then
+
+								vim:SendKeyEvent(true, Enum.KeyCode.C, false, nil)
+								vim:SendKeyEvent(false, Enum.KeyCode.C, false, nil)
+
+							end
+
+							if fruitskillv == true then
+
+								vim:SendKeyEvent(true, Enum.KeyCode.V, false, nil)
+								vim:SendKeyEvent(false, Enum.KeyCode.V, false, nil)
+
+							end
+
+							if fruitskillf == true then
+
+								vim:SendKeyEvent(true, Enum.KeyCode.F, false, nil)
+								vim:SendKeyEvent(false, Enum.KeyCode.F, false, nil)
+
+							end
+
+						end
+
+						if close == false and autokillnearestenemy == true then
+							wait(0.1)
+						end
+
+						game.Workspace.CurrentCamera.CFrame = oldcamcf
+
+					end
+
+				until v:FindFirstChildOfClass("Humanoid").Health <= 0 or close == true or autokillnearestenemy == false
+				v:FindFirstChildOfClass("Humanoid").Health = 0
+			end
+
+		end
+
+		autokillcd = false
+
+	end
+
+end)
+
+coroutine.resume(coroutine.create(function()
+	while wait(1) do
+		if close == true then break end
+
+		if findberry == true then
+
+			if game.Workspace.NPCs:FindFirstChild("Advanced Fruit Dealer") then
+				local npc = game.Workspace.NPCs["Advanced Fruit Dealer"]
+				print("found advanced fruit dealer")
+
+				local sound = Instance.new("Sound")
+				sound.SoundId = "rbxassetid://945224498"
+				sound.Parent = game.Players.LocalPlayer.PlayerGui
+				sound.Volume = 1
+				sound:Play()
+
+				local gui = Instance.new("BillboardGui")
+				gui.Parent = game.Players.LocalPlayer.PlayerGui
+
+				gui.Adornee = npc.Head
+
+				local text = Instance.new("TextLabel")
+				text.Text = "Advanced Blox Fruit Dealer Is Here!"
+				text.TextScaled = true
+				text.Parent = gui
+				text.Size = UDim2.new(0,200,0,50)
+				text.BackgroundTransparency = 0.75
+				gui.Size = UDim2.new(0,200,0,50)
+
+				gui.Enabled = true
+
+				gui.AlwaysOnTop = true
+				gui.MaxDistance = math.huge
+
+				game.Debris:AddItem(gui, 3)
+
+			end
+
+			if game.Workspace:FindFirstChild("Fruit ") then
+				local fruit = game.Workspace["Fruit "]
+				print("found a fruit that spawned!")
+
+				local sound = Instance.new("Sound")
+				sound.SoundId = "rbxassetid://945224498"
+				sound.Parent = game.Players.LocalPlayer.PlayerGui
+				sound.Volume = 1
+				sound:Play()
+
+				local gui = Instance.new("BillboardGui")
+				gui.Parent = game.Players.LocalPlayer.PlayerGui
+
+				gui.Adornee = fruit.Fruit.RootPart
+
+				local text = Instance.new("TextLabel")
+				text.Text = "Fruit Spawned Here!"
+				text.TextScaled = true
+				text.Parent = gui
+				text.Size = UDim2.new(0,200,0,50)
+				text.BackgroundTransparency = 0.75
+				gui.Size = UDim2.new(0,200,0,50)
+
+				gui.Enabled = true
+
+				gui.AlwaysOnTop = true
+				gui.MaxDistance = math.huge
+
+				game.Debris:AddItem(gui, 3)
+
+			end
+
+			for i,v in pairs(game.Workspace.Map:GetChildren()) do
+				if v:IsA("Model") and v:FindFirstChild("IslandModel") then
+					for e,z in pairs(v.IslandModel:GetChildren()) do
+
+						if z:FindFirstChild("Berries") then
+							print(z.Name.." found berries")
+							for l,m in pairs(z.Berries:GetChildren()) do
+								print(z.Name.." found "..m.Name)
+
+								local sound = Instance.new("Sound")
+								sound.SoundId = "rbxassetid://945224498"
+								sound.Parent = game.Players.LocalPlayer.PlayerGui
+								sound.Volume = 1
+								sound:Play()
+
+								if m:FindFirstChildOfClass("Highlight") then
+									m:FindFirstChildOfClass("Highlight"):Destroy()
+								end
+								wait(0.01)
+								if not m:FindFirstChildOfClass("Highlight") then
+									local h = Instance.new("Highlight")
+									h.Enabled = true
+									h.Parent = m
+									game.Debris:AddItem(h, 3)
+
+									local gui = Instance.new("BillboardGui")
+									gui.Parent = game.Players.LocalPlayer.PlayerGui
+
+									for h,j in pairs(m:GetChildren()) do
+										if j:IsA("BasePart") then
+											gui.Adornee = j
+										end
+									end
+
+									local text = Instance.new("TextLabel")
+									text.Text = m.ProximityPrompt.ActionText.." is here! ("..v.Name..")"
+									text.TextScaled = true
+									text.Parent = gui
+									text.Size = UDim2.new(0,200,0,50)
+									text.BackgroundTransparency = 0.75
+									gui.Size = UDim2.new(0,200,0,50)
+
+									gui.Enabled = true
+
+									gui.AlwaysOnTop = true
+									gui.MaxDistance = math.huge
+
+									game.Debris:AddItem(gui, 3)
+
+									local gui = Instance.new("BillboardGui")
+									gui.Parent = game.Players.LocalPlayer.PlayerGui
+
+									gui.Adornee = m
+
+									local text = Instance.new("TextLabel")
+									text.Text = m.ProximityPrompt.ActionText.." is here! ("..v.Name..")"
+									text.TextScaled = true
+									text.Parent = gui
+									text.Size = UDim2.new(0,200,0,50)
+									text.BackgroundTransparency = 0.75
+									gui.Size = UDim2.new(0,200,0,50)
+
+									gui.Enabled = true
+
+									gui.AlwaysOnTop = true
+									gui.MaxDistance = math.huge
+
+									game.Debris:AddItem(gui, 3)
+
+								end
+							end
+						end
+
+						if z.Name == "Details" then
+							for p,n in pairs(z:GetChildren()) do
+								if n:FindFirstChild("Berries") then
+									print(n.Name.." found berries")
+									for l,m in pairs(n.Berries:GetChildren()) do
+										print(n.Name.." found "..m.Name)
+
+										local sound = Instance.new("Sound")
+										sound.SoundId = "rbxassetid://945224498"
+										sound.Parent = game.Players.LocalPlayer.PlayerGui
+										sound.Volume = 1
+										sound:Play()
+
+										if m:FindFirstChildOfClass("Highlight") then
+											m:FindFirstChildOfClass("Highlight"):Destroy()
+										end
+										wait(0.01)
+										if not m:FindFirstChildOfClass("Highlight") then
+											local h = Instance.new("Highlight")
+											h.Enabled = true
+											h.Parent = m
+											game.Debris:AddItem(h, 3)
+
+											local gui = Instance.new("BillboardGui")
+											gui.Parent = game.Players.LocalPlayer.PlayerGui
+
+											for h,j in pairs(m:GetChildren()) do
+												if j:IsA("BasePart") then
+													gui.Adornee = j
+												end
+											end
+
+											local text = Instance.new("TextLabel")
+											text.Text = m.ProximityPrompt.ActionText.." is here! ("..v.Name..")"
+											text.TextScaled = true
+											text.Parent = gui
+											text.Size = UDim2.new(0,200,0,50)
+											text.BackgroundTransparency = 0.75
+
+											gui.Size = UDim2.new(0,200,0,50)
+
+											gui.Enabled = true
+
+											gui.AlwaysOnTop = true
+											gui.MaxDistance = math.huge
+
+											game.Debris:AddItem(gui, 3)
+
+											local gui = Instance.new("BillboardGui")
+											gui.Parent = game.Players.LocalPlayer.PlayerGui
+
+											gui.Adornee = m
+
+											local text = Instance.new("TextLabel")
+											text.Text = m.ProximityPrompt.ActionText.." is here! ("..v.Name..")"
+											text.TextScaled = true
+											text.Parent = gui
+											text.Size = UDim2.new(0,200,0,50)
+											text.BackgroundTransparency = 0.75
+
+											gui.Size = UDim2.new(0,200,0,50)
+
+											gui.Enabled = true
+
+											gui.AlwaysOnTop = true
+											gui.MaxDistance = math.huge
+
+											game.Debris:AddItem(gui, 3)
+
+										end
+									end
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+	end
+end))
+
+coroutine.resume(coroutine.create(function()
+	while wait(0.1) do
+		if close == true then break end
+		if game.Lighting:FindFirstChild("LightingLayers") then
+			for i,v in pairs(game.Lighting.LightingLayers:GetChildren()) do
+				v:Destroy()
+			end
+		end
+		if game.Lighting:FindFirstChild("SeaTerrorCC") then
+			game.Lighting.SeaTerrorCC.Enabled = false
+		end
+		if game.Lighting:FindFirstChild("BaseAtomosphere") then
+			game.Lighting.BaseAtomosphere.Enabled = false
+		end
+		if autoactivaterace == true then
+			vim:SendKeyEvent(true, Enum.KeyCode.T, false, nil)
+			vim:SendKeyEvent(false, Enum.KeyCode.T, false, nil)
+			vim:SendKeyEvent(true, Enum.KeyCode.Y, false, nil)
+			vim:SendKeyEvent(false, Enum.KeyCode.Y, false, nil)
+		end
+		if autocollectember == true and game.Workspace:FindFirstChild("EmberTemplate") then
+			local oldpos = plr.Character.HumanoidRootPart.CFrame
+			for i,v in pairs(game.Workspace:GetChildren()) do
+				if v.Name == "EmberTemplate" and v:FindFirstChild("Part") then
+					if (plr.Character.HumanoidRootPart.Position - v.Part.Position).Magnitude <= 300 then
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Part.CFrame
+						wait(0.1)
+					end
+				end
+			end
+			wait(0.1)
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos
+		end
+		if killaura == true then
+			for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+				if v:FindFirstChildOfClass("Humanoid") and v.Name ~= "Terrorshark" then
+					v:FindFirstChildOfClass("Humanoid").Health = 0
+				end
+			end
+		end
+	end
+end))
+
+print("script checked it is working fine!")
