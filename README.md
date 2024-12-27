@@ -1,5 +1,5 @@
 - 👋 Hi, I’m cat lol
-- 👀 I’m interested in making game and hacking game
+- 👀 I’m interested in making game
 - 🌱 I’m currently learning coding
 - 💞️ I’m looking to collaborate on nothing
 - 📫 How to reach me nuh uh
